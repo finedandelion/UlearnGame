@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Slb8pRhYZYGQqjQtVLbf7V8qmRfUZeu+1fjSkIL/kxPY9SYsgcG+w77Ul5Htbq99Y9DyNMQISmRf96DD7RrduQ==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub Repository\\UlearnGame\\UlearnGame\\UlearnGame.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Idrmi\\.nuget\\packages\\nunit3testadapter\\4.4.2\\nunit3testadapter.4.4.2.nupkg.sha512"
+  ],
+  "logs": []
+}

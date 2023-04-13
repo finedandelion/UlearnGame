@@ -1,0 +1,17 @@
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\UlearnGame.exe
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\UlearnGame.deps.json
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\UlearnGame.runtimeconfig.json
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\UlearnGame.dll
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\UlearnGame.pdb
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.csproj.AssemblyReference.cache
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.Form1.resources
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.csproj.GenerateResource.cache
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.AssemblyInfoInputs.cache
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.AssemblyInfo.cs
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.csproj.CoreCompileInputs.cache
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.dll
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\refint\UlearnGame.dll
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.pdb
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.genruntimeconfig.cache
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\ref\UlearnGame.dll

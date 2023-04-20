@@ -10,5 +10,7 @@ namespace UlearnGame.Objects
 {
     internal interface IObject
     {
+        Resource GenerateResource();
+        void ChangeState(int clickPower);
     }
 }

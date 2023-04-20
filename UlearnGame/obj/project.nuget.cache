@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Slb8pRhYZYGQqjQtVLbf7V8qmRfUZeu+1fjSkIL/kxPY9SYsgcG+w77Ul5Htbq99Y9DyNMQISmRf96DD7RrduQ==",
+  "dgSpecHash": "GekPr6JJ8olG/k4N7rX9fv5NtxObm6aHu/lQk6jGWGHxhbRhW0bgkh4TK0JrKz2nr8bwKWXs36x6TBUem9IQ+A==",
   "success": true,
   "projectFilePath": "D:\\GitHub Repository\\UlearnGame\\UlearnGame\\UlearnGame.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Idrmi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Idrmi\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\Idrmi\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
     "C:\\Users\\Idrmi\\.nuget\\packages\\nunit3testadapter\\4.4.2\\nunit3testadapter.4.4.2.nupkg.sha512"
   ],
   "logs": []

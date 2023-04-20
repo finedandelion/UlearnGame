@@ -9,29 +9,22 @@ namespace UlearnGame
 {
     internal class Game
     {
-        public static int clickPower;
-        public static int expirience;
-        public static int resourceRandomCap;
-        public static int fieldUpdateTimerLimit;
-        public static Random resourcesRandom = new Random();
-        public static Random random = new Random();
         public GameField field;
         public Inventory inventory;
 
+        public int ClickPower { get; private set; }
+        public int Level { get; private set; }
+        public int Experience { get; private set; }
+        public int TotalCraftTimes { get; private set; }
+        public int FieldUpdateRate { get; private set; }
+        public int CraftLockFactor { get; private set; }
+
         public Game()
         {
-            clickPower = 0;
-            resourceRandomCap = 2;
-            fieldUpdateTimerLimit = 10;
+            ClickPower = 1;
+            FieldUpdateRate = 10;
             field = new GameField();
             inventory = new Inventory();
-        }
-
-
-        public static void StartGame()
-        {
-            var game = new Game();
-            
         }
     }
 }

@@ -11,9 +11,10 @@ namespace UlearnGame
 {
     internal class GameField
     {
+        private Random Random = new Random();
         private Dictionary<int, GameObject> Generation;
-        private Dictionary<int, GameObject?> Field;
-        private int FieldCap { get { return Field.Count - 1; }}
+        public Dictionary<int, GameObject?> Field { get; private set; }
+        public int FieldCap { get { return Field.Count - 1; }}
         public GameField()
         {
             Field = new Dictionary<int, GameObject?>() 
@@ -25,39 +26,51 @@ namespace UlearnGame
             };
             Generation = new Dictionary<int, GameObject>()
             {
-                { 0, new Tree()}
+                { 0, new Func<GameObject>(() => new Tree()).Invoke()}
             };
         }
 
-        public void GenerateResource()
+        public int? GenerateResource()
         {
             if (Field.Values.Any(value => value == null))
             {
-                var empties = Field.Keys.Where(key => Field[key] == null).ToList();
-                var fieldCell = Game.random.Next(0, empties.Count() - 1);
-                var gameObejct = Game.random.Next(0, Generation.Count - 1);
+                var empties = Field.Keys.Where(key => Field[key] == null).ToArray();
+                var fieldCell = Random.Next(0, empties.Length - 1);
+                var gameObejct = Random.Next(0, Generation.Count - 1);
                 Field[empties[fieldCell]] = Generation[gameObejct];
+                return empties[fieldCell];
             }
+            return null;
         }
 
-        public void UpdateObjectState(int clickPower, int fieldCell, Inventory inventory)
+        public bool UpdateObjectState(int clickPower, int fieldCell, Inventory inventory)
         {
             var gameObject = Field[fieldCell];
             if (gameObject != null)
             {
-                if (gameObject.ObjectCapacity - clickPower > 0)
-                    gameObject.ObjectCapacity -= clickPower;
+                if (gameObject.Capacity - clickPower > 0)
+                    gameObject.ChangeState(clickPower);
                 else
                 {
-                    inventory.AddItem(gameObject.ObjectResourceDrop);
+                    inventory.AddItem(gameObject.ResourcesDrop);
                     RemoveObject(fieldCell);
+                    return true;
                 }
             }
+            return false;
+        }
+
+        public void ExtendField(int extendTimes)
+        {
+            while (extendTimes-- > 0)
+                Field.Add(FieldCap + 1, null);
         }
 
         private void RemoveObject(int fieldCell)
         {
             Field[fieldCell] = null;
         }
+
+
     }
 }

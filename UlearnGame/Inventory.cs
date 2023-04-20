@@ -44,5 +44,18 @@ namespace UlearnGame
                 .Select(element => element.Value)
                 .ToList();
         }
+
+        public List<Resource> GetStorage()
+        {
+            return storage
+                .Select(element => element.Value)
+                .ToList();
+        }
+
+        public Dictionary<Type, Resource> ReturnStorage()
+        {
+            return storage;
+        }
+
     }
 }

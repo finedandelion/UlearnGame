@@ -4,7 +4,6 @@ D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\UlearnGame.r
 D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\UlearnGame.dll
 D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\UlearnGame.pdb
 D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.csproj.AssemblyReference.cache
-D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.Form1.resources
 D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.csproj.GenerateResource.cache
 D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.GeneratedMSBuildEditorConfig.editorconfig
 D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.AssemblyInfoInputs.cache
@@ -15,3 +14,12 @@ D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\refint\Ulear
 D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.pdb
 D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.genruntimeconfig.cache
 D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\ref\UlearnGame.dll
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\nunit.framework.dll
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.csproj.CopyComplete
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\NUnit3.TestAdapter.dll
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\NUnit3.TestAdapter.pdb
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\nunit.engine.dll
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\nunit.engine.api.dll
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\nunit.engine.core.dll
+D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\testcentric.engine.metadata.dll
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.GameForm.resources

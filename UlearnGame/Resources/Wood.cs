@@ -10,7 +10,7 @@ namespace UlearnGame.Resources
     {
         public Wood()
         {
-            Amount = Game.resourcesRandom.Next(0, Game.resourceRandomCap);
+            
         }
     }
 }

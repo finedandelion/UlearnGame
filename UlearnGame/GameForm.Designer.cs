@@ -1,6 +1,6 @@
 ﻿namespace UlearnGame
 {
-    partial class MainForm
+    partial class GameForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -37,7 +37,7 @@
             ClientSize = new Size(148, 48);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
+            Load += MainForm_Load;
             ResumeLayout(false);
         }
 

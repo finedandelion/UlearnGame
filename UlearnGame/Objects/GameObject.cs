@@ -10,8 +10,21 @@ namespace UlearnGame.Objects
     internal class GameObject : IObject
     {
         protected static double CapacityHardnessMultiplier = 1;
-        public double ObjectCapacity { get; set; }
-        public Image ObjectImage { get; set; }
-        public Resource ObjectResourceDrop { get; set; }
+        protected Random resourcesRandom = new Random();
+
+        protected int ResourceRandomCap { get; set; }
+        public double Capacity { get; protected set; }
+        public Image ImagePath { get; set; }
+        public Resource ResourcesDrop { get; set; }
+
+        public virtual Resource GenerateResource()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void ChangeState(int clickPower)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

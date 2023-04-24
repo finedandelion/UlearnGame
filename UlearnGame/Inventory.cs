@@ -11,13 +11,16 @@ namespace UlearnGame
     {
         private Dictionary<Type, Resource> storage = new Dictionary<Type, Resource>();
 
-        public void AddItem(Resource resource)
+        public void AddItem(Resource[] resources)
         {
-            var type = resource.GetType();
-            if (storage.TryGetValue(type, out var value))
-                storage[type].Amount += resource.Amount;
-            else
-                storage.Add(type, resource);
+            foreach(var resource in resources)
+            {
+                var type = resource.GetType();
+                if (storage.TryGetValue(type, out var value))
+                    storage[type].Amount += resource.Amount;
+                else
+                    storage.Add(type, resource);
+            }
         }
 
         public bool UseItem(Resource resource)

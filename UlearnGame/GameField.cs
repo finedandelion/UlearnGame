@@ -27,7 +27,8 @@ namespace UlearnGame
             Generation = new Dictionary<int, Func<GameObject>>()
             {
                 { 0, new Func<GameObject>(() => new Tree())},
-                { 1, new Func<GameObject>(() => new Stone())}
+                { 1, new Func<GameObject>(() => new Stone())},
+                { 2, new Func<GameObject>(() => new Bush())}
             };
         }
 

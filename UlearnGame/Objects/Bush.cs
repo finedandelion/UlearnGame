@@ -7,27 +7,28 @@ using UlearnGame.Resources;
 
 namespace UlearnGame.Objects
 {
-    internal class Stone : GameObject
+    internal class Bush : GameObject
     {
-        private static int StoneCapicty = 12;
+        private static int BushCapicty = 6;
         private Resource[] resourcesDrop => GenerateResources();
-        public Stone()
+        public Bush()
         {
-            ResourceRandomCapFirst = 2;
-            StartCapacity = StoneCapicty * CapacityHardnessMultiplier;
+            ResourceRandomCapFirst = 6;
+            ResourceRandomCapSecond = 5;
+            StartCapacity = BushCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = GameForm.GetImage("Stone.png");
+            ImagePath = GameForm.GetImage("Bush.png");
             ResourcesDrop = resourcesDrop;
         }
 
         public override Resource[] GenerateResources()
         {
-            return new Resource[1]
+            return new Resource[2]
             {
-                new Rock() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) }
+                new Fiber() { Amount = resourcesRandom.Next(2, ResourceRandomCapFirst + 1) },
+                new Berries() { Amount = resourcesRandom.Next(0, ResourceRandomCapFirst + 1) }
             };
         }
-
 
         public override void ChangeState(int clickPower)
         {

@@ -11,19 +11,22 @@ namespace UlearnGame.Objects
     internal class Tree : GameObject, IObject
     {
         private static int TreeCapicty = 10;
-        private Resource resourcesDrop => GenerateResource();
+        private Resource[] resourcesDrop => GenerateResources();
         public Tree()
         {
-            ResourceRandomCap = 2;
+            ResourceRandomCapFirst = 2;
             StartCapacity = TreeCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = GameForm.GetImage("Tree.png");
             ResourcesDrop = resourcesDrop;
         }
 
-        public override Resource GenerateResource()
+        public override Resource[] GenerateResources()
         {
-             return new Wood() { Amount = resourcesRandom.Next(1, ResourceRandomCap + 1) };
+            return new Resource[1]
+            {
+                new Wood() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) }
+            };
         }
 
         public override void ChangeState(int clickPower)

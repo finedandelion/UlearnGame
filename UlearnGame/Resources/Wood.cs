@@ -10,7 +10,7 @@ namespace UlearnGame.Resources
     {
         public Wood()
         {
-            Name = "Древесина";
+            Name = "ДРЕВЕСИНА";
             Description = "Довольно крепкая древесина твёрдых пород.";
             ImagePath = GameForm.GetImage("Wood.png");
             ImagePath2 = GameForm.GetImage("SelectedWood.png");

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Objects;
 using UlearnGame.Crafts;
-
+using UlearnGame.Resources;
 namespace UlearnGame
 {
     internal class CraftStation
@@ -27,7 +27,7 @@ namespace UlearnGame
             {
                 foreach (var resourceCraft in craft.CraftResources)
                     inventory.UseItem(resourceCraft);
-                inventory.AddItem(craft.CraftResult);
+                inventory.AddItem(new Resource[1] { craft.CraftResult });
                 craft.CraftTimes++;
             }         
         }

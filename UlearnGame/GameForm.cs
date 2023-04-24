@@ -1,4 +1,3 @@
-using UlearnGame.Crafts;
 
 namespace UlearnGame
 {

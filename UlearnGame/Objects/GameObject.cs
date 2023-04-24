@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Resources;
@@ -13,9 +14,12 @@ namespace UlearnGame.Objects
         protected Random resourcesRandom = new Random();
 
         protected int ResourceRandomCap { get; set; }
+        public double StartCapacity { get; protected set; }
+        
         public double Capacity { get; protected set; }
-        public Image ImagePath { get; set; }
-        public Resource ResourcesDrop { get; set; }
+        public Image? ImagePath { get; set; }
+        public SoundPlayer? ClickSound { get; set; }
+        public Resource? ResourcesDrop { get; set; }
 
         public virtual Resource GenerateResource()
         {

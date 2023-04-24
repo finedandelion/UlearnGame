@@ -9,7 +9,10 @@ namespace UlearnGame.Resources
     internal class Resource : IResource
     {
         public int Amount { get; set; }
-        public Image ImagePath { get; set; }
+        public Image? ImagePath { get; set; }
+        public Image? ImagePath2 { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
         public override int GetHashCode()
         {

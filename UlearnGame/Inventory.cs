@@ -45,11 +45,11 @@ namespace UlearnGame
                 .ToList();
         }
 
-        public List<Resource> GetStorage()
+        public Resource[] GetStorage()
         {
             return storage
                 .Select(element => element.Value)
-                .ToList();
+                .ToArray();
         }
 
         public Dictionary<Type, Resource> ReturnStorage()

@@ -12,7 +12,7 @@ namespace UlearnGame
     internal class GameField
     {
         private Random Random = new Random();
-        private Dictionary<int, GameObject> Generation;
+        private Dictionary<int, Func<GameObject>> Generation;
         public Dictionary<int, GameObject?> Field { get; private set; }
         public int FieldCap { get { return Field.Count - 1; }}
         public GameField()
@@ -24,9 +24,10 @@ namespace UlearnGame
                 { 2, null},
                 { 3, null}
             };
-            Generation = new Dictionary<int, GameObject>()
+            Generation = new Dictionary<int, Func<GameObject>>()
             {
-                { 0, new Func<GameObject>(() => new Tree()).Invoke()}
+                { 0, new Func<GameObject>(() => new Tree())},
+                { 1, new Func<GameObject>(() => new Stone())}
             };
         }
 
@@ -35,9 +36,9 @@ namespace UlearnGame
             if (Field.Values.Any(value => value == null))
             {
                 var empties = Field.Keys.Where(key => Field[key] == null).ToArray();
-                var fieldCell = Random.Next(0, empties.Length - 1);
-                var gameObejct = Random.Next(0, Generation.Count - 1);
-                Field[empties[fieldCell]] = Generation[gameObejct];
+                var fieldCell = Random.Next(0, empties.Length);
+                var gameObejct = Random.Next(0, Generation.Count);
+                Field[empties[fieldCell]] = Generation[gameObejct].Invoke();
                 return empties[fieldCell];
             }
             return null;

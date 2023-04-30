@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UlearnGame.Model.Resources;
+using UlearnGame.Model.Resources;
+
+namespace UlearnGame.Model.Objects
+{
+    public class Stone : GameObject
+    {
+        private static int StoneCapicty = 12;
+        private static double StoneExperience = 7;
+        private Resource[] resourcesDrop => GenerateResources();
+        public Stone()
+        {
+            ResourceRandomCapFirst = 2;
+            StartCapacity = StoneCapicty * CapacityHardnessMultiplier;
+            Capacity = StartCapacity;
+            ImagePath = ProgramInitials.GetImage("Stone.png");
+            ResourcesDrop = resourcesDrop;
+        }
+
+        public override Resource[] GenerateResources()
+        {
+            return new Resource[1]
+            {
+                new Rock() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) }
+            };
+        }
+
+        public override void ChangeState(int clickPower)
+        {
+            Capacity -= clickPower;
+        }
+
+        public override double GainExperience()
+        {
+            return StoneExperience;
+        }
+    }
+}

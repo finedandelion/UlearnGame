@@ -22,4 +22,6 @@ D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\nunit.engine
 D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\nunit.engine.api.dll
 D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\nunit.engine.core.dll
 D:\GitHub Repository\UlearnGame\UlearnGame\bin\Debug\net7.0-windows\testcentric.engine.metadata.dll
-D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.GameForm.resources
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.ProgramInitials.resources
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.Visual.InventoryScreenForm.resources
+D:\GitHub Repository\UlearnGame\UlearnGame\obj\Debug\net7.0-windows\UlearnGame.Visual.MainScreenForm.resources

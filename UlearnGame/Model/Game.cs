@@ -28,7 +28,7 @@ namespace UlearnGame.Model
             ClickPower = 1;
             FieldUpdateRate = 10;
             LevelExperienceCap = 80;
-            Field = new GameField();
+            Field = new GameField(this);
             Inventory = new Inventory();
             UpgradeSystem = new UpgradeSystem();
             CraftStation = new CraftStation();

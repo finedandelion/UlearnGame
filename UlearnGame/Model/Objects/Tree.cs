@@ -13,9 +13,11 @@ namespace UlearnGame.Model.Objects
     {
         private static int TreeCapicty = 10;
         private static double TreeExperience = 7;
+
         private Resource[] resourcesDrop => GenerateResources();
-        public Tree()
+        public Tree(Game game)
         {
+            Game = game;
             ResourceRandomCapFirst = 2;
             StartCapacity = TreeCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;

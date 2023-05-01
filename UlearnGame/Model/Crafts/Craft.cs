@@ -11,10 +11,23 @@ namespace UlearnGame.Model.Crafts
     {
         protected static double CraftTimeMultiplier = 1;
         public double CraftTimes { get; set; }
-        public Resource[] CraftResources { get; set; }
-        public Resource CraftResult { get; set; }
-        public int LockFactor { get; set; }
-        public double CraftTime { get; set; }
+        public Resource[] CraftResources
+        {
+            get
+            {
+                return ReturnCraftResources();
+            }
+            set { }
+        }
+        public Resource CraftResult
+        {
+            get
+            {
+                return ReturnCraftResult();
+            }
+            set { }
+        }
+        public string Description { get; set; }
         public bool IsCraftableManyTime { get; set; }
 
         public bool IsPossibleToCraft(Inventory inventory)
@@ -22,6 +35,21 @@ namespace UlearnGame.Model.Crafts
             var storage = inventory.ReturnStorage();
             return CraftResources.All(resource => storage.ContainsKey(resource.GetType())
                     && storage[resource.GetType()].Amount >= resource.Amount);
+        }
+
+        public virtual bool IsCraftableManyTimes()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected virtual Resource[] ReturnCraftResources()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected virtual Resource ReturnCraftResult()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -15,8 +15,11 @@ namespace UlearnGame.Model
         private Dictionary<int, Func<GameObject>> Generation;
         public Dictionary<int, GameObject?> Field { get; private set; }
         public int FieldCap { get { return Field.Count - 1; } }
-        public GameField()
+
+        private Game Game { get; set; }
+        public GameField(Game game)
         {
+            Game = game;
             Field = new Dictionary<int, GameObject?>()
             {
                 { 0, null},
@@ -26,9 +29,9 @@ namespace UlearnGame.Model
             };
             Generation = new Dictionary<int, Func<GameObject>>()
             {
-                { 0, new Func<GameObject>(() => new Tree())},
-                { 1, new Func<GameObject>(() => new Stone())},
-                { 2, new Func<GameObject>(() => new Bush())}
+                { 0, new Func<GameObject>(() => new Tree(Game))},
+                { 1, new Func<GameObject>(() => new Stone(Game))},
+                { 2, new Func<GameObject>(() => new Bush(Game))},
             };
         }
 

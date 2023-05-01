@@ -12,8 +12,9 @@ namespace UlearnGame.Model.Objects
         private static int BushCapicty = 6;
         private static double BushExperience = 6;
         private Resource[] resourcesDrop => GenerateResources();
-        public Bush()
+        public Bush(Game game)
         {
+            Game = game;
             ResourceRandomCapFirst = 6;
             ResourceRandomCapSecond = 5;
             StartCapacity = BushCapicty * CapacityHardnessMultiplier;

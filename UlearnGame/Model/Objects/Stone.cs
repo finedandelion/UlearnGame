@@ -13,8 +13,9 @@ namespace UlearnGame.Model.Objects
         private static int StoneCapicty = 12;
         private static double StoneExperience = 7;
         private Resource[] resourcesDrop => GenerateResources();
-        public Stone()
+        public Stone(Game game)
         {
+            Game = game;
             ResourceRandomCapFirst = 2;
             StartCapacity = StoneCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;

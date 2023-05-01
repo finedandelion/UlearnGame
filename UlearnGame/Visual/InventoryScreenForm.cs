@@ -204,7 +204,7 @@ namespace UlearnGame.Visual
             {
                 var index = i;
                 var button = InventoryButtons[index];
-                button.BackgroundImage = ProgramInitials.GetImage("InventoryCellButton2.jpg");
+                button.BackgroundImage = ProgramInitials.GetImage("CellButton2.jpg");
                 button.Image = storage[index].ImagePath;
                 button.Text = "x" + storage[index].Amount.ToString();
                 button.Click += (sender, eventArgs) =>
@@ -230,7 +230,7 @@ namespace UlearnGame.Visual
                 var index = i;
                 var button = InventoryButtons[index];
                 button.Image = null;
-                button.BackgroundImage = ProgramInitials.GetImage("InventoryCellButton.jpg");
+                button.BackgroundImage = ProgramInitials.GetImage("CellButton.jpg");
                 button.Text = null;
             }
         }

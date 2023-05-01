@@ -60,5 +60,13 @@ namespace UlearnGame.Model
             return storage;
         }
 
+        public int AmountOf(Resource resource)
+        {
+            var resourceType = resource.GetType();
+            if (storage.TryGetValue(resourceType, out var resourceInStorage))
+                return resourceInStorage.Amount;
+            return 0;
+        }
+
     }
 }

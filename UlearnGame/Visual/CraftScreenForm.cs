@@ -3,6 +3,7 @@
 using static System.Net.Mime.MediaTypeNames;
 using UlearnGame.Model;
 using UlearnGame.Model.Resources;
+using UlearnGame.Model.Crafts;
 
 namespace UlearnGame.Visual
 {
@@ -11,6 +12,12 @@ namespace UlearnGame.Visual
     {
         private Button BackCraftButton;
         private PictureBox CraftPanel;
+        private PictureBox RecipePanel;
+        private Label[] RecipeItems = new Label[3];
+        private Label RecipeResult;
+        private Label RecipeDescription;
+        private Button BackButton;
+        private Button[] AcceptButtons = new Button[20];
         private Button[] CraftButtons = new Button[20];
 
         private Game Game { get; set; }
@@ -46,6 +53,124 @@ namespace UlearnGame.Visual
         {
             SetCraftBackButton();
             SetCraftPanel();
+            SetRecipePanel();
+            SetRecipes(Game.CraftStation);
+        }
+
+        private void SetRecipePanel()
+        {
+            SetRecipeButtons();
+            SetRecipeResult();
+            SetRecipeDescription();
+            SetRecipeItems();
+            var recipePanel = new PictureBox()
+            {
+                Location = new Point(437, 202),
+                Width = 1046,
+                Height = 675,
+                BackgroundImage = ProgramInitials.GetImage("RecipePanel.jpg"),
+                Visible = false,
+            };
+            RecipePanel = recipePanel;
+            Controls.Add(RecipePanel);
+        }
+
+        private void SetRecipeDescription()
+        {
+            var recipeDescription = new Label()
+            {
+                Location = new Point(526, 540),
+                Image = ProgramInitials.GetImage("RecipeDescription.jpg"),
+                Width = 878,
+                Height = 244,
+                Visible = false,
+                TextAlign = ContentAlignment.MiddleCenter,
+                ForeColor = Color.White,
+                Font = new Font(string.Empty, 16, FontStyle.Bold),
+            };
+            RecipeDescription = recipeDescription;
+            Controls.Add(RecipeDescription);
+        }
+
+        private void SetRecipeButtons()
+        {
+            SetBackButton();
+            SetAcceptButton();
+        }
+
+        private void SetBackButton()
+        {
+            var backButton = new Button()
+            {
+                Location = new Point(42, 359),
+                Width = 340,
+                Height = 340,
+                BackgroundImage = ProgramInitials.GetImage("DenyCraftButton.jpg"),
+                Visible = false,
+            };
+            backButton.Click += (sender, eventArgs) =>
+            {
+                ChangeCraftPanelVisibility(true);
+            };
+            BackButton = backButton;
+            Controls.Add(BackButton);
+        }
+
+        private void SetAcceptButton()
+        {
+            for (var i = 0; i < AcceptButtons.Length; i++)
+            {
+                var index = i;
+                var acceptButton = new Button()
+                {
+                    Location = new Point(1538, 359),
+                    Width = 340,
+                    Height = 340,
+                    BackgroundImage = ProgramInitials.GetImage("AcceptCraftButtonFalse.jpg"),
+                    Visible = false,
+                    Enabled = false,
+                };
+                AcceptButtons[index] = acceptButton;
+                Controls.Add(AcceptButtons[index]);
+            }
+        }
+
+        private void SetRecipeItems()
+        {
+            for (var i = 0; i < RecipeItems.Length; i++)
+            {
+                var index = i;
+                var box = new Label()
+                {
+                    Location = new Point(526 + 210 * index,300),
+                    Width = 157,
+                    Height = 157,
+                    BackgroundImage = ProgramInitials.GetImage("CraftCell.jpg"),
+                    Visible = false,
+                    TextAlign = ContentAlignment.BottomRight,
+                    ForeColor = Color.White,
+                    Font = new Font(string.Empty, 16, FontStyle.Bold),
+                };
+                RecipeItems[index] = box;
+                Controls.Add(RecipeItems[index]);
+            }
+        }
+
+        private void SetRecipeResult()
+        {
+            var box = new Label()
+            {
+                Location = new Point(1247, 300),
+                Width = 157,
+                Height = 157,
+                BackgroundImage = ProgramInitials.GetImage("CraftCell.jpg"),
+                Visible = false,
+                TextAlign = ContentAlignment.BottomRight,
+                ForeColor = Color.White,
+                Font = new Font(string.Empty, 16, FontStyle.Bold),
+            };
+            RecipeResult = box;
+            Controls.Add(RecipeResult);
         }
 
         private void SetCraftPanel()
@@ -99,7 +224,7 @@ namespace UlearnGame.Visual
         private void CustomizeCraftButton(Button button, int index)
         {
             button.Size = new Size(157, 157);
-            button.BackgroundImage = ProgramInitials.GetImage("CellButton.jpg");
+            button.BackgroundImage = ProgramInitials.GetImage("CraftCell.jpg");
             button.Location = SetCraftButtonPosition(index, 157);
             button.TextAlign = ContentAlignment.BottomRight;
             button.ForeColor = Color.White;
@@ -110,25 +235,90 @@ namespace UlearnGame.Visual
         {
             var xposOffset = number % 5;
             var yposOffset = number / 5;
-            var xpos = 100 + (buttonSize + 26) * xposOffset;
+            var xpos = 515 + (buttonSize + 26) * xposOffset;
             var ypos = 235 + (buttonSize + 26) * yposOffset;
             return new Point(xpos, ypos);
         }
 
-        public void ShowResourcesInInvetory(Resource[] storage)
+        public void SetRecipes(CraftStation station)
         {
-            for (var i = 0; i < storage.Length; i++)
+            var crafts = station.Crafts;
+            for (var i = 0; i < station.Count; i++)
             {
                 var index = i;
+                var craft = crafts[index];
                 var button = CraftButtons[index];
-                button.BackgroundImage = ProgramInitials.GetImage("InventoryCellButton2.jpg");
-                button.Image = storage[index].ImagePath;
-                button.Text = "x" + storage[index].Amount.ToString();
+                button.BackgroundImage = ProgramInitials.GetImage("CraftCell2.jpg");
+                button.Image = craft.CraftResult.ImagePath;
+                button.Text = "x" + craft.CraftResult.Amount.ToString();
                 button.Click += (sender, eventArgs) =>
                 {
-                    
+                    ShowRecipe(sender, eventArgs, craft);
+                    AcceptButtons[index].Show();
+                    if (craft.IsPossibleToCraft(Game.Inventory))
+                    {
+                        AcceptButtons[index].Enabled = true;
+                        AcceptButtons[index].BackgroundImage = ProgramInitials.GetImage("AcceptCraftButtonTrue.jpg");
+                    }
+                };
+                AcceptButtons[index].Click += (sender, eventArgs) =>
+                {
+                    AcceptButtons[index].Enabled = false;
+                    station.DoCraft(index, Game.Inventory);
+                    UpdateRecipe(craft, index);
                 };
             }
+        }
+
+        private void ChangeCraftPanelVisibility(bool state)
+        {
+            foreach (var item in RecipeItems)
+                item.Visible = !state;
+            if (state)
+                foreach(var button in AcceptButtons)
+                    button.Visible = !state;
+            RecipeResult.Visible = !state;
+            RecipePanel.Visible = !state;
+            RecipeDescription.Visible = !state;
+            BackButton.Visible = !state;
+            foreach (var button in CraftButtons)
+                button.Visible = state;
+            CraftPanel.Visible = state;
+            BackCraftButton.Visible = state;
+        }
+
+        private void ShowRecipe(object sender, EventArgs args, Craft craft)
+        {
+            var inventory = Game.Inventory;
+            ChangeCraftPanelVisibility(false);
+            for (var i = 0; i < craft.CraftResources.Length; i++)
+            {
+                var index = i;
+                var craftResource = craft.CraftResources[index];
+                RecipeItems[index].Image = craftResource.ImagePath;
+                RecipeItems[index].BackgroundImage = ProgramInitials.GetImage("CraftCell2.jpg");
+                RecipeItems[index].Text = inventory.AmountOf(craftResource).ToString() + " / " + craftResource.Amount.ToString();
+
+            }
+            RecipeDescription.Text = craft.Description;
+            RecipeResult.Image = craft.CraftResult.ImagePath;
+            RecipeResult.BackgroundImage = ProgramInitials.GetImage("CraftCell2.jpg");
+            RecipeResult.Text = "x" + craft.CraftResult.Amount.ToString();
+        }
+
+        private void UpdateRecipe(Craft craft, int index)
+        {
+            var inventory = Game.Inventory;
+            for (var i = 0; i < craft.CraftResources.Length; i++)
+            {
+                var index2 = i;
+                var craftResource = craft.CraftResources[index2];
+                RecipeItems[index2].Text = inventory.AmountOf(craftResource).ToString() + " / " + craftResource.Amount.ToString();
+            }
+            if (craft.IsPossibleToCraft(Game.Inventory))
+                AcceptButtons[index].Enabled = true;
+            else
+                AcceptButtons[index].BackgroundImage = ProgramInitials.GetImage("AcceptCraftButtonFalse.jpg");
         }
     }
 }

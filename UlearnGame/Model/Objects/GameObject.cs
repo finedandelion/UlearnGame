@@ -13,7 +13,7 @@ namespace UlearnGame.Model.Objects
         protected static double CapacityHardnessMultiplier = 1;
 
         protected Random resourcesRandom = new Random();
-
+        protected Game Game { get; set; }
         protected int ResourceRandomCapFirst { get; set; }
         protected int ResourceRandomCapSecond { get; set; }
         public double StartCapacity { get; protected set; }

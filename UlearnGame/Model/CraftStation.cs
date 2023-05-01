@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +11,21 @@ namespace UlearnGame.Model
 {
     public class CraftStation
     {
-        private Dictionary<int, Craft> CraftCollection;
+        private List<Craft> craftCollection;
+        public List<Craft> Crafts => craftCollection;
+        public int Count => craftCollection.Count;
 
         public CraftStation()
         {
-            CraftCollection = new Dictionary<int, Craft>()
+            craftCollection = new List<Craft>()
             {
-                {0, new PlankCraft() }
+                new PlankCraft(),
             };
         }
 
         public void DoCraft(int craftNumber, Inventory inventory)
         {
-            var craft = CraftCollection[craftNumber];
+            var craft = craftCollection[craftNumber];
             if (craft.IsCraftableManyTime && craft.IsPossibleToCraft(inventory))
             {
                 foreach (var resourceCraft in craft.CraftResources)
@@ -31,11 +33,6 @@ namespace UlearnGame.Model
                 inventory.AddItem(new Resource[1] { craft.CraftResult });
                 craft.CraftTimes++;
             }
-        }
-
-        public bool IsAccessibleCraft(int gameCraftLock, int craftNumber)
-        {
-            return gameCraftLock >= CraftCollection[craftNumber].LockFactor;
         }
     }
 }

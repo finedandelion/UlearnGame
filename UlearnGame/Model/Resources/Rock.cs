@@ -10,7 +10,7 @@ namespace UlearnGame.Model.Resources
     {
         public Rock()
         {
-            Name = "КАМЕНЬ";
+            Name = "КАМУШЕК";
             Description = "Раздробленные части небольшого камня.";
             ImagePath = ProgramInitials.GetImage("Rock.png");
             ImagePath2 = ProgramInitials.GetImage("SelectedRock.png");

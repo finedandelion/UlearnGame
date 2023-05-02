@@ -19,6 +19,7 @@ namespace UlearnGame.Model.Objects
         {
             Game = game;
             ResourceRandomCapFirst = 2;
+            ResourceRandomCapSecond = 4;
             StartCapacity = TreeCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = ProgramInitials.GetImage("Tree.png");
@@ -27,15 +28,16 @@ namespace UlearnGame.Model.Objects
 
         public override Resource[] GenerateResources()
         {
-            return new Resource[1]
+            return new Resource[2]
             {
-                new Wood() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) }
+                new Wood() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 1, ResourceRandomCapFirst + 1) },
+                new Leaf() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 2, ResourceRandomCapSecond + 1)}
             };
         }
 
-        public override void ChangeState(int clickPower)
+        public override void ChangeState()
         {
-            Capacity -= clickPower;
+            Capacity -= Game.ClickPower;
         }
 
         public override double GainExperience()

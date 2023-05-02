@@ -111,6 +111,12 @@ namespace UlearnGame.Visual
             backButton.Click += (sender, eventArgs) =>
             {
                 ChangeCraftPanelVisibility(true);
+                foreach(var item in RecipeItems)
+                {
+                    item.Text = null;
+                    item.BackgroundImage = ProgramInitials.GetImage("CraftCell.jpg");
+                    item.Image = null;
+                }
             };
             BackButton = backButton;
             Controls.Add(BackButton);

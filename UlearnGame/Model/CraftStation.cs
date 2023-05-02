@@ -20,6 +20,10 @@ namespace UlearnGame.Model
             craftCollection = new List<Craft>()
             {
                 new PlankCraft(),
+                new SharpenedRockCraft(),
+                new BowlCraft(),
+                new SaladCraft(),
+                new DullTotemCraft(),
             };
         }
 

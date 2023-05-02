@@ -10,7 +10,7 @@ namespace UlearnGame.Model.Resources
     {
         public Plank()
         {
-            Name = "Доска";
+            Name = "ДОСКА";
             Description = "Приобрётшая новый вид древесина. Гладкая на ощупь.";
             ImagePath = ProgramInitials.GetImage("Plank.png");
             ImagePath2 = ProgramInitials.GetImage("SelectedPlank.png");

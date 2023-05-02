@@ -120,7 +120,7 @@ namespace UlearnGame.Visual
                 Visible = false,
                 TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = Color.White,
-                Font = new Font(string.Empty, 32, FontStyle.Bold),
+                Font = new Font(string.Empty, 24, FontStyle.Bold),
             };
             SelectedItemName = selectedItemName;
             Controls.Add(SelectedItemName);

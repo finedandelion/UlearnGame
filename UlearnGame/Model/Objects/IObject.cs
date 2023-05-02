@@ -12,6 +12,6 @@ namespace UlearnGame.Model.Objects
     {
         Resource[] GenerateResources();
         double GainExperience();
-        void ChangeState(int clickPower);
+        void ChangeState();
     }
 }

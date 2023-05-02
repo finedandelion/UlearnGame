@@ -27,13 +27,13 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[1]
             {
-                new Rock() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) }
+                new Rock() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 1, ResourceRandomCapFirst + 1) }
             };
         }
 
-        public override void ChangeState(int clickPower)
+        public override void ChangeState()
         {
-            Capacity -= clickPower;
+            Capacity -= Game.ClickPower;
         }
 
         public override double GainExperience()

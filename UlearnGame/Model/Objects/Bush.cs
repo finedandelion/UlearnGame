@@ -27,14 +27,14 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[2]
             {
-                new Fiber() { Amount = resourcesRandom.Next(2, ResourceRandomCapFirst + 1) },
-                new Berries() { Amount = resourcesRandom.Next(0, ResourceRandomCapFirst + 1) }
+                new Fiber() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 2, ResourceRandomCapSecond + 1) },
+                new Berries() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 0, ResourceRandomCapFirst + 1) }
             };
         }
 
-        public override void ChangeState(int clickPower)
+        public override void ChangeState()
         {
-            Capacity -= clickPower;
+            Capacity -= Game.ClickPower;
         }
 
         public override double GainExperience()

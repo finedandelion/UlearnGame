@@ -284,7 +284,7 @@ namespace UlearnGame.Visual
         private void FieldButtonClick(object sender, EventArgs e, int fieldCell)
         {
             var button = sender as Button;
-            if (Game.Field.UpdateObjectState(Game.ClickPower, fieldCell, Game))
+            if (Game.Field.UpdateObjectState(fieldCell, Game))
             {
                 button.Image = null;
                 button.Text = null;

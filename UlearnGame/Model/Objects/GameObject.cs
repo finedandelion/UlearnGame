@@ -27,7 +27,7 @@ namespace UlearnGame.Model.Objects
             throw new NotImplementedException();
         }
 
-        public virtual void ChangeState(int clickPower)
+        public virtual void ChangeState()
         {
             throw new NotImplementedException();
         }

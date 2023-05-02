@@ -21,12 +21,13 @@ namespace UlearnGame.Model
         public double Experience { get; private set; }
         public int TotalCraftTimes { get; private set; }
         public int FieldUpdateRate { get; private set; }
-        public int CraftLockFactor { get; private set; }
+
+        public int ResourceLowCap;
 
         public Game()
         {
             ClickPower = 1;
-            FieldUpdateRate = 10;
+            FieldUpdateRate = 1;
             LevelExperienceCap = 80;
             Field = new GameField(this);
             Inventory = new Inventory();

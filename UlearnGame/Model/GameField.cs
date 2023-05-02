@@ -32,6 +32,10 @@ namespace UlearnGame.Model
                 { 0, new Func<GameObject>(() => new Tree(Game))},
                 { 1, new Func<GameObject>(() => new Stone(Game))},
                 { 2, new Func<GameObject>(() => new Bush(Game))},
+                { 3, new Func<GameObject>(() => new Slime(Game))},
+                { 4, new Func<GameObject>(() => new Flower(Game))},
+                { 5, new Func<GameObject>(() => new Iron(Game))},
+                { 6, new Func<GameObject>(() => new Gold(Game))},
             };
         }
 
@@ -48,13 +52,13 @@ namespace UlearnGame.Model
             return null;
         }
 
-        public bool UpdateObjectState(int clickPower, int fieldCell, Game game)
+        public bool UpdateObjectState(int fieldCell, Game game)
         {
             var gameObject = Field[fieldCell];
             if (gameObject != null)
             {
-                if (gameObject.Capacity - clickPower > 0)
-                    gameObject.ChangeState(clickPower);
+                if (gameObject.Capacity - Game.ClickPower > 0)
+                    gameObject.ChangeState();
                 else
                 {
                     game.AddExperience(gameObject.GainExperience());

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -13,8 +14,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "МАЛ. ПОДНОШЕНИЕ";
             Description = "Толчёные ягоды и листья. Надейся на милость.";
-            ImagePath = ProgramInitials.GetImage("Salad.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedSalad.png");
+            ImagePath = Texture.Salad;
+            ImagePath2 = Texture.Salad2;
         }
 
     }

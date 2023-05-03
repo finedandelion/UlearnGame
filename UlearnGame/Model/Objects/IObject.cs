@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Objects
     public interface IObject
     {
         Resource[] GenerateResources();
-        double GainExperience();
+        void GainExperience();
         void ChangeState();
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Model.Resources;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Objects
 {
@@ -19,7 +20,7 @@ namespace UlearnGame.Model.Objects
             ResourceRandomCapSecond = 5;
             StartCapacity = BushCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = ProgramInitials.GetImage("Bush.png");
+            ImagePath = Texture.Bush;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -37,9 +38,9 @@ namespace UlearnGame.Model.Objects
             Capacity -= Game.ClickPower;
         }
 
-        public override double GainExperience()
+        public override void GainExperience()
         {
-            return BushExperience;
+            Game.AddExperience(BushExperience * ExperienceMultiplier);
         }
     }
 }

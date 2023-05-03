@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -12,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ВОЛОКНО";
             Description = "Тонкие органические волокна. Пригодны для вязаяния.";
-            ImagePath = ProgramInitials.GetImage("Fiber.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedFiber.png");
+            ImagePath = Texture.Fiber;
+            ImagePath2 = Texture.Fiber2;
         }
     }
 }

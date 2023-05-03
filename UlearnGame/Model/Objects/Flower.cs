@@ -38,9 +38,9 @@ namespace UlearnGame.Model.Objects
             Capacity -= Game.ClickPower;
         }
 
-        public override double GainExperience()
+        public override void GainExperience()
         {
-            return FlowerExperience;
+            Game.AddExperience(FlowerExperience * ExperienceMultiplier);
         }
 
         private Image ChooseTexture(int textureVariant)

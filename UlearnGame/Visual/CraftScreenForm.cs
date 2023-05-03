@@ -36,7 +36,7 @@ namespace UlearnGame.Visual
             Width = 1920;
             Height = 1080;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackgroundImage = ProgramInitials.GetImage("Background.jpg");
+            BackgroundImage = Texture.BackGround;
             Name = "Essence of Gathering";
             Text = "Essence of Gathering";
             ResumeLayout(false);
@@ -68,7 +68,7 @@ namespace UlearnGame.Visual
                 Location = new Point(437, 202),
                 Width = 1046,
                 Height = 675,
-                BackgroundImage = ProgramInitials.GetImage("RecipePanel.jpg"),
+                BackgroundImage = Texture.RecipePanel,
                 Visible = false,
             };
             RecipePanel = recipePanel;
@@ -80,7 +80,7 @@ namespace UlearnGame.Visual
             var recipeDescription = new Label()
             {
                 Location = new Point(526, 540),
-                Image = ProgramInitials.GetImage("RecipeDescription.jpg"),
+                Image = Texture.RecipeDescription,
                 Width = 878,
                 Height = 244,
                 Visible = false,
@@ -105,7 +105,7 @@ namespace UlearnGame.Visual
                 Location = new Point(42, 359),
                 Width = 340,
                 Height = 340,
-                BackgroundImage = ProgramInitials.GetImage("DenyCraftButton.jpg"),
+                BackgroundImage = Texture.BackCraftButton,
                 Visible = false,
             };
             backButton.Click += (sender, eventArgs) =>
@@ -132,7 +132,7 @@ namespace UlearnGame.Visual
                     Location = new Point(1538, 359),
                     Width = 340,
                     Height = 340,
-                    BackgroundImage = ProgramInitials.GetImage("AcceptCraftButtonFalse.jpg"),
+                    BackgroundImage = Texture.AcceptCraftButton,
                     Visible = false,
                     Enabled = false,
                 };
@@ -151,7 +151,7 @@ namespace UlearnGame.Visual
                     Location = new Point(526 + 210 * index,300),
                     Width = 157,
                     Height = 157,
-                    BackgroundImage = ProgramInitials.GetImage("CraftCell.jpg"),
+                    BackgroundImage = Texture.CraftCell,
                     Visible = false,
                     TextAlign = ContentAlignment.BottomRight,
                     ForeColor = Color.White,
@@ -169,7 +169,7 @@ namespace UlearnGame.Visual
                 Location = new Point(1247, 300),
                 Width = 157,
                 Height = 157,
-                BackgroundImage = ProgramInitials.GetImage("CraftCell.jpg"),
+                BackgroundImage = Texture.CraftCell,
                 Visible = false,
                 TextAlign = ContentAlignment.BottomRight,
                 ForeColor = Color.White,
@@ -186,7 +186,7 @@ namespace UlearnGame.Visual
             {
                 Location = new Point(472, 32),
                 BackColor = Color.Transparent,
-                Image = ProgramInitials.GetImage("HugePanel.png"),
+                Image = Texture.HugePanel,
                 Width = 975,
                 Height = 1015,
             };
@@ -199,7 +199,7 @@ namespace UlearnGame.Visual
             var backButton = new Button()
             {
                 Location = new Point(1563, 931),
-                BackgroundImage = ProgramInitials.GetImage("BackInventoryButton.jpg"),
+                BackgroundImage = Texture.BackButton,
                 Width = 308,
                 Height = 116,
                 Text = "Назад",
@@ -230,7 +230,7 @@ namespace UlearnGame.Visual
         private void CustomizeCraftButton(Button button, int index)
         {
             button.Size = new Size(157, 157);
-            button.BackgroundImage = ProgramInitials.GetImage("CraftCell.jpg");
+            button.BackgroundImage = Texture.CraftCell;
             button.Location = SetCraftButtonPosition(index, 157);
             button.TextAlign = ContentAlignment.BottomRight;
             button.ForeColor = Color.White;
@@ -254,7 +254,7 @@ namespace UlearnGame.Visual
                 var index = i;
                 var craft = crafts[index];
                 var button = CraftButtons[index];
-                button.BackgroundImage = ProgramInitials.GetImage("CraftCell2.jpg");
+                button.BackgroundImage = Texture.CraftCell2;
                 button.Image = craft.CraftResult.ImagePath;
                 button.Text = "x" + craft.CraftResult.Amount.ToString();
                 button.Click += (sender, eventArgs) =>
@@ -264,7 +264,7 @@ namespace UlearnGame.Visual
                     if (craft.IsPossibleToCraft(Game.Inventory))
                     {
                         AcceptButtons[index].Enabled = true;
-                        AcceptButtons[index].BackgroundImage = ProgramInitials.GetImage("AcceptCraftButtonTrue.jpg");
+                        AcceptButtons[index].BackgroundImage = Texture.AcceptCraftButton2;
                     }
                 };
                 AcceptButtons[index].Click += (sender, eventArgs) =>
@@ -302,13 +302,13 @@ namespace UlearnGame.Visual
                 var index = i;
                 var craftResource = craft.CraftResources[index];
                 RecipeItems[index].Image = craftResource.ImagePath;
-                RecipeItems[index].BackgroundImage = ProgramInitials.GetImage("CraftCell2.jpg");
+                RecipeItems[index].BackgroundImage = Texture.CraftCell2;
                 RecipeItems[index].Text = inventory.AmountOf(craftResource).ToString() + " / " + craftResource.Amount.ToString();
 
             }
             RecipeDescription.Text = craft.Description;
             RecipeResult.Image = craft.CraftResult.ImagePath;
-            RecipeResult.BackgroundImage = ProgramInitials.GetImage("CraftCell2.jpg");
+            RecipeResult.BackgroundImage = Texture.CraftCell2;
             RecipeResult.Text = "x" + craft.CraftResult.Amount.ToString();
         }
 
@@ -324,7 +324,7 @@ namespace UlearnGame.Visual
             if (craft.IsPossibleToCraft(Game.Inventory))
                 AcceptButtons[index].Enabled = true;
             else
-                AcceptButtons[index].BackgroundImage = ProgramInitials.GetImage("AcceptCraftButtonFalse.jpg");
+                AcceptButtons[index].BackgroundImage = Texture.AcceptCraftButton;
         }
     }
 }

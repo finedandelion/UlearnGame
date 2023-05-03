@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -12,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "СЛИЗЬ";
             Description = "Склизкая и противная. Интересно, какая она на вкус?";
-            ImagePath = ProgramInitials.GetImage("SlimeDrop.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedSlimeDrop.png");
+            ImagePath = Texture.SlimeDrop;
+            ImagePath2 = Texture.SlimeDrop2;
         }
     }
 }

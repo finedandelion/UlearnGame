@@ -37,7 +37,7 @@ namespace UlearnGame.Visual
             Width = 1920;
             Height = 1080;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackgroundImage = ProgramInitials.GetImage("Background.jpg");
+            BackgroundImage = Texture.BackGround;
             Name = "Essence of Gathering";
             Text = "Essence of Gathering";
             ResumeLayout(false);
@@ -74,7 +74,7 @@ namespace UlearnGame.Visual
                 Location = new Point(20, 886),
                 Width = 217,
                 Height = 168,
-                Image = ProgramInitials.GetImage("Timer.png"),
+                Image = Texture.Timer,
                 TextAlign = ContentAlignment.MiddleCenter,
                 BackColor = Color.Transparent,
                 ForeColor = ProgramInitials.GetHtmlColor("#F4B41B"),
@@ -93,7 +93,7 @@ namespace UlearnGame.Visual
                 Width = 700,
                 Height = 1029,
                 BackColor = Color.Transparent,
-                Image = ProgramInitials.GetImage("MainPanel.png"),
+                Image = Texture.MainPanel,
             };
             MainPanel = mainPanel;
             Controls.Add(MainPanel);
@@ -112,7 +112,7 @@ namespace UlearnGame.Visual
             var characterButton = new Button()
             {
                 Location = new Point(1262, 85),
-                Image = ProgramInitials.GetImage("CharacterButton.jpg"),
+                Image = Texture.CharacterButton,
                 Width = 256,
                 Height = 256,
             };
@@ -126,11 +126,11 @@ namespace UlearnGame.Visual
             var inventoryButton = new Button()
             {
                 Location = new Point(1581, 85),
-                Image = ProgramInitials.GetImage("InventoryButton.jpg"),
+                Image = Texture.InventoryButton,
                 Width = 256,
                 Height = 256,
             };
-            inventoryButton.Click += (sender, eventArgs) =>
+            inventoryButton.Click += async (sender, eventArgs) =>
             {
                 ProgramInitials.InventoryForm.ShowResourcesInInvetory(Game.Inventory.GetStorage());
                 ProgramInitials.InventoryForm.Show();
@@ -145,7 +145,7 @@ namespace UlearnGame.Visual
             var craftButton = new Button()
             {
                 Location = new Point(1262, 412),
-                Image = ProgramInitials.GetImage("CraftButton.jpg"),
+                Image = Texture.CraftButton,
                 Width = 256,
                 Height = 256,
             };
@@ -163,7 +163,7 @@ namespace UlearnGame.Visual
             var totemButton = new Button()
             {
                 Location = new Point(1581, 412),
-                Image = ProgramInitials.GetImage("TotemButton.jpg"),
+                Image = Texture.TotemButton,
                 Width = 256,
                 Height = 256,
             };
@@ -181,7 +181,7 @@ namespace UlearnGame.Visual
                 Width = 1160,
                 Height = 150,
                 BackColor = Color.Transparent,
-                Image = ProgramInitials.GetImage("UpperPanel.png"),
+                Image = Texture.UpperPanel,
             };
             UpperPanel = upperPanel;
             Controls.Add(UpperPanel);
@@ -199,7 +199,7 @@ namespace UlearnGame.Visual
             var exitButton = new Button()
             {
                 Location = new Point(1053, 50),
-                Image = ProgramInitials.GetImage("ExitButton.jpg"),
+                Image = Texture.ExitButton,
                 Width = 100,
                 Height = 100,
             };
@@ -213,7 +213,7 @@ namespace UlearnGame.Visual
             var settingsButton = new Button()
             {
                 Location = new Point(932, 50),
-                Image = ProgramInitials.GetImage("SettingsButton.jpg"),
+                Image = Texture.SettingsButton,
                 Width = 100,
                 Height = 100,
             };
@@ -227,7 +227,7 @@ namespace UlearnGame.Visual
             var upgradeButton = new Button()
             {
                 Location = new Point(811, 50),
-                Image = ProgramInitials.GetImage("UpgradeButton.jpg"),
+                Image = Texture.UpgradeButton,
                 Width = 100,
                 Height = 100,
             };
@@ -254,7 +254,7 @@ namespace UlearnGame.Visual
             button.ForeColor = Color.White;
             button.Font = new Font("Arial", 16, FontStyle.Bold);
             button.TextAlign = ContentAlignment.BottomCenter;
-            button.BackgroundImage = ProgramInitials.GetImage("Terrain.png");
+            button.BackgroundImage = Texture.Terrain;
         }
 
         private void UpdateFieldButtons()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Model.Resources;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Objects
 {
@@ -20,7 +21,7 @@ namespace UlearnGame.Model.Objects
             ResourceRandomCapSecond = 3;
             StartCapacity = IronCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = ProgramInitials.GetImage("Iron.png");
+            ImagePath = Texture.Iron;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -38,9 +39,9 @@ namespace UlearnGame.Model.Objects
             Capacity -= Game.ClickPower;
         }
 
-        public override double GainExperience()
+        public override void GainExperience()
         {
-            return IronExperience;
+            Game.AddExperience(IronExperience * ExperienceMultiplier);
         }
     }
 }

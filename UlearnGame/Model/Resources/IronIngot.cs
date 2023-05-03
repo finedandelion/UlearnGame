@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -12,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЖЕЛЕЗНАЯ РУДА";
             Description = "Железо течёт в крови. Именно поэтому оно нравится божеству.";
-            ImagePath = ProgramInitials.GetImage("IronIngot.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedIronIngot.png");
+            ImagePath = Texture.IronIngot;
+            ImagePath2 = Texture.IronIngot2;
         }
     }
 }

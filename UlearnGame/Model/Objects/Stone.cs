@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Model.Resources;
 using UlearnGame.Model.Resources;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Objects
 {
@@ -19,7 +20,7 @@ namespace UlearnGame.Model.Objects
             ResourceRandomCapFirst = 2;
             StartCapacity = StoneCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = ProgramInitials.GetImage("Stone.png");
+            ImagePath = Texture.Stone;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -36,9 +37,9 @@ namespace UlearnGame.Model.Objects
             Capacity -= Game.ClickPower;
         }
 
-        public override double GainExperience()
+        public override void GainExperience()
         {
-            return StoneExperience;
+            Game.AddExperience(StoneExperience * ExperienceMultiplier);
         }
     }
 }

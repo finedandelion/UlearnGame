@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -12,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЯГОДЫ";
             Description = "Ягоды, собранные с куста. На вид выглядят сочно!";
-            ImagePath = ProgramInitials.GetImage("Berries.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedBerries.png");
+            ImagePath = Texture.Berries;
+            ImagePath2 = Texture.Berries2;
         }
     }
 }

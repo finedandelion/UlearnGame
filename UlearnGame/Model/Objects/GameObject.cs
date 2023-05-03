@@ -11,6 +11,7 @@ namespace UlearnGame.Model.Objects
     public class GameObject : IObject
     {
         protected static double CapacityHardnessMultiplier = 1;
+        protected static double ExperienceMultiplier = 1;
 
         protected Random resourcesRandom = new Random();
         protected Game Game { get; set; }
@@ -32,7 +33,7 @@ namespace UlearnGame.Model.Objects
             throw new NotImplementedException();
         }
 
-        public virtual double GainExperience()
+        public virtual void GainExperience()
         {
             throw new NotImplementedException();
         }

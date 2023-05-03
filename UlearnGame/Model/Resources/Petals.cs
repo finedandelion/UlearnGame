@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -13,8 +14,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЛЕПЕСТКИ";
             Description = "Из них получился бы красивый венок.";
-            ImagePath = ProgramInitials.GetImage("Petals.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedPetals.png");
+            ImagePath = Texture.Petals;
+            ImagePath2 = Texture.Petals2;
         }
     }
 }

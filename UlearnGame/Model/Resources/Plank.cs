@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -12,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ДОСКА";
             Description = "Приобрётшая новый вид древесина. Гладкая на ощупь.";
-            ImagePath = ProgramInitials.GetImage("Plank.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedPlank.png");
+            ImagePath = Texture.Plank;
+            ImagePath2 = Texture.Plank2;
         }
     }
 }

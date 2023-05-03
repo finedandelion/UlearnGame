@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Model.Resources;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Objects
 {
@@ -20,7 +21,7 @@ namespace UlearnGame.Model.Objects
             ResourceRandomCapSecond = 3;
             StartCapacity = GoldCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = ProgramInitials.GetImage("Gold.png");
+            ImagePath = Texture.Gold;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -38,9 +39,9 @@ namespace UlearnGame.Model.Objects
             Capacity -= Game.ClickPower;
         }
 
-        public override double GainExperience()
+        public override void GainExperience()
         {
-            return GoldExperience;
+            Game.AddExperience(GoldExperience * ExperienceMultiplier);
         }
     }
 }

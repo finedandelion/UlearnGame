@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -12,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ПУСТОЙ ТОТЕМ";
             Description = "Оболочка тотема. Не излучает жизненных сил.";
-            ImagePath = ProgramInitials.GetImage("DullTotem.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedDullTotem.png");
+            ImagePath = Texture.DullTotem;
+            ImagePath2 = Texture.DullTotem2;
         }
     }
 }

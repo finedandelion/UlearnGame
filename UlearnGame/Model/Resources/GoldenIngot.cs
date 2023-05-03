@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -13,8 +14,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЗОЛОТАЯ РУДА";
             Description = "Блестит! Самый настоящий и неподдельный самородок.";
-            ImagePath = ProgramInitials.GetImage("GoldenIngot.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedGoldenIngot.png");
+            ImagePath = Texture.GoldenIngot;
+            ImagePath2 = Texture.GoldenIngot2;
         }
     }
 }

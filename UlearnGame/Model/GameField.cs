@@ -61,7 +61,7 @@ namespace UlearnGame.Model
                     gameObject.ChangeState();
                 else
                 {
-                    game.AddExperience(gameObject.GainExperience());
+                    gameObject.GainExperience();
                     game.Inventory.AddItem(gameObject.ResourcesDrop);
                     RemoveObject(fieldCell);
                     return true;

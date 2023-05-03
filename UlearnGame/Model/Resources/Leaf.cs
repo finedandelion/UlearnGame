@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -12,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЛИСТОК";
             Description = "Животные едят листья. Почему бы не попробовать?";
-            ImagePath = ProgramInitials.GetImage("Leaf.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedLeaf.png");
+            ImagePath = Texture.Leaf;
+            ImagePath2 = Texture.Leaf2;
         }
     }
 }

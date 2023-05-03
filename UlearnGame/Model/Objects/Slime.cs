@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Model.Resources;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Objects
 {
@@ -19,7 +20,7 @@ namespace UlearnGame.Model.Objects
             ResourceRandomCapFirst = 4;
             StartCapacity = SlimeCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = ProgramInitials.GetImage("Slime.png");
+            ImagePath = Texture.Slime;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -36,9 +37,9 @@ namespace UlearnGame.Model.Objects
             Capacity -= Game.ClickPower;
         }
 
-        public override double GainExperience()
+        public override void GainExperience()
         {
-            return SlimeExperience;
+            Game.AddExperience(SlimeExperience * ExperienceMultiplier);
         }
     }
 }

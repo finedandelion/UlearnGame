@@ -39,7 +39,7 @@ namespace UlearnGame.Visual
             Width = 1920;
             Height = 1080;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackgroundImage = ProgramInitials.GetImage("Background.jpg");
+            BackgroundImage = Texture.BackGround;
             Name = "Essence of Gathering";
             Text = "Essence of Gathering";
             ResumeLayout(false);
@@ -59,7 +59,7 @@ namespace UlearnGame.Visual
             {
                 Location = new Point(57, 32),
                 BackColor = Color.Transparent,
-                Image = ProgramInitials.GetImage("HugePanel.png"),
+                Image = Texture.HugePanel,
                 Width = 975,
                 Height = 1015,
             };
@@ -76,7 +76,7 @@ namespace UlearnGame.Visual
             {
                 Location = new Point(1213, 169),
                 BackColor = Color.Transparent,
-                Image = ProgramInitials.GetImage("SelectedItemPanel.png"),
+                Image = Texture.SelectedItemPanel,
                 Width = 975,
                 Height = 1015,
             };
@@ -89,7 +89,7 @@ namespace UlearnGame.Visual
             var backButton = new Button()
             {
                 Location = new Point(1383, 931),
-                BackgroundImage = ProgramInitials.GetImage("BackInventoryButton.jpg"),
+                BackgroundImage = Texture.BackButton,
                 Width = 308,
                 Height = 116,
                 Text = "Назад",
@@ -114,7 +114,7 @@ namespace UlearnGame.Visual
             {
                 Location = new Point(1307, 199),
                 BackColor = Color.Transparent,
-                Image = ProgramInitials.GetImage("SelectedItemName.jpg"),
+                Image = Texture.SelectedItemName,
                 Width = 460,
                 Height = 82,
                 Visible = false,
@@ -134,7 +134,7 @@ namespace UlearnGame.Visual
                 Width = 340,
                 Height = 340,
                 Visible = false,
-                BackgroundImage = ProgramInitials.GetImage("SelectedItemImage.jpg"),
+                BackgroundImage = Texture.SelectedItemImage,
             };
             var text = new Label()
             {
@@ -156,7 +156,7 @@ namespace UlearnGame.Visual
             var selectedItemDescription = new Label()
             {
                 Location = new Point(1307, 655),
-                Image = ProgramInitials.GetImage("SelectedItemDescription.jpg"),
+                Image = Texture.SelectedItemDescription,
                 Width = 460,
                 Height = 132,
                 Visible = false,
@@ -182,7 +182,7 @@ namespace UlearnGame.Visual
         private void CustomizeInventoryButton(Button button, int index)
         {
             button.Size = new Size(157, 157);
-            button.BackgroundImage = ProgramInitials.GetImage("CellButton.jpg");
+            button.BackgroundImage = Texture.CellButton;
             button.Location = SetInventoryButtonPosition(index, 157);
             button.TextAlign = ContentAlignment.BottomRight;
             button.ForeColor = Color.White;
@@ -204,7 +204,7 @@ namespace UlearnGame.Visual
             {
                 var index = i;
                 var button = InventoryButtons[index];
-                button.BackgroundImage = ProgramInitials.GetImage("CellButton2.jpg");
+                button.BackgroundImage = Texture.CellButton2;
                 button.Image = storage[index].ImagePath;
                 button.Text = "x" + storage[index].Amount.ToString();
                 button.Click += (sender, eventArgs) =>
@@ -230,7 +230,7 @@ namespace UlearnGame.Visual
                 var index = i;
                 var button = InventoryButtons[index];
                 button.Image = null;
-                button.BackgroundImage = ProgramInitials.GetImage("CellButton.jpg");
+                button.BackgroundImage = Texture.CellButton;
                 button.Text = null;
             }
         }

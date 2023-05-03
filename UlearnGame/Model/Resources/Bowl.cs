@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -13,8 +14,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "МИСКА";
             Description = "В неё можно ложить еду для подношений.";
-            ImagePath = ProgramInitials.GetImage("Bowl.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedBowl.png");
+            ImagePath = Texture.Bowl;
+            ImagePath2 = Texture.Bowl2;
         }
     }
 }

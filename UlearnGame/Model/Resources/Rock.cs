@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
@@ -12,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "КАМУШЕК";
             Description = "Раздробленные части небольшого камня.";
-            ImagePath = ProgramInitials.GetImage("Rock.png");
-            ImagePath2 = ProgramInitials.GetImage("SelectedRock.png");
+            ImagePath = Texture.Rock;
+            ImagePath2 = Texture.Rock2;
         }
     }
 }

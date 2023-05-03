@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Model.Resources;
-using UlearnGame.Model.Resources;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Objects
 {
@@ -22,7 +22,7 @@ namespace UlearnGame.Model.Objects
             ResourceRandomCapSecond = 4;
             StartCapacity = TreeCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = ProgramInitials.GetImage("Tree.png");
+            ImagePath = Texture.Tree;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -40,9 +40,9 @@ namespace UlearnGame.Model.Objects
             Capacity -= Game.ClickPower;
         }
 
-        public override double GainExperience()
+        public override void GainExperience()
         {
-            return TreeExperience;
+            Game.AddExperience(TreeExperience * ExperienceMultiplier);
         }
     }
 }

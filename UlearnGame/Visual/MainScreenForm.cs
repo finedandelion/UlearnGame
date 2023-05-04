@@ -18,6 +18,7 @@ namespace UlearnGame.Visual
         private Button ToCraftButton;
         private Button ToTotemButton;
         private Label GameTimer;
+        private Label GameExperienceBar;
         private List<Button> FieldButtons = new List<Button>();
 
         private Game Game { get; set; }
@@ -27,6 +28,7 @@ namespace UlearnGame.Visual
             SetFormBaseParameteres();
             InitializeMainScreen();
         }
+
         public void SetFormBaseParameteres()
         {
             SuspendLayout();
@@ -41,6 +43,38 @@ namespace UlearnGame.Visual
             Name = "Essence of Gathering";
             Text = "Essence of Gathering";
             ResumeLayout(false);
+        }
+
+        public void SetFieldButtons(Func<int, int, Point> fieldButtonPosition)
+        {
+            foreach(var button in FieldButtons)
+                Controls.Remove(button);
+            FieldButtons.Clear();
+            for (var i = 0; i < Game.Field.FieldCap + 1; i++)
+            {
+                var button = new Button();
+                CustomizeFieldButton(button);
+                FieldButtons.Add(button);
+            }
+            UpdateFieldButtons(fieldButtonPosition);
+        }
+
+        public Point FieldButtonPositionPreset1(int number, int buttonSize)
+        {
+            var xposOffset = number / 2;
+            var yposOffset = (number + 1) % 2 > 0 ? 0 : buttonSize / 4 + buttonSize;
+            var xpos = 312 + (buttonSize + buttonSize / 4) * xposOffset;
+            var ypos = 257 + yposOffset;
+            return new Point(xpos, ypos);
+        }
+
+        public Point FieldButtonPositionPreset2(int number, int buttonSize)
+        {
+            var xposOffset = number / 2;
+            var yposOffset = (number + 1) % 2 > 0 ? 0 : buttonSize / 4 + buttonSize;
+            var xpos = 154 + (buttonSize + buttonSize / 4) * xposOffset;
+            var ypos = 257 + yposOffset;
+            return new Point(xpos, ypos);
         }
 
         private void MainForm_Close(object sender, EventArgs e)
@@ -62,7 +96,7 @@ namespace UlearnGame.Visual
         private void InitializeMainScreen()
         {
             SetGenerationTimer();
-            SetFieldButtons(Game.Field);
+            SetFieldButtons(FieldButtonPositionPreset1);
             SetMainPanel();
             SetUpperPanel();
         }
@@ -174,6 +208,7 @@ namespace UlearnGame.Visual
 
         private void SetUpperPanel()
         {
+            SetExperienceBar();
             SetUpperPanelButtons();
             var upperPanel = new PictureBox()
             {
@@ -187,6 +222,22 @@ namespace UlearnGame.Visual
             Controls.Add(UpperPanel);
         }
 
+        private void SetExperienceBar()
+        {
+            var experienceBar = new Label()
+            {
+                Location = new Point(72, 50),
+                Width = 700,
+                Height = 100,
+                BackgroundImage = Texture.ExperienceBar,
+                TextAlign = ContentAlignment.MiddleCenter,
+                ForeColor = ProgramInitials.GetHtmlColor("#F4B41B"),
+                Font = new Font(string.Empty, 24, FontStyle.Bold),
+                Text = $"Ур. {Game.Level + 1} | Опыт: {Game.Experience} / {Game.LevelExperienceCap}"
+            };
+            GameExperienceBar = experienceBar;
+            Controls.Add(GameExperienceBar);
+        }
         private void SetUpperPanelButtons()
         {
             SetExitButton();
@@ -231,21 +282,14 @@ namespace UlearnGame.Visual
                 Width = 100,
                 Height = 100,
             };
-            upgradeButton.Click += (sender, eventArgs) => { };
+            upgradeButton.Click += (sender, eventArgs) =>
+            {
+                ProgramInitials.UpgradeForm.UpdatePointsBar();
+                ProgramInitials.UpgradeForm.Show();
+                Hide();
+            };
             UpgradeButton = upgradeButton;
             Controls.Add(UpgradeButton);
-        }
-
-        private void SetFieldButtons(GameField field)
-        {
-            FieldButtons.Clear();
-            for (var i = 0; i < field.FieldCap + 1; i++)
-            {
-                var button = new Button();
-                CustomizeFieldButton(button);
-                FieldButtons.Add(button);
-            }
-            UpdateFieldButtons();
         }
 
         private void CustomizeFieldButton(Button button)
@@ -257,11 +301,19 @@ namespace UlearnGame.Visual
             button.BackgroundImage = Texture.Terrain;
         }
 
-        private void UpdateFieldButtons()
+        private void UpdateFieldButtons(Func<int, int, Point> SetFieldButtonPosition)
         {
+            var field = Game.Field.Field;
             for (var i = 0; i < Game.Field.FieldCap + 1; i++)
             {
                 var index = i;
+                if (field[index] != null)
+                {
+                    var capacity = field[index].Capacity.ToString();
+                    var startCap = field[index].StartCapacity.ToString();
+                    FieldButtons[index].Text = capacity + "/" + startCap;
+                    FieldButtons[index].Image = field[index].ImagePath;
+                }
                 FieldButtons[index].Location = SetFieldButtonPosition(index, FieldButtons[index].Width);
                 FieldButtons[index].Click += (sender, eventargs) =>
                 {
@@ -272,20 +324,12 @@ namespace UlearnGame.Visual
             }
         }
 
-        private Point SetFieldButtonPosition(int number, int buttonSize)
-        {
-            var xposOffset = number / 2;
-            var yposOffset = (number + 1) % 2 > 0 ? 0 : buttonSize / 4 + buttonSize;
-            var xpos = 312 + (buttonSize + buttonSize / 4) * xposOffset;
-            var ypos = 257 + yposOffset;
-            return new Point(xpos, ypos);
-        }
-
         private void FieldButtonClick(object sender, EventArgs e, int fieldCell)
         {
             var button = sender as Button;
             if (Game.Field.UpdateObjectState(fieldCell, Game))
             {
+                GameExperienceBar.Text = $"Ур. {Game.Level + 1} | Опыт: {Game.Experience} / {Game.LevelExperienceCap}";
                 button.Image = null;
                 button.Text = null;
             }

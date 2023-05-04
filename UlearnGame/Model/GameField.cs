@@ -17,7 +17,7 @@ namespace UlearnGame.Model
         public int FieldCap { get { return Field.Count - 1; } }
 
         private Game Game { get; set; }
-        public GameField(Game game)
+        public GameField(Game game, int startResources)
         {
             Game = game;
             Field = new Dictionary<int, GameObject?>()
@@ -31,12 +31,10 @@ namespace UlearnGame.Model
             {
                 { 0, new Func<GameObject>(() => new Tree(Game))},
                 { 1, new Func<GameObject>(() => new Stone(Game))},
-                { 2, new Func<GameObject>(() => new Bush(Game))},
-                { 3, new Func<GameObject>(() => new Slime(Game))},
-                { 4, new Func<GameObject>(() => new Flower(Game))},
-                { 5, new Func<GameObject>(() => new Iron(Game))},
-                { 6, new Func<GameObject>(() => new Gold(Game))},
+                //{ 2, new Func<GameObject>(() => new Slime(Game))},
             };
+            while (startResources-- > 0)
+                GenerateResource();
         }
 
         public int? GenerateResource()
@@ -81,6 +79,44 @@ namespace UlearnGame.Model
             Field[fieldCell] = null;
         }
 
+        public void GathererUpgrade()
+        {
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Bush(Game)));
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Flower(Game)));
+        }
 
+        public void AdventurerUpgrade()
+        {
+            ExtendField(2);
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Iron(Game)));
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Gold(Game)));
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Coal(Game)));
+
+        }
+        
+        public void ArcheologistUpgrade()
+        {
+            
+        }
+
+        public void HunterUpgrade()
+        {
+
+        }
+
+        public void SpelunkerUpgrade()
+        {
+
+        }
+
+        public void MagicianUpgrade()
+        {
+
+        }
+
+        public void PriestUpgrade()
+        {
+
+        }
     }
 }

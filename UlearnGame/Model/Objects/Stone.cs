@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Model.Resources;
-using UlearnGame.Model.Resources;
 using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Objects
@@ -12,7 +11,7 @@ namespace UlearnGame.Model.Objects
     public class Stone : GameObject
     {
         private static int StoneCapicty = 12;
-        private static double StoneExperience = 7;
+        private static double StoneExperience = 8;
         private Resource[] resourcesDrop => GenerateResources();
         public Stone(Game game)
         {

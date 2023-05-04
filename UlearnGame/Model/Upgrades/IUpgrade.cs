@@ -8,7 +8,7 @@ namespace UlearnGame.Model.Upgrades
 {
     public interface IUpgrade
     {
-        public void UpgradeChanges(Game game);
+        public void ObtainUpgrade();
         public bool IsObtainable();
     }
 }

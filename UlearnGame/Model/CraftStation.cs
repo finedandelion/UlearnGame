@@ -15,8 +15,11 @@ namespace UlearnGame.Model
         public List<Craft> Crafts => craftCollection;
         public int Count => craftCollection.Count;
 
-        public CraftStation()
+        private Game Game { get; set; }
+
+        public CraftStation(Game game)
         {
+            Game = game;
             craftCollection = new List<Craft>()
             {
                 new PlankCraft(),
@@ -27,8 +30,9 @@ namespace UlearnGame.Model
             };
         }
 
-        public void DoCraft(int craftNumber, Inventory inventory)
+        public void DoCraft(int craftNumber)
         {
+            var inventory = Game.Inventory;
             var craft = craftCollection[craftNumber];
             if (craft.IsCraftableManyTime && craft.IsPossibleToCraft(inventory))
             {

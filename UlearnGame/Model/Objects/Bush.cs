@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Objects
     public class Bush : GameObject
     {
         private static int BushCapicty = 6;
-        private static double BushExperience = 6;
+        private static double BushExperience = 4;
         private Resource[] resourcesDrop => GenerateResources();
         public Bush(Game game)
         {

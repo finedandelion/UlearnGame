@@ -27,22 +27,25 @@ namespace UlearnGame.Model
         public Game()
         {
             ClickPower = 1;
-            FieldUpdateRate = 1;
+            FieldUpdateRate = 3;
             LevelExperienceCap = 80;
-            Field = new GameField(this);
+            Field = new GameField(this, 1);
             Inventory = new Inventory();
-            UpgradeSystem = new UpgradeSystem();
-            CraftStation = new CraftStation();
+            UpgradeSystem = new UpgradeSystem(this);
+            CraftStation = new CraftStation(this);
         }
 
         public void AddExperience(double experience)
         {
             Experience += experience;
-            if (Experience > LevelExperienceCap && Level < 16)
+            if (Experience > LevelExperienceCap && Level < 15)
             {
-                Experience = 0;
-                Level += 1;
-                LevelExperienceCap = (int)(LevelExperienceCap * LevelConst);
+                while (Experience > LevelExperienceCap && Level < 15)
+                {
+                    Experience -= LevelExperienceCap;
+                    Level += 1;
+                    LevelExperienceCap = (int)(LevelExperienceCap * LevelConst);
+                }
             }
         }
     }

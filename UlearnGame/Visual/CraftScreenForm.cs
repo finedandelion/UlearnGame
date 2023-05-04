@@ -12,6 +12,7 @@ namespace UlearnGame.Visual
     {
         private Button BackCraftButton;
         private PictureBox CraftPanel;
+        private Label UpperNamePanel;
         private PictureBox RecipePanel;
         private Label[] RecipeItems = new Label[3];
         private Label RecipeResult;
@@ -69,6 +70,7 @@ namespace UlearnGame.Visual
                 Width = 1046,
                 Height = 675,
                 BackgroundImage = Texture.RecipePanel,
+                BackColor = Color.Transparent,
                 Visible = false,
             };
             RecipePanel = recipePanel;
@@ -114,7 +116,7 @@ namespace UlearnGame.Visual
                 foreach(var item in RecipeItems)
                 {
                     item.Text = null;
-                    item.BackgroundImage = ProgramInitials.GetImage("CraftCell.jpg");
+                    item.BackgroundImage = Texture.CraftCell;
                     item.Image = null;
                 }
             };
@@ -181,6 +183,7 @@ namespace UlearnGame.Visual
 
         private void SetCraftPanel()
         {
+            SetUpperNamePanel();
             SetCraftButtons();
             var craftPanel = new PictureBox()
             {
@@ -192,6 +195,23 @@ namespace UlearnGame.Visual
             };
             CraftPanel = craftPanel;
             Controls.Add(CraftPanel);
+        }
+
+        private void SetUpperNamePanel()
+        {
+            var namePanel = new Label()
+            {
+                Location = new Point(498, 68),
+                Width = 924,
+                Height = 114,
+                BackgroundImage = Texture.UpperNamePanel,
+                TextAlign = ContentAlignment.MiddleCenter,
+                ForeColor = ProgramInitials.GetHtmlColor("#CFC6B8"),
+                Font = new Font(String.Empty, 48, FontStyle.Bold),
+                Text = "КНИГА РЕЦЕПТОВ"
+            };
+            UpperNamePanel = namePanel;
+            Controls.Add(UpperNamePanel);
         }
 
         private void SetCraftBackButton()
@@ -259,7 +279,7 @@ namespace UlearnGame.Visual
                 button.Text = "x" + craft.CraftResult.Amount.ToString();
                 button.Click += (sender, eventArgs) =>
                 {
-                    ShowRecipe(sender, eventArgs, craft);
+                    ShowRecipe(craft);
                     AcceptButtons[index].Show();
                     if (craft.IsPossibleToCraft(Game.Inventory))
                     {
@@ -270,7 +290,7 @@ namespace UlearnGame.Visual
                 AcceptButtons[index].Click += (sender, eventArgs) =>
                 {
                     AcceptButtons[index].Enabled = false;
-                    station.DoCraft(index, Game.Inventory);
+                    station.DoCraft(index);
                     UpdateRecipe(craft, index);
                 };
             }
@@ -293,7 +313,7 @@ namespace UlearnGame.Visual
             BackCraftButton.Visible = state;
         }
 
-        private void ShowRecipe(object sender, EventArgs args, Craft craft)
+        private void ShowRecipe(Craft craft)
         {
             var inventory = Game.Inventory;
             ChangeCraftPanelVisibility(false);

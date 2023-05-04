@@ -12,6 +12,7 @@ namespace UlearnGame
         public static InventoryScreenForm InventoryForm;
         public static MainScreenForm MainScreenForm;
         public static CraftScreenForm CraftForm;
+        public static UpgradeScreenForm UpgradeForm;
 
         public ProgramInitials()
         {
@@ -35,12 +36,7 @@ namespace UlearnGame
             MainScreenForm = new MainScreenForm(Game);
             InventoryForm = new InventoryScreenForm(Game);
             CraftForm = new CraftScreenForm(Game);
-        }
-
-        public static Image GetImage(string imageName)
-        {
-            var imagePath = Path.Combine(GameDirectory, "Visual", "Images", imageName);
-            return Image.FromFile(imagePath);
+            UpgradeForm = new UpgradeScreenForm(Game);
         }
 
         public static Color GetHtmlColor(string htmlcode)

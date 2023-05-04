@@ -13,7 +13,7 @@ namespace UlearnGame.Model.Crafts
         {
             CraftTimes = 0;
             IsCraftableManyTime = true;
-            Description = "Немного ягоды, немного листьев — сам бы ты такое не съел, но что не сделаешь ради любимого божества?";
+            Description = "Немного ягод, немного листьев — сам бы ты такое не съел, но что не сделаешь ради любимого божества?";
         }
 
         protected override Resource ReturnCraftResult()

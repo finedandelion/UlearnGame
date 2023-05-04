@@ -11,6 +11,7 @@ namespace UlearnGame.Visual
         private PictureBox InventoryPanel;
         private PictureBox SelectedItemPanel;
         private PictureBox SelectedItemImage;
+        private Label UpperNamePanel;
         private Label SelectedItemName;
         private Label SelectedItemDescription;
         private Button BackInventoryButton;
@@ -54,6 +55,7 @@ namespace UlearnGame.Visual
 
         private void SetInventoryPanel()
         {
+            SetUpperNamePanel();
             SetInventoryButtons();
             var invenoryPanel = new PictureBox()
             {
@@ -67,6 +69,22 @@ namespace UlearnGame.Visual
             Controls.Add(InventoryPanel);
         }
 
+        private void SetUpperNamePanel()
+        {
+            var namePanel = new Label()
+            {
+                Location = new Point(83, 68),
+                Width = 924,
+                Height = 114,
+                BackgroundImage = Texture.UpperNamePanel,
+                TextAlign = ContentAlignment.MiddleCenter,
+                ForeColor = ProgramInitials.GetHtmlColor("#CFC6B8"),
+                Font = new Font(String.Empty, 48, FontStyle.Bold),
+                Text = "ИНВЕНТАРЬ"
+            };
+            UpperNamePanel = namePanel;
+            Controls.Add(UpperNamePanel);
+        }
         private void SetSelectedItemPanel()
         {
             SetSelectedItemName();
@@ -95,7 +113,7 @@ namespace UlearnGame.Visual
                 Text = "Назад",
                 TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = ProgramInitials.GetHtmlColor("#CFC6B8"),
-                Font = new Font("Arial", 32, FontStyle.Bold),
+                Font = new Font(String.Empty, 32, FontStyle.Bold),
             };
             backButton.Click += (sender, eventArgs) =>
             {

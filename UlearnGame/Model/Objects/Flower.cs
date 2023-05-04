@@ -4,11 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Model.Resources;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Objects
 {
     public class Flower : GameObject
     {
+        private Dictionary<int, Image> flowerTextures = new Dictionary<int, Image>()
+        {
+            { 0, Texture.Flower1 },
+            { 1, Texture.Flower2 },
+            { 2, Texture.Flower3 },
+            { 3, Texture.Flower4 },
+            { 4, Texture.Flower5 },
+        };
         private static int FlowerCapicty = 4;
         private static double FlowerExperience = 2;
         private static Random textureRandom = new Random();
@@ -20,7 +29,7 @@ namespace UlearnGame.Model.Objects
             ResourceRandomCapSecond = 6;
             StartCapacity = FlowerCapicty * CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = ChooseTexture(textureRandom.Next(1, 6));
+            ImagePath = ChooseTexture(textureRandom.Next(0, 5));
             ResourcesDrop = resourcesDrop;
         }
 
@@ -45,7 +54,7 @@ namespace UlearnGame.Model.Objects
 
         private Image ChooseTexture(int textureVariant)
         {
-            return ProgramInitials.GetImage($"Flower{textureVariant}.png");
+            return flowerTextures[textureVariant];
         }
     }
 }

@@ -10,6 +10,8 @@ namespace UlearnGame.Model
     public class UpgradeSystem
     {
         public readonly Dictionary<int, Upgrade> upgrades;
+
+        public string[] Titles { get; private set; }
         private Game Game { get; set; }
         public int UsedUpgradePoints
         {
@@ -30,6 +32,7 @@ namespace UlearnGame.Model
         {
             Game = game;
             upgrades = new Dictionary<int, Upgrade>();
+            Titles = InitializeTitles();
             InitializeUpgrades();
         }
 
@@ -47,7 +50,7 @@ namespace UlearnGame.Model
             var explorer = new ExplorerUpgrade(Game,new Upgrade[2] { archeologist, spelunker });
             var magician = new MagicianUpgrade(Game, new Upgrade[1] { gatherer });
             var priest = new PriestUpgrade(Game, new Upgrade[1] { magician });
-            var chronomancer = new ChronomancerUpgrade(Game, new Upgrade[2] { priest, spelunker });
+            var chronomancer = new FormerUpgrade(Game, new Upgrade[2] { priest, spelunker });
             upgrades.Add(0, gatherer);
             upgrades.Add(1, craftsman);
             upgrades.Add(2, master1);
@@ -61,6 +64,28 @@ namespace UlearnGame.Model
             upgrades.Add(10, magician);
             upgrades.Add(11, priest);
             upgrades.Add(12, chronomancer);
+        }
+
+        private string[] InitializeTitles()
+        {
+            return new string[15]
+            {
+                "СУЩНОСТЬ",
+                "",
+                "ВЕРУЮЩИЙ",
+                "ПРИВЕРЖЕНЕЦ",
+                "СЛУЖИТЕЛЬ",
+                "ПОДДАННЫЙ",
+                "ПРЕДАННЫЙ",
+                "ЖРЕЦ",
+                "",
+                "",
+                "ПРИБЛИЖЁННЫЙ",
+                "ПРОСВЯЩЁННЫЙ",
+                "АПОСТОЛ",
+                "ВЕЛИКИЙ",
+                "БОЖЕСТВО",
+            };
         }
     }
 }

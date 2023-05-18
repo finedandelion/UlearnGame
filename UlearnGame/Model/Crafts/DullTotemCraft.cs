@@ -9,7 +9,7 @@ namespace UlearnGame.Model.Crafts
 {
     public class DullTotemCraft : Craft
     {
-        public DullTotemCraft()
+        public DullTotemCraft(Game game) : base(game)
         {
             CraftTimes = 0;
             IsCraftableManyTime = true;
@@ -26,8 +26,8 @@ namespace UlearnGame.Model.Crafts
         {
             return new Resource[2]
             {
-                new Wood() { Amount = 3 },
-                new SharpenedRock() { Amount = 2 }
+                new Wood() { Amount = 3 - ReduceCraft },
+                new SharpenedRock() { Amount = 1 }
             };
         }
     }

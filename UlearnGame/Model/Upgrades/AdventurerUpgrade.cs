@@ -17,16 +17,18 @@ namespace UlearnGame.Model.Upgrades
             ImagePath1 = Texture.AdventurerIcon;
             ImagePath2 = Texture.AdventurerIcon2;
             Title = "АВАНТЮРИСТ";
-            Description = "Новые земли ждут вас! Расширяет игровое поле на две клетки." +
-                " На поле появляются руды.";
+            Description = "Новые земли ждут вас!\n" +
+                "Расширяет игровое поле на две клетки.\n" +
+                "На поле появляются руды.\n" +
+                "+1 к количеству собираемых ресурсов.";
         }
 
         public override void ObtainUpgrade()
         {
             if (!IsObtained) 
             {
+                Game.ChangeResourceBonus(1);
                 Game.Field.AdventurerUpgrade();
-
                 IsObtained = true;
             }
         }

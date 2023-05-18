@@ -10,14 +10,14 @@ namespace UlearnGame.Model.Objects
 {
     public class Coal : GameObject
     {
-        private static int CoalCapicty = 6;
-        private static double CoalExperience = 4;
+        private static int CoalCapicty = 15;
+        private static double CoalExperience = 9;
         private Resource[] resourcesDrop => GenerateResources();
         public Coal(Game game)
         {
             Game = game;
             ResourceRandomCapFirst = 3;
-            StartCapacity = CoalCapicty * CapacityHardnessMultiplier;
+            StartCapacity = CoalCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Coal;
             ResourcesDrop = resourcesDrop;
@@ -27,8 +27,8 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[2]
             {
-                new Rock() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 1, ResourceRandomCapFirst + 1) },
-                new CoalLump() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 1, ResourceRandomCapFirst + 1) }
+                new Rock() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) + Game.ResourceBonus },
+                new CoalLump() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) + Game.ResourceBonus }
             };
         }
 
@@ -39,7 +39,7 @@ namespace UlearnGame.Model.Objects
 
         public override void GainExperience()
         {
-            Game.AddExperience(CoalExperience * ExperienceMultiplier);
+            Game.AddExperience(CoalExperience * Game.ExperienceMultiplier);
         }
     }
 }

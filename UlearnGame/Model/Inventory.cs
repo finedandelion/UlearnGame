@@ -18,7 +18,7 @@ namespace UlearnGame.Model
                 var type = resource.GetType();
                 if (storage.TryGetValue(type, out var value))
                     storage[type].Amount += resource.Amount;
-                else
+                else if (resource.Amount > 0)
                     storage.Add(type, resource);
             }
         }
@@ -68,5 +68,9 @@ namespace UlearnGame.Model
             return 0;
         }
 
+        public int GetResourcesAmount()
+        {
+            return storage.Select(element => element.Value.Amount).Sum();
+        }
     }
 }

@@ -10,9 +10,6 @@ namespace UlearnGame.Model.Objects
 {
     public class GameObject : IObject
     {
-        protected static double CapacityHardnessMultiplier = 1;
-        protected static double ExperienceMultiplier = 1;
-
         protected Random resourcesRandom = new Random();
         protected Game Game { get; set; }
         protected int ResourceRandomCapFirst { get; set; }

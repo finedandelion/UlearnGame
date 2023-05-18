@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Upgrades
 {
@@ -13,12 +14,20 @@ namespace UlearnGame.Model.Upgrades
             IsObtained = false;
             Game = game;
             Previous = previous;
+            ImagePath1 = Texture.PriestIcon;
+            ImagePath2 = Texture.PriestIcon2;
+            Title = "ЖРЕЦ";
+            Description = "Повинуйся и славь своё божество.\n" +
+                "На поле появляются тотемы и дары.\n" +
+                "-1c. Taймера.";
         }
 
         public override void ObtainUpgrade()
         {
             if (!IsObtained)
             {
+                Game.Field.PriestUpgrade();
+                Game.ChangeFieldUpdateRate(-1);
                 IsObtained = true;
             }
         }

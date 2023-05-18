@@ -19,7 +19,7 @@ namespace UlearnGame.Model.Objects
             { 4, Texture.Flower5 },
         };
         private static int FlowerCapicty = 4;
-        private static double FlowerExperience = 2;
+        private static double FlowerExperience = 6;
         private static Random textureRandom = new Random();
         private Resource[] resourcesDrop => GenerateResources();
         public Flower(Game game)
@@ -27,7 +27,7 @@ namespace UlearnGame.Model.Objects
             Game = game;
             ResourceRandomCapFirst = 2;
             ResourceRandomCapSecond = 6;
-            StartCapacity = FlowerCapicty * CapacityHardnessMultiplier;
+            StartCapacity = FlowerCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = ChooseTexture(textureRandom.Next(0, 5));
             ResourcesDrop = resourcesDrop;
@@ -37,8 +37,8 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[2]
             {
-                new Fiber() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 0, ResourceRandomCapFirst + 1) },
-                new Petals() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 2, ResourceRandomCapSecond+ 1) }
+                new Fiber() { Amount = resourcesRandom.Next(0, ResourceRandomCapFirst + 1) + Game.ResourceBonus},
+                new Petals() { Amount = resourcesRandom.Next(2, ResourceRandomCapSecond + 1) + Game.ResourceBonus }
             };
         }
 
@@ -49,7 +49,7 @@ namespace UlearnGame.Model.Objects
 
         public override void GainExperience()
         {
-            Game.AddExperience(FlowerExperience * ExperienceMultiplier);
+            Game.AddExperience(FlowerExperience *  Game.ExperienceMultiplier);
         }
 
         private Image ChooseTexture(int textureVariant)

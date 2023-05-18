@@ -11,14 +11,14 @@ namespace UlearnGame.Model.Objects
     public class Bush : GameObject
     {
         private static int BushCapicty = 6;
-        private static double BushExperience = 4;
+        private static double BushExperience = 6;
         private Resource[] resourcesDrop => GenerateResources();
         public Bush(Game game)
         {
             Game = game;
             ResourceRandomCapFirst = 6;
             ResourceRandomCapSecond = 5;
-            StartCapacity = BushCapicty * CapacityHardnessMultiplier;
+            StartCapacity = BushCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Bush;
             ResourcesDrop = resourcesDrop;
@@ -28,8 +28,8 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[2]
             {
-                new Fiber() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 2, ResourceRandomCapSecond + 1) },
-                new Berries() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 0, ResourceRandomCapFirst + 1) }
+                new Fiber() { Amount = resourcesRandom.Next(2,ResourceRandomCapSecond + 1) + Game.ResourceBonus },
+                new Berries() { Amount = resourcesRandom.Next(0, ResourceRandomCapFirst + 1) + Game.ResourceBonus }
             };
         }
 
@@ -40,7 +40,7 @@ namespace UlearnGame.Model.Objects
 
         public override void GainExperience()
         {
-            Game.AddExperience(BushExperience * ExperienceMultiplier);
+            Game.AddExperience(BushExperience * Game.ExperienceMultiplier);
         }
     }
 }

@@ -55,7 +55,7 @@ namespace UlearnGame.Visual
             SetCraftBackButton();
             SetCraftPanel();
             SetRecipePanel();
-            SetRecipes(Game.CraftStation);
+            SetRecipes();
         }
 
         private void SetRecipePanel()
@@ -206,7 +206,7 @@ namespace UlearnGame.Visual
                 Height = 114,
                 BackgroundImage = Texture.UpperNamePanel,
                 TextAlign = ContentAlignment.MiddleCenter,
-                ForeColor = ProgramInitials.GetHtmlColor("#CFC6B8"),
+                ForeColor = Color.White,
                 Font = new Font(String.Empty, 48, FontStyle.Bold),
                 Text = "КНИГА РЕЦЕПТОВ"
             };
@@ -219,12 +219,12 @@ namespace UlearnGame.Visual
             var backButton = new Button()
             {
                 Location = new Point(1563, 931),
-                BackgroundImage = Texture.BackButton,
+                BackgroundImage = Texture.DefaultButton,
                 Width = 308,
                 Height = 116,
                 Text = "Назад",
                 TextAlign = ContentAlignment.MiddleCenter,
-                ForeColor = ProgramInitials.GetHtmlColor("#CFC6B8"),
+                ForeColor = Color.White,
                 Font = new Font("Arial", 32, FontStyle.Bold),
             };
             backButton.Click += (sender, eventArgs) =>
@@ -266,8 +266,9 @@ namespace UlearnGame.Visual
             return new Point(xpos, ypos);
         }
 
-        public void SetRecipes(CraftStation station)
+        private void SetRecipes()
         {
+            var station = Game.CraftSystem;
             var crafts = station.Crafts;
             for (var i = 0; i < station.Count; i++)
             {
@@ -276,7 +277,7 @@ namespace UlearnGame.Visual
                 var button = CraftButtons[index];
                 button.BackgroundImage = Texture.CraftCell2;
                 button.Image = craft.CraftResult.ImagePath;
-                button.Text = "x" + craft.CraftResult.Amount.ToString();
+                button.Text = $"x{craft.CraftResult.Amount}";
                 button.Click += (sender, eventArgs) =>
                 {
                     ShowRecipe(craft);

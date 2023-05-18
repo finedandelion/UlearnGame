@@ -9,7 +9,7 @@ namespace UlearnGame.Model.Crafts
 {
     public class SaladCraft : Craft
     {
-        public SaladCraft()
+        public SaladCraft(Game game) : base(game)
         {
             CraftTimes = 0;
             IsCraftableManyTime = true;
@@ -26,8 +26,8 @@ namespace UlearnGame.Model.Crafts
             return new Resource[3]
             {
                 new Bowl() { Amount = 1 },
-                new Berries() { Amount = 10 },
-                new Leaf() { Amount = 5 }
+                new Berries() { Amount = 10 - ReduceCraft * 3 },
+                new Leaf() { Amount = 5 - ReduceCraft }
             };
         }
     }

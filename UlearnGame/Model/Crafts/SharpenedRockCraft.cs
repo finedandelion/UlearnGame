@@ -9,7 +9,7 @@ namespace UlearnGame.Model.Crafts
 {
     public class SharpenedRockCraft : Craft
     {
-        public SharpenedRockCraft()
+        public SharpenedRockCraft(Game game) : base(game)
         {
             CraftTimes = 0;
             IsCraftableManyTime = true;

@@ -20,7 +20,7 @@ namespace UlearnGame.Model.Objects
             Game = game;
             ResourceRandomCapFirst = 2;
             ResourceRandomCapSecond = 4;
-            StartCapacity = TreeCapicty * CapacityHardnessMultiplier;
+            StartCapacity = TreeCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Tree;
             ResourcesDrop = resourcesDrop;
@@ -30,8 +30,8 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[2]
             {
-                new Wood() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 1, ResourceRandomCapFirst + 1) },
-                new Leaf() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 2, ResourceRandomCapSecond + 1)}
+                new Wood() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) + Game.ResourceBonus},
+                new Leaf() { Amount = resourcesRandom.Next(2, ResourceRandomCapSecond + 1) + Game.ResourceBonus}
             };
         }
 
@@ -42,7 +42,7 @@ namespace UlearnGame.Model.Objects
 
         public override void GainExperience()
         {
-            Game.AddExperience(TreeExperience * ExperienceMultiplier);
+            Game.AddExperience(TreeExperience * Game.ExperienceMultiplier);
         }
     }
 }

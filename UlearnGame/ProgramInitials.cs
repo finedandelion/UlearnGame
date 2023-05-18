@@ -13,6 +13,8 @@ namespace UlearnGame
         public static MainScreenForm MainScreenForm;
         public static CraftScreenForm CraftForm;
         public static UpgradeScreenForm UpgradeForm;
+        public static CharacterScreenForm CharacterForm;
+        public static TotemScreenForm TotemForm;
 
         public ProgramInitials()
         {
@@ -37,6 +39,8 @@ namespace UlearnGame
             InventoryForm = new InventoryScreenForm(Game);
             CraftForm = new CraftScreenForm(Game);
             UpgradeForm = new UpgradeScreenForm(Game);
+            CharacterForm = new CharacterScreenForm(Game);
+            TotemForm = new TotemScreenForm(Game);
         }
 
         public static Color GetHtmlColor(string htmlcode)

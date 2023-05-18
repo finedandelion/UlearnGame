@@ -27,8 +27,18 @@ namespace UlearnGame.Model.Crafts
             }
             set { }
         }
+
+        public Game Game { get; set; }
+
+        protected int ReduceCraft => Game.FirstCraftSimplifier;
+
         public string Description { get; set; }
         public bool IsCraftableManyTime { get; set; }
+
+        public Craft(Game game)
+        {
+            Game = game;
+        }
 
         public bool IsPossibleToCraft(Inventory inventory)
         {

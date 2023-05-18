@@ -17,7 +17,7 @@ namespace UlearnGame.Model.Objects
         {
             Game = game;
             ResourceRandomCapFirst = 2;
-            StartCapacity = StoneCapicty * CapacityHardnessMultiplier;
+            StartCapacity = StoneCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Stone;
             ResourcesDrop = resourcesDrop;
@@ -27,7 +27,7 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[1]
             {
-                new Rock() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 1, ResourceRandomCapFirst + 1) }
+                new Rock() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) + Game.ResourceBonus }
             };
         }
 
@@ -38,7 +38,7 @@ namespace UlearnGame.Model.Objects
 
         public override void GainExperience()
         {
-            Game.AddExperience(StoneExperience * ExperienceMultiplier);
+            Game.AddExperience(StoneExperience * Game.ExperienceMultiplier);
         }
     }
 }

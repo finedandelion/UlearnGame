@@ -45,7 +45,7 @@ namespace UlearnGame.Visual
             ResumeLayout(false);
         }
 
-        public void SetFieldButtons(Func<int, int, Point> fieldButtonPosition)
+        public void SetFieldButtons(Func<int, int, Point> fieldButtonPosition, Action<Button> buttonCustomizer)
         {
             foreach(var button in FieldButtons)
                 Controls.Remove(button);
@@ -53,10 +53,28 @@ namespace UlearnGame.Visual
             for (var i = 0; i < Game.Field.FieldCap + 1; i++)
             {
                 var button = new Button();
-                CustomizeFieldButton(button);
+                buttonCustomizer(button);
                 FieldButtons.Add(button);
             }
             UpdateFieldButtons(fieldButtonPosition);
+        }
+
+        public void CustomizeFieldButtonPreset1(Button button)
+        {
+            button.Size = new Size(256, 256);
+            button.ForeColor = Color.White;
+            button.Font = new Font("Arial", 16, FontStyle.Bold);
+            button.TextAlign = ContentAlignment.BottomCenter;
+            button.BackgroundImage = Texture.Terrain;
+        }
+
+        public void CustomizeFieldButtonPreset2(Button button)
+        {
+            button.Size = new Size(192, 192);
+            button.ForeColor = Color.White;
+            button.Font = new Font("Arial", 14, FontStyle.Bold);
+            button.TextAlign = ContentAlignment.BottomCenter;
+            button.BackgroundImage = Texture.Terrain2;
         }
 
         public Point FieldButtonPositionPreset1(int number, int buttonSize)
@@ -74,6 +92,24 @@ namespace UlearnGame.Visual
             var yposOffset = (number + 1) % 2 > 0 ? 0 : buttonSize / 4 + buttonSize;
             var xpos = 154 + (buttonSize + buttonSize / 4) * xposOffset;
             var ypos = 257 + yposOffset;
+            return new Point(xpos, ypos);
+        }
+
+        public Point FieldButtonPositionPreset3(int number, int buttonSize)
+        {
+            var xposOffset = number % 3;
+            var yposOffset = number / 3;
+            var xpos = 244 + (buttonSize + buttonSize / 4) * xposOffset;
+            var ypos = 189 + (buttonSize + buttonSize / 4) * yposOffset;
+            return new Point(xpos, ypos);
+        }
+
+        public Point FieldButtonPositionPreset4(int number, int buttonSize)
+        {
+            var xposOffset = number % 4;
+            var yposOffset = number / 4;
+            var xpos = 160 + (buttonSize + buttonSize / 4) * xposOffset;
+            var ypos = 189 + (buttonSize + buttonSize / 4) * yposOffset;
             return new Point(xpos, ypos);
         }
 
@@ -96,7 +132,7 @@ namespace UlearnGame.Visual
         private void InitializeMainScreen()
         {
             SetGenerationTimer();
-            SetFieldButtons(FieldButtonPositionPreset1);
+            SetFieldButtons(FieldButtonPositionPreset1, CustomizeFieldButtonPreset1);
             SetMainPanel();
             SetUpperPanel();
         }
@@ -150,7 +186,12 @@ namespace UlearnGame.Visual
                 Width = 256,
                 Height = 256,
             };
-            characterButton.Click += (sender, eventArgs) => { };
+            characterButton.Click += (sender, eventArgs) =>
+            {
+                ProgramInitials.CharacterForm.UpdateScreenState();
+                ProgramInitials.CharacterForm.Show();
+                Hide();
+            };
             ToCharacterButton = characterButton;
             Controls.Add(ToCharacterButton);
         }
@@ -201,7 +242,12 @@ namespace UlearnGame.Visual
                 Width = 256,
                 Height = 256,
             };
-            totemButton.Click += (sender, eventArgs) => { };
+            totemButton.Click += (sender, eventArgs) =>
+            {
+                ProgramInitials.TotemForm.Show();
+                ProgramInitials.TotemForm.UpdateTotemForm();
+                Hide();
+            };
             ToTotemButton = totemButton;
             Controls.Add(ToTotemButton);
         }
@@ -231,9 +277,9 @@ namespace UlearnGame.Visual
                 Height = 100,
                 BackgroundImage = Texture.ExperienceBar,
                 TextAlign = ContentAlignment.MiddleCenter,
-                ForeColor = ProgramInitials.GetHtmlColor("#F4B41B"),
+                ForeColor = ProgramInitials.GetHtmlColor("#F7AC37"),
                 Font = new Font(string.Empty, 24, FontStyle.Bold),
-                Text = $"Ур. {Game.Level + 1} | Опыт: {Game.Experience} / {Game.LevelExperienceCap}"
+                Text = $"Ур. {Game.Level + 1} | Опыт: {(int) Game.Experience} / {Game.LevelExperienceCap}"
             };
             GameExperienceBar = experienceBar;
             Controls.Add(GameExperienceBar);
@@ -292,15 +338,6 @@ namespace UlearnGame.Visual
             Controls.Add(UpgradeButton);
         }
 
-        private void CustomizeFieldButton(Button button)
-        {
-            button.Size = new Size(256, 256);
-            button.ForeColor = Color.White;
-            button.Font = new Font("Arial", 16, FontStyle.Bold);
-            button.TextAlign = ContentAlignment.BottomCenter;
-            button.BackgroundImage = Texture.Terrain;
-        }
-
         private void UpdateFieldButtons(Func<int, int, Point> SetFieldButtonPosition)
         {
             var field = Game.Field.Field;
@@ -329,7 +366,8 @@ namespace UlearnGame.Visual
             var button = sender as Button;
             if (Game.Field.UpdateObjectState(fieldCell, Game))
             {
-                GameExperienceBar.Text = $"Ур. {Game.Level + 1} | Опыт: {Game.Experience} / {Game.LevelExperienceCap}";
+                var exp = (int)Game.Experience;
+                GameExperienceBar.Text = $"Ур. {Game.Level + 1} | Опыт: {exp} / {Game.LevelExperienceCap}";
                 button.Image = null;
                 button.Text = null;
             }
@@ -349,14 +387,14 @@ namespace UlearnGame.Visual
             ToCharacterButton.BringToFront();
         }
 
-        private void StartGenerationTimer()
+        private async void StartGenerationTimer()
         {
             var thread = new Thread(() =>
             {
                 while (ProgramInitials.ApplicationInProccess)
                 {
-                    BeginInvoke(new Action(() => GameTimer.Text = Game.FieldUpdateRate.ToString()));
-                    var count = Game.FieldUpdateRate;
+                    var count = Game.FieldUpdateRate > 0 ? Game.FieldUpdateRate : 1;
+                    BeginInvoke(new Action(() => GameTimer.Text = count.ToString()));
                     while (count > 0)
                     {
                         if (!ProgramInitials.ApplicationInProccess)
@@ -367,13 +405,16 @@ namespace UlearnGame.Visual
                     }
                     if (!ProgramInitials.ApplicationInProccess)
                         break;
-                    var field = Game.Field.GenerateResource();
-                    if (field != null)
+                    for (var i = 0; i < Game.Field.GenerationTimes; i++)
                     {
-                        var cell = (int)field;
-                        var capacity = Game.Field.Field[cell].StartCapacity.ToString();
-                        BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.Field[cell].ImagePath));
-                        BeginInvoke(new Action(() => FieldButtons[cell].Text = capacity + "/" + capacity));
+                        var field = Game.Field.GenerateResource();
+                        if (field != null)
+                        {
+                            var cell = (int)field;
+                            var capacity = Game.Field.Field[cell].StartCapacity.ToString();
+                            BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.Field[cell].ImagePath));
+                            BeginInvoke(new Action(() => FieldButtons[cell].Text = capacity + "/" + capacity));
+                        }
                     }
                 }
             });

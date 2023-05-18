@@ -11,14 +11,14 @@ namespace UlearnGame.Model.Objects
     public class Slime : GameObject
     {
         private static int SlimeCapicty = 20;
-        private static double SlimeExperience = 12;
+        private static double SlimeExperience = 10;
 
         private Resource[] resourcesDrop => GenerateResources();
         public Slime(Game game)
         {
             Game = game;
             ResourceRandomCapFirst = 4;
-            StartCapacity = SlimeCapicty * CapacityHardnessMultiplier;
+            StartCapacity = SlimeCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Slime;
             ResourcesDrop = resourcesDrop;
@@ -28,7 +28,7 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[1]
             {
-                new SlimeDrop() { Amount = resourcesRandom.Next(Game.ResourceLowCap + 2, ResourceRandomCapFirst + 1) }
+                new SlimeDrop() { Amount = resourcesRandom.Next(2, ResourceRandomCapFirst + 1) + Game.ResourceBonus }
             };
         }
 
@@ -39,7 +39,7 @@ namespace UlearnGame.Model.Objects
 
         public override void GainExperience()
         {
-            Game.AddExperience(SlimeExperience * ExperienceMultiplier);
+            Game.AddExperience(SlimeExperience * Game.ExperienceMultiplier);
         }
     }
 }

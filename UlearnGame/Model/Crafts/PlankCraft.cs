@@ -9,7 +9,7 @@ namespace UlearnGame.Model.Crafts
 {
     public class PlankCraft : Craft
     {
-        public PlankCraft()
+        public PlankCraft(Game game) : base(game)
         {
             CraftTimes = 0;
             IsCraftableManyTime = true;

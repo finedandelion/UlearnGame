@@ -82,7 +82,7 @@ namespace UlearnGame.Visual
                 Height = 325,
                 BackgroundImage = Texture.UpgradeDescription,
                 Visible = false,
-                TextAlign = ContentAlignment.MiddleLeft,
+                TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = Color.White,
                 Font = new Font(string.Empty, 16, FontStyle.Bold),
             };
@@ -182,7 +182,7 @@ namespace UlearnGame.Visual
                 Height = 100,
                 BackgroundImage = Texture.ExperienceBar,
                 TextAlign = ContentAlignment.MiddleCenter,
-                ForeColor = ProgramInitials.GetHtmlColor("#F4B41B"),
+                ForeColor = ProgramInitials.GetHtmlColor("#F7AC37"),
                 Font = new Font(string.Empty, 24, FontStyle.Bold),
                 Text = $"Ур. {Game.Level + 1} | Очков доступно: {Game.UpgradeSystem.AvailableUpgradePoints} / {Game.Level}"
             };
@@ -200,7 +200,7 @@ namespace UlearnGame.Visual
                 Height = 114,
                 BackgroundImage = Texture.UpperNamePanel,
                 TextAlign = ContentAlignment.MiddleCenter,
-                ForeColor = ProgramInitials.GetHtmlColor("#CFC6B8"),
+                ForeColor = Color.White,
                 Font = new Font(String.Empty, 48, FontStyle.Bold),
                 Text = "НАВЫКИ"
             };
@@ -241,7 +241,20 @@ namespace UlearnGame.Visual
                     if (index == 5)
                     {
                         var preset = ProgramInitials.MainScreenForm.FieldButtonPositionPreset2;
-                        ProgramInitials.MainScreenForm.SetFieldButtons(preset);
+                        var preset2 = ProgramInitials.MainScreenForm.CustomizeFieldButtonPreset1;
+                        ProgramInitials.MainScreenForm.SetFieldButtons(preset, preset2);
+                    }
+                    if (index == 6)
+                    {
+                        var preset = ProgramInitials.MainScreenForm.FieldButtonPositionPreset3;
+                        var preset2 = ProgramInitials.MainScreenForm.CustomizeFieldButtonPreset2;
+                        ProgramInitials.MainScreenForm.SetFieldButtons(preset, preset2);
+                    }
+                    if (index == 9)
+                    {
+                        var preset = ProgramInitials.MainScreenForm.FieldButtonPositionPreset4;
+                        var preset2 = ProgramInitials.MainScreenForm.CustomizeFieldButtonPreset2;
+                        ProgramInitials.MainScreenForm.SetFieldButtons(preset, preset2);
                     }
                     AcceptButtons[index].BackgroundImage = Texture.AcceptUpgradeButton;
                     AcceptButtons[index].Enabled = false;
@@ -359,10 +372,10 @@ namespace UlearnGame.Visual
                 Location = new Point(1350, 903),
                 Width = 308,
                 Height = 116,
-                BackgroundImage = Texture.BackButton,
+                BackgroundImage = Texture.DefaultButton,
                 Text = "Назад",
                 TextAlign = ContentAlignment.MiddleCenter,
-                ForeColor = ProgramInitials.GetHtmlColor("#CFC6B8"),
+                ForeColor = Color.White,
                 Font = new Font(String.Empty, 32, FontStyle.Bold)
             };
             backButton.Click += (sender, eventArgs) =>

@@ -1,4 +1,5 @@
 ﻿
+using System.Data.SqlTypes;
 using UlearnGame.Model;
 using UlearnGame.Model.Resources;
 
@@ -15,7 +16,9 @@ namespace UlearnGame.Visual
         private Label SelectedItemName;
         private Label SelectedItemDescription;
         private Button BackInventoryButton;
-        private Button[] InventoryButtons = new Button[20];
+        private Button LeftSwitch;
+        private Button RightSwitch;
+        private Button[] InventoryButtons = new Button[40];
 
         private Game Game { get; set; }
 
@@ -57,6 +60,7 @@ namespace UlearnGame.Visual
         {
             SetUpperNamePanel();
             SetInventoryButtons();
+            SetInventorySwitchers();
             var invenoryPanel = new PictureBox()
             {
                 Location = new Point(57, 32),
@@ -69,6 +73,58 @@ namespace UlearnGame.Visual
             Controls.Add(InventoryPanel);
         }
 
+        private void SetInventorySwitchers()
+        {
+            SetRightSwitch();
+            SetLeftSwitch();
+        }
+
+        private void SetRightSwitch()
+        {
+            var button = new Button()
+            {
+                Location = new Point(939, 964),
+                Width = 50,
+                Height = 50,
+                BackgroundImage = Texture.RightSwitch,
+            };
+            button.Click += (sender, eventArgs) =>
+            {
+                for(var i = 0; i < InventoryButtons.Length; i++)
+                {
+                    if (i < 20)
+                        InventoryButtons[i].Visible = false;
+                    else
+                        InventoryButtons[i].Visible = true;
+                }
+            };
+            RightSwitch = button;
+            Controls.Add(RightSwitch);
+        }
+
+        private void SetLeftSwitch()
+        {
+            var button = new Button()
+            {
+                Location = new Point(872, 964),
+                Width = 50,
+                Height = 50,
+                BackgroundImage = Texture.LeftSwitch,
+            };
+            button.Click += (sender, eventArgs) =>
+            {
+                for (var i = 0; i < InventoryButtons.Length; i++)
+                {
+                    if (i >= 20)
+                        InventoryButtons[i].Visible = false;
+                    else
+                        InventoryButtons[i].Visible = true;
+                }
+            };
+            LeftSwitch = button;
+            Controls.Add(LeftSwitch);
+        }
+
         private void SetUpperNamePanel()
         {
             var namePanel = new Label()
@@ -78,7 +134,7 @@ namespace UlearnGame.Visual
                 Height = 114,
                 BackgroundImage = Texture.UpperNamePanel,
                 TextAlign = ContentAlignment.MiddleCenter,
-                ForeColor = ProgramInitials.GetHtmlColor("#CFC6B8"),
+                ForeColor = Color.White,
                 Font = new Font(String.Empty, 48, FontStyle.Bold),
                 Text = "ИНВЕНТАРЬ"
             };
@@ -107,12 +163,12 @@ namespace UlearnGame.Visual
             var backButton = new Button()
             {
                 Location = new Point(1383, 931),
-                BackgroundImage = Texture.BackButton,
+                BackgroundImage = Texture.DefaultButton,
                 Width = 308,
                 Height = 116,
                 Text = "Назад",
                 TextAlign = ContentAlignment.MiddleCenter,
-                ForeColor = ProgramInitials.GetHtmlColor("#CFC6B8"),
+                ForeColor = Color.White,
                 Font = new Font(String.Empty, 32, FontStyle.Bold),
             };
             backButton.Click += (sender, eventArgs) =>
@@ -201,10 +257,12 @@ namespace UlearnGame.Visual
         {
             button.Size = new Size(157, 157);
             button.BackgroundImage = Texture.CellButton;
-            button.Location = SetInventoryButtonPosition(index, 157);
+            button.Location = SetInventoryButtonPosition(index % 20, 157);
             button.TextAlign = ContentAlignment.BottomRight;
             button.ForeColor = Color.White;
             button.Font = new Font(string.Empty, 16, FontStyle.Bold);
+            if (index >= 20)
+                button.Visible = false;
         }
 
         private Point SetInventoryButtonPosition(int number, int buttonSize)

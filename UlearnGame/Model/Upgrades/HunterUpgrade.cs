@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Upgrades
 {
@@ -13,12 +14,18 @@ namespace UlearnGame.Model.Upgrades
             IsObtained = false;
             Game = game;
             Previous = previous;
+            ImagePath1 = Texture.HunterIcon;
+            ImagePath2 = Texture.HunterIcon2;
+            Title = "ОХОТНИК";
+            Description = "Живые существа заполняют ваши просторы.\n" +
+                "На поле появляются слизни и олени.\n";
         }
 
         public override void ObtainUpgrade()
         {
             if (!IsObtained)
             {
+                Game.Field.HunterUpgrade();
                 IsObtained = true;
             }
         }

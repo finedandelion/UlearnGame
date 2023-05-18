@@ -11,15 +11,19 @@ namespace UlearnGame.Model
 {
     public class GameField
     {
-        private Random Random = new Random();
         private Dictionary<int, Func<GameObject>> Generation;
+        private int DoubledGeneration;
+
         public Dictionary<int, GameObject?> Field { get; private set; }
         public int FieldCap { get { return Field.Count - 1; } }
+        public double DoubleGenrationChances { get; private set; }
 
+        public int GenerationTimes => (new Random().NextDouble() < DoubleGenrationChances ? 2 : 1) * DoubledGeneration;
         private Game Game { get; set; }
         public GameField(Game game, int startResources)
         {
             Game = game;
+            DoubledGeneration = 1;
             Field = new Dictionary<int, GameObject?>()
             {
                 { 0, null},
@@ -42,8 +46,8 @@ namespace UlearnGame.Model
             if (Field.Values.Any(value => value == null))
             {
                 var empties = Field.Keys.Where(key => Field[key] == null).ToArray();
-                var fieldCell = Random.Next(0, empties.Length);
-                var gameObejct = Random.Next(0, Generation.Count);
+                var fieldCell = new Random().Next(0, empties.Length);
+                var gameObejct = new Random().Next(0, Generation.Count);
                 Field[empties[fieldCell]] = Generation[gameObejct].Invoke();
                 return empties[fieldCell];
             }
@@ -55,13 +59,18 @@ namespace UlearnGame.Model
             var gameObject = Field[fieldCell];
             if (gameObject != null)
             {
+                Game.UpdateTotalClicks();
                 if (gameObject.Capacity - Game.ClickPower > 0)
                     gameObject.ChangeState();
                 else
                 {
+                    var drop = gameObject.ResourcesDrop;
                     gameObject.GainExperience();
-                    game.Inventory.AddItem(gameObject.ResourcesDrop);
+                    game.Inventory.AddItem(drop);
                     RemoveObject(fieldCell);
+                    foreach (var res in drop)
+                        Game.UpdateTotalResourcesDrop(res.Amount);
+                    Game.UpdateTotalObjectDestruction();
                     return true;
                 }
             }
@@ -79,6 +88,11 @@ namespace UlearnGame.Model
             Field[fieldCell] = null;
         }
 
+        public void ChangeDoubleGenerationChance(double value)
+        {
+            DoubleGenrationChances += value;
+        }
+
         public void GathererUpgrade()
         {
             Generation.Add(Generation.Count, new Func<GameObject>(() => new Bush(Game)));
@@ -88,6 +102,7 @@ namespace UlearnGame.Model
         public void AdventurerUpgrade()
         {
             ExtendField(2);
+            ChangeDoubleGenerationChance(0.1);
             Generation.Add(Generation.Count, new Func<GameObject>(() => new Iron(Game)));
             Generation.Add(Generation.Count, new Func<GameObject>(() => new Gold(Game)));
             Generation.Add(Generation.Count, new Func<GameObject>(() => new Coal(Game)));
@@ -96,27 +111,46 @@ namespace UlearnGame.Model
         
         public void ArcheologistUpgrade()
         {
-            
+            ExtendField(3);
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Sandstone(Game)));
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Remains(Game)));
+        }
+
+        public void ExplorerUpgrade()
+        {
+            ExtendField(3);
         }
 
         public void HunterUpgrade()
         {
-
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Slime(Game)));
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Deer(Game)));
         }
 
         public void SpelunkerUpgrade()
         {
-
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Bat(Game)));
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Crystal(Game)));
         }
 
         public void MagicianUpgrade()
         {
-
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Star(Game)));
         }
 
         public void PriestUpgrade()
         {
 
+        }
+
+        public void FormerUpgrade()
+        {
+            SetDoubledGeneration();
+        }
+
+        private void SetDoubledGeneration()
+        {
+            DoubledGeneration++;
         }
     }
 }

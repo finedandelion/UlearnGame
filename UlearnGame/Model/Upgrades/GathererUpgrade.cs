@@ -17,15 +17,17 @@ namespace UlearnGame.Model.Upgrades
             ImagePath1 = Texture.GathererIcon;
             ImagePath2 = Texture.GathererIcon2;
             Title = "СОБИРАТЕЛЬ";
-            Description = "Вы восстанавливаете связь с природой. На поле появляются кусты и цветы. Даёт возможность" +
-                " создавать мешок, повышающий кол-во собранных ресурсов.";
-    }
+            Description = "Вы восстанавливаете связь с природой.\n" +
+                "На поле появляются кусты и цветы.\n" +
+                "-1c Таймера.";
+        }
 
         public override void ObtainUpgrade()
         {
             if (!IsObtained)
             {
                 Game.Field.GathererUpgrade();
+                Game.ChangeFieldUpdateRate(-1);
                 IsObtained = true;
             }
         }

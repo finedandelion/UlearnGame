@@ -9,7 +9,7 @@ using UlearnGame.Model.Resources;
 
 namespace UlearnGame.Model
 {
-    public class CraftStation
+    public class CraftSystem
     {
         private List<Craft> craftCollection;
         public List<Craft> Crafts => craftCollection;
@@ -17,16 +17,16 @@ namespace UlearnGame.Model
 
         private Game Game { get; set; }
 
-        public CraftStation(Game game)
+        public CraftSystem(Game game)
         {
             Game = game;
             craftCollection = new List<Craft>()
             {
-                new PlankCraft(),
-                new SharpenedRockCraft(),
-                new BowlCraft(),
-                new SaladCraft(),
-                new DullTotemCraft(),
+                new PlankCraft(game),
+                new SharpenedRockCraft(game),
+                new BowlCraft(game),
+                new SaladCraft(game),
+                new DullTotemCraft(game),
             };
         }
 
@@ -40,6 +40,8 @@ namespace UlearnGame.Model
                     inventory.UseItem(resourceCraft);
                 inventory.AddItem(new Resource[1] { craft.CraftResult });
                 craft.CraftTimes++;
+                Game.UpdateTotalCrafts();
+                Game.UpdateTotalResourcesCraft(craft.CraftResult.Amount);
             }
         }
     }

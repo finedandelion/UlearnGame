@@ -27,6 +27,11 @@ namespace UlearnGame.Model
                 new BowlCraft(game),
                 new SaladCraft(game),
                 new DullTotemCraft(game),
+                new DishCraft(game),
+                new RopeCraft(game),
+                new HardenedRopeCraft(game),
+                new NecklaceCraft(game),
+                new FilledTotemCraft(game),
             };
         }
 

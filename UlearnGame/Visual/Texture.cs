@@ -129,6 +129,19 @@ namespace UlearnGame.Visual
         public static readonly Image Bone2 = GetImage("SelectedBone.png");
         public static readonly Image Meat = GetImage("Meat.png");
         public static readonly Image Meat2 = GetImage("SelectedMeat.png");
+        public static readonly Image Rope = GetImage("Rope.png");
+        public static readonly Image Rope2 = GetImage("SelectedRope.png");
+        public static readonly Image HardenedRope = GetImage("HardenedRope.png");
+        public static readonly Image HardenedRope2 = GetImage("SelectedHardenedRope.png");
+        public static readonly Image Necklace = GetImage("Necklace.png");
+        public static readonly Image Necklace2 = GetImage("SelectedNecklace.png");
+        public static readonly Image FilledTotem = GetImage("FilledTotem.png");
+        public static readonly Image FilledTotem2 = GetImage("SelectedFilledTotem.png");
+        public static readonly Image Dish = GetImage("Dish.png");
+        public static readonly Image Dish2 = GetImage("SelectedDish.png");
+        public static readonly Image FilledCrystal = GetImage("FilledCrystal.png");
+        public static readonly Image FilledCrystal2 = GetImage("SelectedFilledCrystal.png");
+
 
         public static readonly Image GathererIcon = GetImage("GathererIcon.png");
         public static readonly Image GathererIcon2 = GetImage("SelectedGathererIcon.png");
@@ -148,6 +161,13 @@ namespace UlearnGame.Visual
         public static readonly Image PriestIcon2 = GetImage("SelectedPriestIcon.png");
         public static readonly Image CraftsmanIcon = GetImage("CraftsmanIcon.png");
         public static readonly Image CraftsmanIcon2 = GetImage("SelectedCraftsmanIcon.png");
+        public static readonly Image Master1Icon = GetImage("Master1Icon.png");
+        public static readonly Image Master1Icon2 = GetImage("SelectedMaster1Icon.png");
+        public static readonly Image Master2Icon = GetImage("Master2Icon.png");
+        public static readonly Image Master2Icon2 = GetImage("SelectedMaster2Icon.png");
+        public static readonly Image Master3Icon = GetImage("Master3Icon.png");
+        public static readonly Image Master3Icon2 = GetImage("SelectedMaster3Icon.png");
+
 
         private static Image GetImage(string imageName)
         {

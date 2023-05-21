@@ -18,7 +18,7 @@ namespace UlearnGame.Model.Objects
             Game = game;
             ResourceRandomCapFirst = 5;
             ResourceRandomCapSecond = 3;
-            StartCapacity = DeerCapicty * Game.CapacityHardnessMultiplier;
+            StartCapacity = DeerCapicty;
             Capacity = StartCapacity;
             ImagePath = Texture.Deer;
             ResourcesDrop = resourcesDrop;

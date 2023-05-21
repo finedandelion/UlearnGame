@@ -42,7 +42,7 @@ namespace UlearnGame.Visual
                 $"  ПОДНОШЕНИЙ ВСЕГО: {Game.TotalAscendingTimes} / 8 раз.\n" +
                 $"  МНОЖИТЕЛЬ ПРОЧНОСТИ: x{Game.CapacityHardnessMultiplier}\n" +
                 $"  МНОЖИТЕЛЬ ОПЫТА: x{Game.ExperienceMultiplier}\n" +
-                $"  ВЕР. ДОП. ОБЪЕКТА: {Game.Field.DoubleGenrationChances * 100}%\n" +
+                $"  ШАНС ДОП. ОБЪЕКТА: {Game.Field.DoubleGenrationChances * 100}%\n" +
                 $"  ТАЙМЕР: {Game.FieldUpdateRate} сек.\n" +
                 $"  ";
             CharacterTitle.Text = Game.UpgradeSystem.Titles[Game.Level];

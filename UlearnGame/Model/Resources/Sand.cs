@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Resources
     {
         public Sand()
         {
-            Name = "Песок";
+            Name = "ПЕСОК";
             Description = "Однажды всё обратится в пыль. А пока можно строить песочные замки!";
             ImagePath = Texture.Sand;
             ImagePath2 = Texture.Sand2;

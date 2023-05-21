@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Resources
     {
         public Bone()
         {
-            Name = "Кость";
+            Name = "КОСТЬ";
             Description = "Люди считают убийство диКОСТЬю. Однако это правила природы.";
             ImagePath = Texture.Bone;
             ImagePath2 = Texture.Bone2;

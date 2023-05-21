@@ -28,6 +28,29 @@ namespace UlearnGame.Visual
             SetFormBaseParameteres();
             InitializeInventoryScreen();
         }
+
+        public void ShowResourcesInInvetory(Resource[] storage)
+        {
+            for (var i = 0; i < storage.Length; i++)
+            {
+                var index = i;
+                var button = InventoryButtons[index];
+                button.BackgroundImage = Texture.CellButton2;
+                button.Image = storage[index].ImagePath;
+                button.Text = "x" + storage[index].Amount.ToString();
+                button.Click += (sender, eventArgs) =>
+                {
+                    SelectedItemName.Text = storage[index].Name;
+                    SelectedItemDescription.Text = storage[index].Description;
+                    SelectedItemImage.Image = storage[index].ImagePath2;
+                    SelectedItemImage.Controls[0].Text = "x" + storage[index].Amount.ToString();
+                    SelectedItemName.Visible = true;
+                    SelectedItemDescription.Visible = true;
+                    SelectedItemImage.Visible = true;
+                };
+            }
+        }
+
         private void InitializeInventoryScreen()
         {
             SetInventoryPanel();
@@ -272,28 +295,6 @@ namespace UlearnGame.Visual
             var xpos = 100 + (buttonSize + 26) * xposOffset;
             var ypos = 235 + (buttonSize + 26) * yposOffset;
             return new Point(xpos, ypos);
-        }
-
-        public void ShowResourcesInInvetory(Resource[] storage)
-        {
-            for (var i = 0; i < storage.Length; i++)
-            {
-                var index = i;
-                var button = InventoryButtons[index];
-                button.BackgroundImage = Texture.CellButton2;
-                button.Image = storage[index].ImagePath;
-                button.Text = "x" + storage[index].Amount.ToString();
-                button.Click += (sender, eventArgs) =>
-                {
-                    SelectedItemName.Text = storage[index].Name;
-                    SelectedItemDescription.Text = storage[index].Description;
-                    SelectedItemImage.Image = storage[index].ImagePath2;
-                    SelectedItemImage.Controls[0].Text = "x" + storage[index].Amount.ToString();
-                    SelectedItemName.Visible = true;
-                    SelectedItemDescription.Visible = true;
-                    SelectedItemImage.Visible = true;
-                };
-            }
         }
 
         private void ResetInventory(Resource[] storage)

@@ -14,8 +14,8 @@ namespace UlearnGame.Model
         private Dictionary<int, Func<GameObject>> Generation;
         private int DoubledGeneration;
 
-        public Dictionary<int, GameObject?> Field { get; private set; }
-        public int FieldCap { get { return Field.Count - 1; } }
+        public Dictionary<int, GameObject?> GameCells { get; private set; }
+        public int FieldCap { get { return GameCells.Count - 1; } }
         public double DoubleGenrationChances { get; private set; }
 
         public int GenerationTimes => (new Random().NextDouble() < DoubleGenrationChances ? 2 : 1) * DoubledGeneration;
@@ -24,7 +24,7 @@ namespace UlearnGame.Model
         {
             Game = game;
             DoubledGeneration = 1;
-            Field = new Dictionary<int, GameObject?>()
+            GameCells = new Dictionary<int, GameObject?>()
             {
                 { 0, null},
                 { 1, null},
@@ -35,28 +35,34 @@ namespace UlearnGame.Model
             {
                 { 0, new Func<GameObject>(() => new Tree(Game))},
                 { 1, new Func<GameObject>(() => new Stone(Game))},
-                //{ 2, new Func<GameObject>(() => new Slime(Game))},
             };
             while (startResources-- > 0)
                 GenerateResource();
         }
 
-        public int? GenerateResource()
+        public int?[] GenerateResource()
         {
-            if (Field.Values.Any(value => value == null))
+            var generationTimes = GenerationTimes;
+            var indexes = new int?[generationTimes];
+            for (var i = 0; i < generationTimes; i++)
             {
-                var empties = Field.Keys.Where(key => Field[key] == null).ToArray();
-                var fieldCell = new Random().Next(0, empties.Length);
-                var gameObejct = new Random().Next(0, Generation.Count);
-                Field[empties[fieldCell]] = Generation[gameObejct].Invoke();
-                return empties[fieldCell];
+                if (GameCells.Values.Any(value => value == null))
+                {
+                    var empties = GameCells.Keys.Where(key => GameCells[key] == null).ToArray();
+                    var fieldCell = new Random().Next(0, empties.Length);
+                    var gameObejct = new Random().Next(0, Generation.Count);
+                    GameCells[empties[fieldCell]] = Generation[gameObejct].Invoke();
+                    indexes[i] = empties[fieldCell];
+                }
+                else
+                    indexes[i] = null;
             }
-            return null;
+            return indexes;
         }
 
-        public bool UpdateObjectState(int fieldCell, Game game)
+        public bool UpdateObjectState(int fieldCell)
         {
-            var gameObject = Field[fieldCell];
+            var gameObject = GameCells[fieldCell];
             if (gameObject != null)
             {
                 Game.UpdateTotalClicks();
@@ -66,7 +72,7 @@ namespace UlearnGame.Model
                 {
                     var drop = gameObject.ResourcesDrop;
                     gameObject.GainExperience();
-                    game.Inventory.AddItem(drop);
+                    Game.Inventory.AddItem(drop);
                     RemoveObject(fieldCell);
                     foreach (var res in drop)
                         Game.UpdateTotalResourcesDrop(res.Amount);
@@ -80,12 +86,12 @@ namespace UlearnGame.Model
         public void ExtendField(int extendTimes)
         {
             while (extendTimes-- > 0)
-                Field.Add(FieldCap + 1, null);
+                GameCells.Add(FieldCap + 1, null);
         }
 
         private void RemoveObject(int fieldCell)
         {
-            Field[fieldCell] = null;
+            GameCells[fieldCell] = null;
         }
 
         public void ChangeDoubleGenerationChance(double value)

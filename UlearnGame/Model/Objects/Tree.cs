@@ -12,7 +12,7 @@ namespace UlearnGame.Model.Objects
     public class Tree : GameObject, IObject
     {
         private static int TreeCapicty = 10;
-        private static double TreeExperience = 700;
+        private static double TreeExperience = 7;
 
         private Resource[] resourcesDrop => GenerateResources();
         public Tree(Game game)

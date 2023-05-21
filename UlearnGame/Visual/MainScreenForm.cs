@@ -340,7 +340,7 @@ namespace UlearnGame.Visual
 
         private void UpdateFieldButtons(Func<int, int, Point> SetFieldButtonPosition)
         {
-            var field = Game.Field.Field;
+            var field = Game.Field.GameCells;
             for (var i = 0; i < Game.Field.FieldCap + 1; i++)
             {
                 var index = i;
@@ -364,17 +364,17 @@ namespace UlearnGame.Visual
         private void FieldButtonClick(object sender, EventArgs e, int fieldCell)
         {
             var button = sender as Button;
-            if (Game.Field.UpdateObjectState(fieldCell, Game))
+            if (Game.Field.UpdateObjectState(fieldCell))
             {
                 var exp = (int)Game.Experience;
                 GameExperienceBar.Text = $"Ур. {Game.Level + 1} | Опыт: {exp} / {Game.LevelExperienceCap}";
                 button.Image = null;
                 button.Text = null;
             }
-            else if (Game.Field.Field[fieldCell] != null)
+            else if (Game.Field.GameCells[fieldCell] != null)
             {
-                var capacity = Game.Field.Field[fieldCell].Capacity.ToString();
-                var startCap = Game.Field.Field[fieldCell].StartCapacity.ToString();
+                var capacity = Game.Field.GameCells[fieldCell].Capacity.ToString();
+                var startCap = Game.Field.GameCells[fieldCell].StartCapacity.ToString();
                 button.Text = capacity + "/" + startCap;
             }
         }
@@ -405,14 +405,15 @@ namespace UlearnGame.Visual
                     }
                     if (!ProgramInitials.ApplicationInProccess)
                         break;
-                    for (var i = 0; i < Game.Field.GenerationTimes; i++)
-                    {
+                    
                         var field = Game.Field.GenerateResource();
-                        if (field != null)
+                    foreach(var nullableCell in field)
+                    {
+                        if (nullableCell != null)
                         {
-                            var cell = (int)field;
-                            var capacity = Game.Field.Field[cell].StartCapacity.ToString();
-                            BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.Field[cell].ImagePath));
+                            var cell = (int) nullableCell;
+                            var capacity = Game.Field.GameCells[cell].StartCapacity.ToString();
+                            BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.GameCells[cell].ImagePath));
                             BeginInvoke(new Action(() => FieldButtons[cell].Text = capacity + "/" + capacity));
                         }
                     }

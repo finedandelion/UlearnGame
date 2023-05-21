@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Resources
     {
         public Meat() 
         {
-            Name = "Мясо";
+            Name = "МЯСО";
             Description = "Что-то заставляет тебя почувстовать голод. Духи. Не. Голодают.";
             ImagePath = Texture.Meat;
             ImagePath2 = Texture.Meat2;

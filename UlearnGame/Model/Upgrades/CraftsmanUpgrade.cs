@@ -18,8 +18,8 @@ namespace UlearnGame.Model.Upgrades
             ImagePath2 = Texture.CraftsmanIcon2;
             Title = "РЕМЕСЛЕННИК";
             Description = "Владение инструментом — большое искусство.\n" +
-                "Сила клика увеличивается на +1.\n" +
-                "Некоторые крафты становятся проще.\n";
+                "Некоторые крафты становятся проще.\n" +
+                "Вы получаете небольшой набор ресурсов.\n";
         }
 
         public override void ObtainUpgrade()

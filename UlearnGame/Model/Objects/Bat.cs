@@ -18,7 +18,7 @@ namespace UlearnGame.Model.Objects
             Game = game;
             ResourceRandomCapFirst = 3;
             ResourceRandomCapSecond = 5;
-            StartCapacity = BatCapicty * Game.CapacityHardnessMultiplier;
+            StartCapacity = BatCapicty;
             Capacity = StartCapacity;
             ImagePath = Texture.Bat;
             ResourcesDrop = resourcesDrop;

@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Resources
     {
         public Essence()
         {
-            Name = "Эссенция";
+            Name = "ЭССЕНЦИЯ";
             Description = "Всякое существо обладает дающей жизнь энергией.";
             ImagePath = Texture.Essence;
             ImagePath2 = Texture.Essence2;

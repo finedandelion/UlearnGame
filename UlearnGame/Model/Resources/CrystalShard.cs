@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Resources
     {
         public CrystalShard()
         {
-            Name = "Кристалл";
+            Name = "КРИСТАЛЛ";
             Description = "Кристаллы считаются мощными сосудами для хранения жизненной энергии.";
             ImagePath = Texture.CrystalShard;
             ImagePath2 = Texture.CrystalShard2;

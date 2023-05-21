@@ -18,7 +18,7 @@ namespace UlearnGame.Model.Objects
         {
             Game = game;
             ResourceRandomCapFirst = 4;
-            StartCapacity = SlimeCapicty * Game.CapacityHardnessMultiplier;
+            StartCapacity = SlimeCapicty;
             Capacity = StartCapacity;
             ImagePath = Texture.Slime;
             ResourcesDrop = resourcesDrop;

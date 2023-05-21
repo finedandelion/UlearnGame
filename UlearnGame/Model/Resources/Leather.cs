@@ -11,8 +11,8 @@ namespace UlearnGame.Model.Resources
     {
         public Leather()
         {
-            Name = "Кожа";
-            Description = "Ай.";
+            Name = "КОЖА";
+            Description = "Ты убийца. Серьёзно.";
             ImagePath = Texture.Leather;
             ImagePath2 = Texture.Leather2;
         }

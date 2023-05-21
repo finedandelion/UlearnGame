@@ -253,6 +253,7 @@ namespace UlearnGame.Visual
             ascendButton.Click += (sender, eventArgs) =>
             {   
                 ChangeVisibilityState(true);
+                
             };
             AscendButton = ascendButton;
             Controls.Add(AscendButton);
@@ -319,7 +320,7 @@ namespace UlearnGame.Visual
             Game.AscendingSystem.Ascend();
             ChangeVisibilityState(false);
             ChangeBlessingChoiceButtons();
-            ShowOffering();
+            UpdateTotemForm();
         }
     }
 }

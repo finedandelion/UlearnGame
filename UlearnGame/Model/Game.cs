@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UlearnGame.Model.Objects;
+using UlearnGame.Model.Resources;
 
 namespace UlearnGame.Model
 {
@@ -33,12 +34,15 @@ namespace UlearnGame.Model
         public double CapacityHardnessMultiplier { get; private set; }
         public double ExperienceMultiplier { get; private set; }
 
+        public int MonsterAdditionalCapacity { get; private set; }
+        public int MonsterAdditionalResource { get; private set; }
+
         public int FirstCraftSimplifier { get; private set; }
         public Game()
         {
             ClickPower = 1;
-            FieldUpdateRate = 10;
-            LevelExperienceCap = 120;
+            FieldUpdateRate = 2;
+            LevelExperienceCap = 80;
             CapacityHardnessMultiplier = 1;
             ExperienceMultiplier = 1;
             Field = new GameField(this, 1);
@@ -113,10 +117,39 @@ namespace UlearnGame.Model
             EssenceDrop++;
         }
 
+        public void ChangeCapacityMultiplier()
+        {
+            CapacityHardnessMultiplier++;
+        }
+
+        public void UpdateClickPower()
+        {
+            ClickPower++;
+        }
+
+        public void MasterIUpgrade()
+        {
+            UpdateClickPower();
+            ChangeExperienceMultiplier(0.2);
+        }
+
+        public void ChangeMosterState(int capacityValue, int resourceValue)
+        {
+            MonsterAdditionalCapacity += capacityValue;
+            MonsterAdditionalResource += resourceValue;
+        }
+
         public void CraftsmanUpgradeChanges()
         {
             FirstCraftSimplifier++;
-            ClickPower++;
+            Inventory.AddItem(new Resource[]
+            { 
+                new Wood() { Amount = 10 },
+                new Rock() { Amount = 10 },
+                new Berries() { Amount = 30 },
+                new Petals() { Amount = 25 },
+                new Leaf() { Amount = 40 }
+            });
         }
     }
 }

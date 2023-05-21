@@ -17,8 +17,8 @@ namespace UlearnGame.Model
         private Resource[][] Offerings;
         public Blessing CurrentBlessing => Blessings[AscendLevel];
         public Resource[] CurrentResources => Offerings[AscendLevel];
-
-        private int AscendLevelCap => Blessings.Length;
+        public bool IsGameCompleted { get; private set; }
+        public int AscendLevelCap => Blessings.Length;
         private Game Game { get; set; }
         public AscendingSystem(Game game)
         {
@@ -31,17 +31,22 @@ namespace UlearnGame.Model
         {
             if (IsAscendable())
             {
-                AscendLevel++;
-                foreach (var resource in Offerings[AscendLevel])
+                foreach (var resource in CurrentResources)
                     Game.Inventory.UseItem(resource);
-                Game.UpdateTotalAscendingTimes();
+                if (AscendLevel == AscendLevelCap - 1)
+                    IsGameCompleted = true;
+                else
+                {
+                    AscendLevel++;
+                    Game.UpdateTotalAscendingTimes();
+                }
             }
         }
 
         public bool IsAscendable()
         {
             var storage = Game.Inventory.ReturnStorage();
-            return Offerings[AscendLevel].All(resource => storage.ContainsKey(resource.GetType())
+            return !IsGameCompleted && Offerings[AscendLevel].All(resource => storage.ContainsKey(resource.GetType())
                     && storage[resource.GetType()].Amount >= resource.Amount);
         }
 
@@ -51,11 +56,21 @@ namespace UlearnGame.Model
             {
                 new Resource[]
                 {
-                    new Wood() { Amount = 1 },
+                    new Wood() { Amount = 5 },
                 },
                 new Resource[]
                 {
-                    new Rock() { Amount = 1 },
+                    new DullTotem() { Amount = 3 },
+                },
+                new Resource[]
+                {
+                    new DullTotem() { Amount = 5 },
+                    new Salad() { Amount = 3 }
+                },
+                new Resource[]
+                {
+                    new DullTotem() { Amount = 5 },
+                    new Salad() { Amount = 3 }
                 },
             };
             return oferrings;
@@ -67,6 +82,7 @@ namespace UlearnGame.Model
             {
                 new FirstChoiceBlessing(Game),
                 new SecondChoiceBlessing(Game),
+                new ThirdChoiceBlessing(Game),
             };
             return ascendings;
         }

@@ -14,8 +14,8 @@ namespace UlearnGame.Model.Upgrades
             IsObtained = false;
             Game = game;
             Previous = previous;
-            ImagePath1 = Texture.GathererIcon;
-            ImagePath2 = Texture.GathererIcon2;
+            ImagePath1 = Texture.FormerIcon;
+            ImagePath2 = Texture.FormerIcon2;
             Title = "СОЗИДАТЕЛЬ";
             Description = "Вы познали способы владения природой.\n" +
                 "Кол-во появляемых придметов увеличено вдвое.\n";

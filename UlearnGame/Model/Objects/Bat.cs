@@ -11,16 +11,15 @@ namespace UlearnGame.Model.Objects
     public class Bat : GameObject
     {
         private static int BatCapicty = 30;
-        private static double BatExperience = 10;
+        private static double BatExperience = 9;
         private Resource[] resourcesDrop => GenerateResources();
         public Bat(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 3;
-            ResourceRandomCapSecond = 5;
-            StartCapacity = BatCapicty;
+            StartCapacity = BatCapicty + Game.MonsterAdditionalCapacity;
             Capacity = StartCapacity;
             ImagePath = Texture.Bat;
+            ImagePath2 = Texture.Bat2;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -28,8 +27,8 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[]
             {
-                new Leather() { Amount = resourcesRandom.Next(3, ResourceRandomCapSecond + 1) + Game.ResourceBonus},
-                new Meat() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) + Game.ResourceBonus},
+                new Leather() { Amount = resourcesRandom.Next(3, 6) + Game.ResourceBonus + Game.MonsterAdditionalResource},
+                new Meat() { Amount = resourcesRandom.Next(1, 4) + Game.ResourceBonus + Game.MonsterAdditionalResource},
                 new Essence { Amount = Game.EssenceDrop }
             };
         }

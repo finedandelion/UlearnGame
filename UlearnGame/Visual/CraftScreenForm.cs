@@ -18,8 +18,10 @@ namespace UlearnGame.Visual
         private Label RecipeResult;
         private Label RecipeDescription;
         private Button BackButton;
-        private Button[] AcceptButtons = new Button[20];
-        private Button[] CraftButtons = new Button[20];
+        private Button[] AcceptButtons = new Button[40];
+        private Button[] CraftButtons = new Button[40];
+        private Button RightSwitch;
+        private Button LeftSwitch;
 
         private Game Game { get; set; }
         public CraftScreenForm(Game game)
@@ -37,7 +39,7 @@ namespace UlearnGame.Visual
             Width = 1920;
             Height = 1080;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackgroundImage = Texture.BackGround;
+            BackgroundImage = Texture.Background;
             Name = "Essence of Gathering";
             Text = "Essence of Gathering";
             ResumeLayout(false);
@@ -183,6 +185,7 @@ namespace UlearnGame.Visual
 
         private void SetCraftPanel()
         {
+            SetCraftSwitchers();
             SetUpperNamePanel();
             SetCraftButtons();
             var craftPanel = new PictureBox()
@@ -195,6 +198,58 @@ namespace UlearnGame.Visual
             };
             CraftPanel = craftPanel;
             Controls.Add(CraftPanel);
+        }
+
+        private void SetCraftSwitchers()
+        {
+            SetRightSwitch();
+            SetLeftSwitch();
+        }
+
+        private void SetRightSwitch()
+        {
+            var button = new Button()
+            {
+                Location = new Point(1354, 964),
+                Width = 50,
+                Height = 50,
+                BackgroundImage = Texture.RightSwitch,
+            };
+            button.Click += (sender, eventArgs) =>
+            {
+                for (var i = 0; i < CraftButtons.Length; i++)
+                {
+                    if (i < 20)
+                        CraftButtons[i].Visible = false;
+                    else
+                        CraftButtons[i].Visible = true;
+                }
+            };
+            RightSwitch = button;
+            Controls.Add(RightSwitch);
+        }
+
+        private void SetLeftSwitch()
+        {
+            var button = new Button()
+            {
+                Location = new Point(1287, 964),
+                Width = 50,
+                Height = 50,
+                BackgroundImage = Texture.LeftSwitch,
+            };
+            button.Click += (sender, eventArgs) =>
+            {
+                for (var i = 0; i < CraftButtons.Length; i++)
+                {
+                    if (i >= 20)
+                        CraftButtons[i].Visible = false;
+                    else
+                        CraftButtons[i].Visible = true;
+                }
+            };
+            LeftSwitch = button;
+            Controls.Add(LeftSwitch);
         }
 
         private void SetUpperNamePanel()
@@ -229,8 +284,7 @@ namespace UlearnGame.Visual
             };
             backButton.Click += (sender, eventArgs) =>
             {
-                ProgramInitials.MainScreenForm.Show();
-                Hide();
+                ProgramInitials.ShowScreen("Main");
             };
             BackCraftButton = backButton;
             Controls.Add(BackCraftButton);
@@ -251,10 +305,12 @@ namespace UlearnGame.Visual
         {
             button.Size = new Size(157, 157);
             button.BackgroundImage = Texture.CraftCell;
-            button.Location = SetCraftButtonPosition(index, 157);
+            button.Location = SetCraftButtonPosition(index % 20, 157);
             button.TextAlign = ContentAlignment.BottomRight;
             button.ForeColor = Color.White;
             button.Font = new Font(string.Empty, 16, FontStyle.Bold);
+            if (index >= 20)
+                button.Visible = false;
         }
 
         private Point SetCraftButtonPosition(int number, int buttonSize)
@@ -302,7 +358,7 @@ namespace UlearnGame.Visual
             foreach (var item in RecipeItems)
                 item.Visible = !state;
             if (state)
-                foreach(var button in AcceptButtons)
+                foreach (var button in AcceptButtons)
                     button.Visible = !state;
             RecipeResult.Visible = !state;
             RecipePanel.Visible = !state;
@@ -310,6 +366,8 @@ namespace UlearnGame.Visual
             BackButton.Visible = !state;
             foreach (var button in CraftButtons)
                 button.Visible = state;
+            RightSwitch.Visible = state;
+            LeftSwitch.Visible = state;
             CraftPanel.Visible = state;
             BackCraftButton.Visible = state;
         }

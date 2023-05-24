@@ -11,8 +11,6 @@ namespace UlearnGame.Model.Crafts
     {
         public RopeCraft(Game game) : base(game)
         {
-            CraftTimes = 0;
-            IsCraftableManyTime = true;
             Description = "Обычно верёвку плетут из более крепких органических волокон, но местная флора не располагает подходящими растениям. " +
                 "Довольствуемся тем, что есть.";
         }

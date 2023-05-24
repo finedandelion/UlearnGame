@@ -47,7 +47,7 @@ namespace UlearnGame.Visual
             Width = 1920;
             Height = 1080;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackgroundImage = Texture.BackGround;
+            BackgroundImage = Texture.Background;
             Name = "Essence of Gathering";
             Text = "Essence of Gathering";
             ResumeLayout(false);
@@ -232,8 +232,7 @@ namespace UlearnGame.Visual
             };
             backButton.Click += (sender, eventArgs) =>
             {
-                ProgramInitials.MainScreenForm.Show();
-                Hide();
+                ProgramInitials.ShowScreen("Main");
             };
             BackButton = backButton;
             Controls.Add(BackButton);
@@ -272,13 +271,28 @@ namespace UlearnGame.Visual
         {
             var offering = Game.AscendingSystem.CurrentResources;
             var inventory = Game.Inventory;
+            if (!Game.AscendingSystem.IsGameCompleted)
+            {
+                for (var i = 0; i < offering.Length; i++)
+                {
+                    var index = i;
+                    var resource = offering[index];
+                    OfferingCells[index].Image = resource.ImagePath;
+                    OfferingCells[index].BackgroundImage = Texture.CraftCell2;
+                    OfferingCells[index].Text = inventory.AmountOf(resource).ToString() + " / " + resource.Amount.ToString();
+                }
+            }
+        }
+
+        private void ClearOffering()
+        {
+            var offering = Game.AscendingSystem.CurrentResources;
             for (var i = 0; i < offering.Length; i++)
             {
                 var index = i;
-                var resource = offering[index];
-                OfferingCells[index].Image = resource.ImagePath;
-                OfferingCells[index].BackgroundImage = Texture.CraftCell2;
-                OfferingCells[index].Text = inventory.AmountOf(resource).ToString() + " / " + resource.Amount.ToString();
+                OfferingCells[index].Image = null;
+                OfferingCells[index].BackgroundImage = Texture.CraftCell;
+                OfferingCells[index].Text = null;
             }
         }
 
@@ -317,7 +331,12 @@ namespace UlearnGame.Visual
         private void ChoiceButton_OnClick(Action blessingChanges)
         {
             blessingChanges();
+            ClearOffering();
             Game.AscendingSystem.Ascend();
+            if (Game.AscendingSystem.IsGameCompleted)
+            {
+                ProgramInitials.Screens["Finish"].Show();
+            }
             ChangeVisibilityState(false);
             ChangeBlessingChoiceButtons();
             UpdateTotemForm();

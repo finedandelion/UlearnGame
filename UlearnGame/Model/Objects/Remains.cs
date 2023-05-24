@@ -11,16 +11,15 @@ namespace UlearnGame.Model.Objects
     public class Remains : GameObject
     {
         private static int RemainsCapicty = 22;
-        private static double RemainsExperience = 10;
+        private static double RemainsExperience = 8;
         private Resource[] resourcesDrop => GenerateResources();
         public Remains(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 0;
-            ResourceRandomCapSecond = 11;
             StartCapacity = RemainsCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Remains;
+            ImagePath2 = Texture.Remains2;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -28,7 +27,7 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[]
             {
-                new Bone() { Amount = resourcesRandom.Next(4, ResourceRandomCapSecond + 1) + Game.ResourceBonus},
+                new Bone() { Amount = resourcesRandom.Next(4, 12) + Game.ResourceBonus},
                 new Essence() { Amount = Game.EssenceDrop }
             };
         }

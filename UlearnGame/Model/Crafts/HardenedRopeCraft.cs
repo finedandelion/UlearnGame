@@ -11,8 +11,6 @@ namespace UlearnGame.Model.Crafts
     {
         public HardenedRopeCraft(Game game) : base(game)
         {
-            CraftTimes = 0;
-            IsCraftableManyTime = true;
             Description = "";
         }
 
@@ -25,7 +23,7 @@ namespace UlearnGame.Model.Crafts
         {
             return new Resource[]
             {
-                new Rope() { Amount = 1 },
+                new Rope() { Amount = 2 },
                 new SlimeDrop() { Amount = 2 - ReduceCraft },
                 new CoalLump() { Amount = 1}
             };

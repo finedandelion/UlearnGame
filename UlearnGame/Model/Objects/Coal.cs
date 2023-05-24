@@ -11,24 +11,24 @@ namespace UlearnGame.Model.Objects
     public class Coal : GameObject
     {
         private static int CoalCapicty = 15;
-        private static double CoalExperience = 9;
+        private static double CoalExperience = 8;
         private Resource[] resourcesDrop => GenerateResources();
         public Coal(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 3;
             StartCapacity = CoalCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Coal;
+            ImagePath2 = Texture.Coal2;
             ResourcesDrop = resourcesDrop;
         }
 
         public override Resource[] GenerateResources()
         {
-            return new Resource[2]
+            return new Resource[]
             {
-                new Rock() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) + Game.ResourceBonus },
-                new CoalLump() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) + Game.ResourceBonus }
+                new Rock() { Amount = resourcesRandom.Next(1, 4) + Game.ResourceBonus },
+                new CoalLump() { Amount = resourcesRandom.Next(1, 4) + Game.ResourceBonus }
             };
         }
 

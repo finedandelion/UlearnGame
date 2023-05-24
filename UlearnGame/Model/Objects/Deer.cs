@@ -11,16 +11,15 @@ namespace UlearnGame.Model.Objects
     public class Deer : GameObject
     {
         private static int DeerCapicty = 24;
-        private static double DeerExperience = 10;
+        private static double DeerExperience = 9;
         private Resource[] resourcesDrop => GenerateResources();
         public Deer(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 5;
-            ResourceRandomCapSecond = 3;
-            StartCapacity = DeerCapicty;
+            StartCapacity = DeerCapicty + Game.MonsterAdditionalCapacity;
             Capacity = StartCapacity;
             ImagePath = Texture.Deer;
+            ImagePath2 = Texture.Deer2;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -28,9 +27,9 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[]
             {
-                new Bone() { Amount = resourcesRandom.Next(0, ResourceRandomCapSecond + 1) + Game.ResourceBonus},
-                new Meat() { Amount = resourcesRandom.Next(2, ResourceRandomCapFirst + 1) + Game.ResourceBonus},
-                new Leather() { Amount = resourcesRandom.Next(1, ResourceRandomCapSecond + 1) + Game.ResourceBonus},
+                new Bone() { Amount = resourcesRandom.Next(0, 4) + Game.ResourceBonus + Game.MonsterAdditionalResource},
+                new Meat() { Amount = resourcesRandom.Next(2, 6) + Game.ResourceBonus + Game.MonsterAdditionalResource},
+                new Leather() { Amount = resourcesRandom.Next(1, 4) + Game.ResourceBonus + Game.MonsterAdditionalResource},
                 new Essence() { Amount = Game.EssenceDrop }
             };
         }

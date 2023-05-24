@@ -57,7 +57,7 @@ namespace UlearnGame.Visual
             Width = 1920;
             Height = 1080;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackgroundImage = Texture.BackGround;
+            BackgroundImage = Texture.Background;
             Name = "Essence of Gathering";
             Text = "Essence of Gathering";
             ResumeLayout(false);
@@ -186,8 +186,7 @@ namespace UlearnGame.Visual
             };
             backButton.Click += (sender, eventArgs) =>
             {
-                ProgramInitials.MainScreenForm.Show();
-                Hide();
+                ProgramInitials.ShowScreen("Main");
             };
             BackButton = backButton;
             Controls.Add(BackButton);

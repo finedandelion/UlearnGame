@@ -11,16 +11,15 @@ namespace UlearnGame.Model.Objects
     public class Star : GameObject
     {
         private static int StarCapicty = 1;
-        private static double StarExperience = 20;
+        private static double StarExperience = 15;
         private Resource[] resourcesDrop => GenerateResources();
         public Star(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 0;
-            ResourceRandomCapSecond = 0;
             StartCapacity = StarCapicty;
             Capacity = StartCapacity;
             ImagePath = Texture.Star;
+            ImagePath2 = Texture.Star2;
             ResourcesDrop = resourcesDrop;
         }
 

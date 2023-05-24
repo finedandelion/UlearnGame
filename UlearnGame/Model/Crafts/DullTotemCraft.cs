@@ -11,8 +11,6 @@ namespace UlearnGame.Model.Crafts
     {
         public DullTotemCraft(Game game) : base(game)
         {
-            CraftTimes = 0;
-            IsCraftableManyTime = true;
             Description = "Вырезанная фигрука тотема, которую только предстоит наполнить жизненной энергией." +
                 " Издревле тотемы применялись для обращения к божествам.";
         }
@@ -24,7 +22,7 @@ namespace UlearnGame.Model.Crafts
 
         protected override Resource[] ReturnCraftResources()
         {
-            return new Resource[2]
+            return new Resource[]
             {
                 new Wood() { Amount = 3 - ReduceCraft },
                 new SharpenedRock() { Amount = 1 }

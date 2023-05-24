@@ -11,8 +11,6 @@ namespace UlearnGame.Model.Crafts
     {
         public FilledTotemCraft(Game game) : base(game)
         {
-            CraftTimes = 0;
-            IsCraftableManyTime = true;
             Description = "";
         }
 
@@ -26,7 +24,7 @@ namespace UlearnGame.Model.Crafts
             return new Resource[]
             {
                 new DullTotem() { Amount = 1 },
-                new Essence() { Amount = 5 - ReduceCraft * 2 }
+                new FilledCrystal() { Amount = 2 }
             };
         }
     }

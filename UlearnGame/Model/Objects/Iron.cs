@@ -11,26 +11,25 @@ namespace UlearnGame.Model.Objects
     public class Iron : GameObject
     {
         private static int IronCapicty = 14;
-        private static double IronExperience = 9;
+        private static double IronExperience = 8;
 
         private Resource[] resourcesDrop => GenerateResources();
         public Iron(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 2;
-            ResourceRandomCapSecond = 3;
             StartCapacity = IronCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Iron;
+            ImagePath2 = Texture.Iron2;
             ResourcesDrop = resourcesDrop;
         }
 
         public override Resource[] GenerateResources()
         {
-            return new Resource[2]
+            return new Resource[]
             {
                 new Rock() { Amount = Game.ResourceBonus + 2 },
-                new IronIngot() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) + Game.ResourceBonus }
+                new IronIngot() { Amount = resourcesRandom.Next(1, 3) + Game.ResourceBonus }
             };
         }
 

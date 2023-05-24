@@ -8,7 +8,7 @@ namespace UlearnGame.Visual
 {
     public static class Texture
     {
-        public static readonly Image BackGround = GetImage("Background.jpg");
+        public static readonly Image Background = GetImage("Background.jpg");
         public static readonly Image Timer = GetImage("Timer.png");
         public static readonly Image MainPanel = GetImage("MainPanel.png");
         public static readonly Image CharacterButton = GetImage("CharacterButton.jpg");
@@ -20,6 +20,7 @@ namespace UlearnGame.Visual
         public static readonly Image ExitButton = GetImage("ExitButton.jpg");
         public static readonly Image SettingsButton = GetImage("SettingsButton.jpg");
         public static readonly Image UpgradeButton = GetImage("UpgradeButton.jpg");
+        public static readonly Image HelpButton = GetImage("HelpButton.jpg");
         public static readonly Image HugePanel = GetImage("HugePanel.png");
         public static readonly Image UpperNamePanel = GetImage("UpperNamePanel.jpg");
         public static readonly Image SelectedItemPanel = GetImage("SelectedItemPanel.png");
@@ -40,6 +41,7 @@ namespace UlearnGame.Visual
         public static readonly Image CraftCell2 = GetImage("CraftCell2.jpg");
         public static readonly Image UpgradePanel = GetImage("UpgradePanel.png");
         public static readonly Image UpgradeCell = GetImage("UpgradeCell.jpg");
+        public static readonly Image ExperienceUpgradeBar = GetImage("ExperienceUpgradeBar.jpg");
         public static readonly Image AcceptUpgradeButton = GetImage("AcceptUpgradeButtonFalse.jpg");
         public static readonly Image AcceptUpgradeButton2 = GetImage("AcceptUpgradeButtonTrue.jpg");
         public static readonly Image UpgradeCardPanel = GetImage("UpgradeCardPanel.png");
@@ -62,6 +64,8 @@ namespace UlearnGame.Visual
         public static readonly Image BlessingTitle = GetImage("BlessingTitle.jpg");
         public static readonly Image BlessingDescription = GetImage("BlessingDescription.jpg");
         public static readonly Image ChoiceBox = GetImage("ChooseBox.jpg");
+        public static readonly Image TutorialPanel = GetImage("TutorialPanel.png");
+        public static readonly Image FinishPanel = GetImage("FinishPanel.png");
 
         public static readonly Image Terrain = GetImage("Terrain.png");
         public static readonly Image Tree = GetImage("Tree.png");
@@ -84,8 +88,32 @@ namespace UlearnGame.Visual
         public static readonly Image Deer = GetImage("Deer.png");
         public static readonly Image Crystal = GetImage("Crystal.png");
         public static readonly Image Slate = GetImage("Slate.png");
+        public static readonly Image Obelisk = GetImage("Obelisk.png");
+        public static readonly Image Gift = GetImage("Gift.png");
 
         public static readonly Image Terrain2 = GetImage("TinyTerrain.png");
+        public static readonly Image Tree2 = GetImage("TinyTree.png");
+        public static readonly Image Stone2 = GetImage("TinyStone.png");
+        public static readonly Image Bush2 = GetImage("TinyBush.png");
+        public static readonly Image Gold2 = GetImage("TinyGold.png");
+        public static readonly Image Iron2 = GetImage("TinyIron.png");
+        public static readonly Image Coal2 = GetImage("TinyCoal.png");
+        public static readonly Image Slime2 = GetImage("TinySlime.png");
+        public static readonly Image Flower12 = GetImage("TinyFlower1.png");
+        public static readonly Image Flower22 = GetImage("TinyFlower2.png");
+        public static readonly Image Flower32 = GetImage("TinyFlower3.png");
+        public static readonly Image Flower42 = GetImage("TinyFlower4.png");
+        public static readonly Image Flower52 = GetImage("TinyFlower5.png");
+        public static readonly Image Bat2 = GetImage("TinyBat.png");
+        public static readonly Image Sandstone2 = GetImage("TinySandstone.png");
+        public static readonly Image LivingTree2 = GetImage("TinyLivingTree.png");
+        public static readonly Image Remains2 = GetImage("TinyRemains.png");
+        public static readonly Image Star2 = GetImage("TinyStar.png");
+        public static readonly Image Deer2 = GetImage("TinyDeer.png");
+        public static readonly Image Crystal2 = GetImage("TinyCrystal.png");
+        public static readonly Image Slate2 = GetImage("TinySlate.png");
+        public static readonly Image Obelisk2 = GetImage("TinyObelisk.png");
+        public static readonly Image Gift2 = GetImage("TinyGift.png");
 
         public static readonly Image Berries = GetImage("Berries.png");
         public static readonly Image Berries2 = GetImage("SelectedBerries.png");
@@ -141,6 +169,24 @@ namespace UlearnGame.Visual
         public static readonly Image Dish2 = GetImage("SelectedDish.png");
         public static readonly Image FilledCrystal = GetImage("FilledCrystal.png");
         public static readonly Image FilledCrystal2 = GetImage("SelectedFilledCrystal.png");
+        public static readonly Image Powder = GetImage("Powder.png");
+        public static readonly Image Powder2 = GetImage("SelectedPowder.png");
+        public static readonly Image Chalice = GetImage("Chalice.png");
+        public static readonly Image Chalice2 = GetImage("SelectedChalice.png");
+        public static readonly Image Instrument = GetImage("Instrument.png");
+        public static readonly Image Instrument2 = GetImage("SelectedInstrument.png");
+        public static readonly Image Wine = GetImage("Wine.png");
+        public static readonly Image Wine2 = GetImage("SelectedWine.png");
+        public static readonly Image UpgradedNecklace = GetImage("UpgradedNecklace.png");
+        public static readonly Image UpgradedNecklace2 = GetImage("SelectedUpgradedNecklace.png");
+        public static readonly Image Parchment = GetImage("Parchment.png");
+        public static readonly Image Parchment2 = GetImage("SelectedParchment.png");
+        public static readonly Image EnchantedParchment = GetImage("EnchantedParchment.png");
+        public static readonly Image EnchantedParchment2 = GetImage("SelectedEnchantedParchment.png");
+        public static readonly Image GoldenTotem = GetImage("GoldenTotem.png");
+        public static readonly Image GoldenTotem2 = GetImage("SelectedGoldenTotem.png");
+        public static readonly Image Wreath= GetImage("Wreath.png");
+        public static readonly Image Wreath2 = GetImage("SelectedWreath.png");
 
 
         public static readonly Image GathererIcon = GetImage("GathererIcon.png");
@@ -159,6 +205,8 @@ namespace UlearnGame.Visual
         public static readonly Image MagicianIcon2 = GetImage("SelectedMagicianIcon.png");
         public static readonly Image PriestIcon = GetImage("PriestIcon.png");
         public static readonly Image PriestIcon2 = GetImage("SelectedPriestIcon.png");
+        public static readonly Image FormerIcon = GetImage("FormerIcon.png");
+        public static readonly Image FormerIcon2 = GetImage("SelectedFormerIcon.png");
         public static readonly Image CraftsmanIcon = GetImage("CraftsmanIcon.png");
         public static readonly Image CraftsmanIcon2 = GetImage("SelectedCraftsmanIcon.png");
         public static readonly Image Master1Icon = GetImage("Master1Icon.png");
@@ -171,7 +219,7 @@ namespace UlearnGame.Visual
 
         private static Image GetImage(string imageName)
         {
-            var imagePath = Path.Combine(ProgramInitials.GameDirectory, "Visual", "Images", imageName);
+            var imagePath = Path.Combine(ProgramInitials.GameDirectory, "Images", imageName);
             return Image.FromFile(imagePath);
         }
     }

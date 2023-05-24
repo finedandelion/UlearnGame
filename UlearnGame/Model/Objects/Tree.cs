@@ -18,20 +18,19 @@ namespace UlearnGame.Model.Objects
         public Tree(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 2;
-            ResourceRandomCapSecond = 4;
             StartCapacity = TreeCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Tree;
+            ImagePath2 = Texture.Tree2;
             ResourcesDrop = resourcesDrop;
         }
 
         public override Resource[] GenerateResources()
         {
-            return new Resource[2]
+            return new Resource[]
             {
-                new Wood() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) + Game.ResourceBonus},
-                new Leaf() { Amount = resourcesRandom.Next(2, ResourceRandomCapSecond + 1) + Game.ResourceBonus}
+                new Wood() { Amount = resourcesRandom.Next(1, 3) + Game.ResourceBonus},
+                new Leaf() { Amount = resourcesRandom.Next(2, 5) + Game.ResourceBonus}
             };
         }
 

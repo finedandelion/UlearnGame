@@ -11,16 +11,15 @@ namespace UlearnGame.Model.Objects
     public class LivingTree : GameObject
     {
         private static int LivingTreeCapicty = 20;
-        private static double LivingTreeExperience = 10;
+        private static double LivingTreeExperience = 8;
         private Resource[] resourcesDrop => GenerateResources();
         public LivingTree(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 4;
-            ResourceRandomCapSecond = 5;
             StartCapacity = LivingTreeCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.LivingTree;
+            ImagePath2 = Texture.LivingTree2;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -30,9 +29,9 @@ namespace UlearnGame.Model.Objects
             {
                 new Wood() { Amount = 5 + Game.ResourceBonus},
                 new Essence() { Amount = 2 },
-                new Fiber() { Amount = resourcesRandom.Next(3, ResourceRandomCapFirst + 1) + Game.ResourceBonus},
+                new Fiber() { Amount = resourcesRandom.Next(3, 5) + Game.ResourceBonus},
                 new Leaf() { Amount = 4 + Game.ResourceBonus},
-                new Berries() { Amount = resourcesRandom.Next(3, ResourceRandomCapSecond + 1 + Game.ResourceBonus)}
+                new Berries() { Amount = resourcesRandom.Next(3, 6) + Game.ResourceBonus}
             };
         }
 

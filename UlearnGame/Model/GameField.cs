@@ -144,9 +144,20 @@ namespace UlearnGame.Model
             Generation.Add(Generation.Count, new Func<GameObject>(() => new Star(Game)));
         }
 
+        public void SlateBlessing()
+        {
+            Generation[1] = new Func<GameObject>(() => new Slate(Game));
+        }
+
+        public void LivingTreeBlessing()
+        {
+            Generation[0] = new Func<GameObject>(() => new LivingTree(Game));
+        }
+
         public void PriestUpgrade()
         {
-
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Obelisk(Game)));
+            Generation.Add(Generation.Count, new Func<GameObject>(() => new Gift(Game)));
         }
 
         public void FormerUpgrade()

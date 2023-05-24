@@ -11,24 +11,29 @@ namespace UlearnGame.Model.Objects
     public class Slime : GameObject
     {
         private static int SlimeCapicty = 20;
-        private static double SlimeExperience = 10;
+        private static double SlimeExperience = 7;
 
         private Resource[] resourcesDrop => GenerateResources();
         public Slime(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 4;
-            StartCapacity = SlimeCapicty;
+            StartCapacity = SlimeCapicty + Game.MonsterAdditionalCapacity;
             Capacity = StartCapacity;
             ImagePath = Texture.Slime;
+            ImagePath2 = Texture.Slime2;
             ResourcesDrop = resourcesDrop;
         }
 
         public override Resource[] GenerateResources()
         {
-            return new Resource[1]
+            return new Resource[]
             {
-                new SlimeDrop() { Amount = resourcesRandom.Next(2, ResourceRandomCapFirst + 1) + Game.ResourceBonus }
+                new SlimeDrop()
+                { 
+                    Amount = resourcesRandom.Next(2, 5)
+                    + Game.ResourceBonus
+                    + Game.MonsterAdditionalResource
+                }
             };
         }
 

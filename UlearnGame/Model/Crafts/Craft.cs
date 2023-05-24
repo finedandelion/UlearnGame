@@ -37,6 +37,8 @@ namespace UlearnGame.Model.Crafts
 
         public Craft(Game game)
         {
+            CraftTimes = 0;
+            IsCraftableManyTime = true;
             Game = game;
         }
 

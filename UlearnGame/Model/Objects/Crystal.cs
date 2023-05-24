@@ -11,16 +11,15 @@ namespace UlearnGame.Model.Objects
     public class Crystal : GameObject
     {
         private static int CrystalCapicty = 26;
-        private static double CrystalExperience = 11;
+        private static double CrystalExperience = 10;
         private Resource[] resourcesDrop => GenerateResources();
         public Crystal(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 4;
-            ResourceRandomCapSecond = 0;
             StartCapacity = CrystalCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Crystal;
+            ImagePath2 = Texture.Crystal2;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -29,7 +28,7 @@ namespace UlearnGame.Model.Objects
             return new Resource[]
             {
                 new Rock() { Amount = 2 + Game.ResourceBonus},
-                new CrystalShard() { Amount = resourcesRandom.Next(2, ResourceRandomCapFirst + 1) + Game.ResourceBonus}
+                new CrystalShard() { Amount = resourcesRandom.Next(2, 5) + Game.ResourceBonus}
             };
         }
 

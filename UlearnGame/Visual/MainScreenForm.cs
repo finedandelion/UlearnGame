@@ -10,6 +10,7 @@ namespace UlearnGame.Visual
     {
         private PictureBox MainPanel;
         private PictureBox UpperPanel;
+        private Button TutorialButton;
         private Button UpgradeButton;
         private Button SettingsButton;
         private Button ExitButton;
@@ -39,7 +40,7 @@ namespace UlearnGame.Visual
             Width = 1920;
             Height = 1080;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackgroundImage = Texture.BackGround;
+            BackgroundImage = Texture.Background;
             Name = "Essence of Gathering";
             Text = "Essence of Gathering";
             ResumeLayout(false);
@@ -59,7 +60,7 @@ namespace UlearnGame.Visual
             UpdateFieldButtons(fieldButtonPosition);
         }
 
-        public void CustomizeFieldButtonPreset1(Button button)
+        public static void CustomizeFieldButtonPreset1(Button button)
         {
             button.Size = new Size(256, 256);
             button.ForeColor = Color.White;
@@ -68,7 +69,7 @@ namespace UlearnGame.Visual
             button.BackgroundImage = Texture.Terrain;
         }
 
-        public void CustomizeFieldButtonPreset2(Button button)
+        public static void CustomizeFieldButtonPreset2(Button button)
         {
             button.Size = new Size(192, 192);
             button.ForeColor = Color.White;
@@ -77,7 +78,7 @@ namespace UlearnGame.Visual
             button.BackgroundImage = Texture.Terrain2;
         }
 
-        public Point FieldButtonPositionPreset1(int number, int buttonSize)
+        public static Point FieldButtonPositionPreset1(int number, int buttonSize)
         {
             var xposOffset = number / 2;
             var yposOffset = (number + 1) % 2 > 0 ? 0 : buttonSize / 4 + buttonSize;
@@ -86,7 +87,7 @@ namespace UlearnGame.Visual
             return new Point(xpos, ypos);
         }
 
-        public Point FieldButtonPositionPreset2(int number, int buttonSize)
+        public static Point FieldButtonPositionPreset2(int number, int buttonSize)
         {
             var xposOffset = number / 2;
             var yposOffset = (number + 1) % 2 > 0 ? 0 : buttonSize / 4 + buttonSize;
@@ -95,7 +96,7 @@ namespace UlearnGame.Visual
             return new Point(xpos, ypos);
         }
 
-        public Point FieldButtonPositionPreset3(int number, int buttonSize)
+        public static Point FieldButtonPositionPreset3(int number, int buttonSize)
         {
             var xposOffset = number % 3;
             var yposOffset = number / 3;
@@ -104,7 +105,7 @@ namespace UlearnGame.Visual
             return new Point(xpos, ypos);
         }
 
-        public Point FieldButtonPositionPreset4(int number, int buttonSize)
+        public static Point FieldButtonPositionPreset4(int number, int buttonSize)
         {
             var xposOffset = number % 4;
             var yposOffset = number / 4;
@@ -117,6 +118,8 @@ namespace UlearnGame.Visual
         {
             ProgramInitials.ApplicationInProccess = false;
             Thread.Sleep(1000);
+            DisableScreens();
+            ProgramInitials.SerializeGameData();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -126,6 +129,7 @@ namespace UlearnGame.Visual
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             PutControlsToFront();
+            EnableScreens();
             StartGenerationTimer();
         }
 
@@ -188,9 +192,9 @@ namespace UlearnGame.Visual
             };
             characterButton.Click += (sender, eventArgs) =>
             {
-                ProgramInitials.CharacterForm.UpdateScreenState();
-                ProgramInitials.CharacterForm.Show();
-                Hide();
+                var characterScreen = ProgramInitials.Screens["Character"] as CharacterScreenForm;
+                characterScreen?.UpdateScreenState();
+                ProgramInitials.ShowScreen("Character");
             };
             ToCharacterButton = characterButton;
             Controls.Add(ToCharacterButton);
@@ -207,9 +211,9 @@ namespace UlearnGame.Visual
             };
             inventoryButton.Click += async (sender, eventArgs) =>
             {
-                ProgramInitials.InventoryForm.ShowResourcesInInvetory(Game.Inventory.GetStorage());
-                ProgramInitials.InventoryForm.Show();
-                Hide();
+                var inventoryScreen = ProgramInitials.Screens["Inventory"] as InventoryScreenForm;
+                inventoryScreen?.ShowResourcesInInvetory(Game.Inventory.GetStorage());
+                ProgramInitials.ShowScreen("Inventory");
             };
             ToInventoryButton = inventoryButton;
             Controls.Add(ToInventoryButton);
@@ -226,8 +230,7 @@ namespace UlearnGame.Visual
             };
             craftButton.Click += (sender, eventArgs) =>
             {
-                ProgramInitials.CraftForm.Show();
-                Hide();
+                ProgramInitials.ShowScreen("Craft");
             };
             ToCraftButton = craftButton;
             Controls.Add(ToCraftButton);
@@ -244,9 +247,9 @@ namespace UlearnGame.Visual
             };
             totemButton.Click += (sender, eventArgs) =>
             {
-                ProgramInitials.TotemForm.Show();
-                ProgramInitials.TotemForm.UpdateTotemForm();
-                Hide();
+                var totemScreen = ProgramInitials.Screens["Totem"] as TotemScreenForm;
+                totemScreen?.UpdateTotemForm();
+                ProgramInitials.ShowScreen("Totem");
             };
             ToTotemButton = totemButton;
             Controls.Add(ToTotemButton);
@@ -272,8 +275,8 @@ namespace UlearnGame.Visual
         {
             var experienceBar = new Label()
             {
-                Location = new Point(72, 50),
-                Width = 700,
+                Location = new Point(58, 50),
+                Width = 600,
                 Height = 100,
                 BackgroundImage = Texture.ExperienceBar,
                 TextAlign = ContentAlignment.MiddleCenter,
@@ -284,11 +287,13 @@ namespace UlearnGame.Visual
             GameExperienceBar = experienceBar;
             Controls.Add(GameExperienceBar);
         }
+
         private void SetUpperPanelButtons()
         {
             SetExitButton();
             SetSettingsButton();
             SetUpgradeButton();
+            SetHelpButton();
         }
 
         private void SetExitButton()
@@ -330,12 +335,29 @@ namespace UlearnGame.Visual
             };
             upgradeButton.Click += (sender, eventArgs) =>
             {
-                ProgramInitials.UpgradeForm.UpdatePointsBar();
-                ProgramInitials.UpgradeForm.Show();
-                Hide();
+                var upgradeScreen = ProgramInitials.Screens["Upgrade"] as UpgradeScreenForm;
+                upgradeScreen?.UpdatePointsBar();
+                ProgramInitials.ShowScreen("Upgrade");
             };
             UpgradeButton = upgradeButton;
             Controls.Add(UpgradeButton);
+        }
+
+        private void SetHelpButton()
+        {
+            var helpButton = new Button()
+            {
+                Location = new Point(690, 50),
+                Image = Texture.HelpButton,
+                Width = 100,
+                Height = 100,
+            };
+            helpButton.Click += (sender, eventArgs) =>
+            {
+                ProgramInitials.ShowScreen("Tutorial");
+            };
+            TutorialButton = helpButton;
+            Controls.Add(TutorialButton);
         }
 
         private void UpdateFieldButtons(Func<int, int, Point> SetFieldButtonPosition)
@@ -387,6 +409,29 @@ namespace UlearnGame.Visual
             ToCharacterButton.BringToFront();
         }
 
+        private void EnableScreens()
+        {
+            foreach (var screen in ProgramInitials.Screens)
+            {
+                var finishScreen = screen.Value as FinishScreenForm;
+                if (finishScreen != null)
+                    continue;
+                screen.Value.Show();
+            }
+            ProgramInitials.Screens["Main"].BringToFront();
+        }
+
+        private void DisableScreens()
+        {
+            foreach (var screen in ProgramInitials.Screens)
+            {
+                var finishScreen = screen.Value as MainScreenForm;
+                if (finishScreen != null)
+                    continue;
+                screen.Value.Hide();
+            }
+        }
+
         private async void StartGenerationTimer()
         {
             var thread = new Thread(() =>
@@ -405,15 +450,18 @@ namespace UlearnGame.Visual
                     }
                     if (!ProgramInitials.ApplicationInProccess)
                         break;
-                    
-                        var field = Game.Field.GenerateResource();
+                    var buttonSize = FieldButtons[0].Width;
+                    var field = Game.Field.GenerateResource();
                     foreach(var nullableCell in field)
                     {
                         if (nullableCell != null)
                         {
                             var cell = (int) nullableCell;
                             var capacity = Game.Field.GameCells[cell].StartCapacity.ToString();
-                            BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.GameCells[cell].ImagePath));
+                            if (buttonSize == 256)
+                                BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.GameCells[cell].ImagePath));
+                            else
+                                BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.GameCells[cell].ImagePath2));
                             BeginInvoke(new Action(() => FieldButtons[cell].Text = capacity + "/" + capacity));
                         }
                     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UlearnGame.Model.Upgrades;
 using UlearnGame.Model;
 using static System.Collections.Specialized.BitVector32;
+using static System.Windows.Forms.AxHost;
 
 namespace UlearnGame.Visual
 {
@@ -15,6 +16,7 @@ namespace UlearnGame.Visual
         private Game Game { get; set; }
         private Dictionary<int, Upgrade> Upgrades => Game.UpgradeSystem.upgrades;
 
+        private PictureBox HideScreen;
         private PictureBox UpgradePanel;
         private PictureBox UpgradeCardPanel;
         private PictureBox UpgradeIcon;
@@ -40,10 +42,25 @@ namespace UlearnGame.Visual
         }
         private void InitializeUpgradeScreen()
         {
+            //SetHideScreen();
             SetUpgradeCard();
             SetUpgradePanel();
             SetUpgradePointsBar();
             SetUpgradeBackButton();
+        }
+
+        private void SetHideScreen()
+        {
+            var hideScreen = new PictureBox()
+            {
+                Location = new Point(0, 0),
+                Width = 1920,
+                Height = 1080,
+                BackgroundImage = Texture.Background,
+                Visible = false,
+            };
+            HideScreen = hideScreen;
+            Controls.Add(HideScreen);
         }
 
         private void SetUpgradeCard()
@@ -180,7 +197,7 @@ namespace UlearnGame.Visual
                 Location = new Point(610, 919),
                 Width = 700,
                 Height = 100,
-                BackgroundImage = Texture.ExperienceBar,
+                BackgroundImage = Texture.ExperienceUpgradeBar,
                 TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = ProgramInitials.GetHtmlColor("#F7AC37"),
                 Font = new Font(string.Empty, 24, FontStyle.Bold),
@@ -240,21 +257,24 @@ namespace UlearnGame.Visual
                     upgrade.ObtainUpgrade();
                     if (index == 5)
                     {
-                        var preset = ProgramInitials.MainScreenForm.FieldButtonPositionPreset2;
-                        var preset2 = ProgramInitials.MainScreenForm.CustomizeFieldButtonPreset1;
-                        ProgramInitials.MainScreenForm.SetFieldButtons(preset, preset2);
+                        var preset = MainScreenForm.FieldButtonPositionPreset2;
+                        var preset2 = MainScreenForm.CustomizeFieldButtonPreset1;
+                        var mainScreen = ProgramInitials.Screens["Main"] as MainScreenForm;
+                        mainScreen.SetFieldButtons(preset, preset2);
                     }
                     if (index == 6)
                     {
-                        var preset = ProgramInitials.MainScreenForm.FieldButtonPositionPreset3;
-                        var preset2 = ProgramInitials.MainScreenForm.CustomizeFieldButtonPreset2;
-                        ProgramInitials.MainScreenForm.SetFieldButtons(preset, preset2);
+                        var preset = MainScreenForm.FieldButtonPositionPreset3;
+                        var preset2 = MainScreenForm.CustomizeFieldButtonPreset2;
+                        var mainScreen = ProgramInitials.Screens["Main"] as MainScreenForm;
+                        mainScreen.SetFieldButtons(preset, preset2);
                     }
                     if (index == 9)
                     {
-                        var preset = ProgramInitials.MainScreenForm.FieldButtonPositionPreset4;
-                        var preset2 = ProgramInitials.MainScreenForm.CustomizeFieldButtonPreset2;
-                        ProgramInitials.MainScreenForm.SetFieldButtons(preset, preset2);
+                        var preset = MainScreenForm.FieldButtonPositionPreset4;
+                        var preset2 = MainScreenForm.CustomizeFieldButtonPreset2;
+                        var mainScreen = ProgramInitials.Screens["Main"] as MainScreenForm;
+                        mainScreen.SetFieldButtons(preset, preset2);
                     }
                     AcceptButtons[index].BackgroundImage = Texture.AcceptUpgradeButton;
                     AcceptButtons[index].Enabled = false;
@@ -380,8 +400,7 @@ namespace UlearnGame.Visual
             };
             backButton.Click += (sender, eventArgs) =>
             {
-                ProgramInitials.MainScreenForm.Show();
-                Hide();
+                ProgramInitials.ShowScreen("Main");
             };
             BackUpgradeButton = backButton;
             Controls.Add(BackUpgradeButton);
@@ -397,7 +416,7 @@ namespace UlearnGame.Visual
             Width = 1920;
             Height = 1080;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackgroundImage = Texture.BackGround;
+            BackgroundImage = Texture.Background;
             Name = "Essence of Gathering";
             Text = "Essence of Gathering";
             ResumeLayout(false);

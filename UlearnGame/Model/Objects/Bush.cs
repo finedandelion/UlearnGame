@@ -16,20 +16,20 @@ namespace UlearnGame.Model.Objects
         public Bush(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 6;
-            ResourceRandomCapSecond = 5;
             StartCapacity = BushCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Bush;
+            ImagePath2 = Texture.Bush2;
             ResourcesDrop = resourcesDrop;
         }
 
         public override Resource[] GenerateResources()
         {
-            return new Resource[2]
+            return new Resource[]
             {
-                new Fiber() { Amount = resourcesRandom.Next(2,ResourceRandomCapSecond + 1) + Game.ResourceBonus },
-                new Berries() { Amount = resourcesRandom.Next(0, ResourceRandomCapFirst + 1) + Game.ResourceBonus }
+                new Fiber() { Amount = resourcesRandom.Next(2, 6) + Game.ResourceBonus },
+                new Berries() { Amount = resourcesRandom.Next(0, 7) + Game.ResourceBonus },
+                new Leaf() { Amount = resourcesRandom.Next(0, 3) + Game.ResourceBonus }
             };
         }
 

@@ -10,12 +10,12 @@ namespace UlearnGame.Model
 {
     public class Game
     {
-        public GameField Field;
-        public Inventory Inventory;
-        public UpgradeSystem UpgradeSystem;
-        public AscendingSystem AscendingSystem;
-        public CraftSystem CraftSystem;
-        private static double LevelConst = 1.1;
+        public GameField Field { get; private set; }
+        public Inventory Inventory { get; private set; }
+        public UpgradeSystem UpgradeSystem { get; private set; }
+        public AscendingSystem AscendingSystem { get; private set; }
+        public CraftSystem CraftSystem { get; private set; }
+        public double LevelConst { get; private set; }
 
         public int ClickPower { get; private set; }
         public int FieldUpdateRate { get; private set; }
@@ -33,16 +33,16 @@ namespace UlearnGame.Model
         public int TotalCraftTimes { get; private set; }
         public double CapacityHardnessMultiplier { get; private set; }
         public double ExperienceMultiplier { get; private set; }
-
         public int MonsterAdditionalCapacity { get; private set; }
         public int MonsterAdditionalResource { get; private set; }
 
         public int FirstCraftSimplifier { get; private set; }
         public Game()
         {
+            LevelConst = 1.15;
             ClickPower = 1;
-            FieldUpdateRate = 2;
-            LevelExperienceCap = 80;
+            FieldUpdateRate = 10;
+            LevelExperienceCap = 120;
             CapacityHardnessMultiplier = 1;
             ExperienceMultiplier = 1;
             Field = new GameField(this, 1);
@@ -56,9 +56,9 @@ namespace UlearnGame.Model
         {
             Experience += experience;
             TotalExperience += experience;
-            if (Experience - 1 > LevelExperienceCap && Level < 15)
+            if (Experience - 1 > LevelExperienceCap && Level < 13)
             {
-                while (Experience > LevelExperienceCap && Level < 15)
+                while (Experience > LevelExperienceCap && Level < 13)
                 {
                     Experience -= LevelExperienceCap;
                     Level += 1;

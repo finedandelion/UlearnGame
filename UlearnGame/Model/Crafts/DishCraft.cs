@@ -11,8 +11,6 @@ namespace UlearnGame.Model.Crafts
     {
         public DishCraft(Game game) : base(game)
         {
-            CraftTimes = 0;
-            IsCraftableManyTime = true;
             Description = "Блюдо из плоти живых существ. Мясо до сих пор кровоточит — будет чем порадовать Божество.";
         }
 
@@ -27,6 +25,7 @@ namespace UlearnGame.Model.Crafts
             {
                 new Bowl() { Amount = 1},
                 new Meat() { Amount = 4 - ReduceCraft},
+                new Bone() { Amount = 1}
             };
         }
     }

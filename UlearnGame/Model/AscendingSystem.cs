@@ -56,21 +56,42 @@ namespace UlearnGame.Model
             {
                 new Resource[]
                 {
-                    new Wood() { Amount = 5 },
-                },
-                new Resource[]
-                {
-                    new DullTotem() { Amount = 3 },
+                    new Wood() { Amount = 1 },
                 },
                 new Resource[]
                 {
                     new DullTotem() { Amount = 5 },
-                    new Salad() { Amount = 3 }
+                    new Berries() { Amount = 15 },
                 },
                 new Resource[]
                 {
                     new DullTotem() { Amount = 5 },
-                    new Salad() { Amount = 3 }
+                    new Salad() { Amount = 5 },
+                    new Necklace() { Amount = 3 }
+                },
+                new Resource[]
+                {
+                    new Dish() { Amount = 3 },
+                    new Salad() { Amount = 3},
+                    new DullTotem { Amount = 10 },
+                    new Necklace() { Amount = 5 },
+                },
+                new Resource[]
+                {
+                    new Bone() { Amount = 30 },
+                    new Wine { Amount = 5 },
+                },
+                new Resource[]
+                {
+                    new Rock() { Amount = 100 },
+                },
+                new Resource[]
+                {
+                    new Rock() { Amount = 100 },
+                },
+                new Resource[]
+                {
+                    new Rock() { Amount = 100 },
                 },
             };
             return oferrings;
@@ -83,6 +104,11 @@ namespace UlearnGame.Model
                 new FirstChoiceBlessing(Game),
                 new SecondChoiceBlessing(Game),
                 new ThirdChoiceBlessing(Game),
+                new FourthChoiceBlessing(Game),
+                new FifthChoiceBlessing(Game),
+                new SixthChoiceBlessing(Game),
+                new SeventhChoiceBlessing(Game),
+                new EighthChoiceBlessing(Game),
             };
             return ascendings;
         }

@@ -16,18 +16,18 @@ namespace UlearnGame.Model.Objects
         public Stone(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 2;
             StartCapacity = StoneCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
             ImagePath = Texture.Stone;
+            ImagePath2 = Texture.Stone2;
             ResourcesDrop = resourcesDrop;
         }
 
         public override Resource[] GenerateResources()
         {
-            return new Resource[1]
+            return new Resource[]
             {
-                new Rock() { Amount = resourcesRandom.Next(1, ResourceRandomCapFirst + 1) + Game.ResourceBonus }
+                new Rock() { Amount = resourcesRandom.Next(1, 3) + Game.ResourceBonus }
             };
         }
 

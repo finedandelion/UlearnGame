@@ -10,8 +10,8 @@ namespace UlearnGame.Model.Blessings
     {
         public SecondChoiceBlessing(Game game) : base(game)
         {
-            LeftDescription = "Все монстры слабеют на 5 ед. прочности";
-            RightDescription = "Все монстры становятся сильнее на 10 ед. прочности. +1 к ресурсам.";
+            LeftDescription = "Все существа слабеют на 5 ед. прочности";
+            RightDescription = "Все существа становятся сильнее на 10 ед. прочности. +1 к ресурсам от существ. (не распространяется на эсенции)";
         }
 
         public override void LeftBlessingChanges()

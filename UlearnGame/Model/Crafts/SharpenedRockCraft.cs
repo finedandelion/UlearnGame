@@ -11,8 +11,6 @@ namespace UlearnGame.Model.Crafts
     {
         public SharpenedRockCraft(Game game) : base(game)
         {
-            CraftTimes = 0;
-            IsCraftableManyTime = true;
             Description = "Получить заострённый камень путем долбления двух друг о друга. Как в старые добрые!";
         }
 

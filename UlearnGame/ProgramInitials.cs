@@ -1,20 +1,17 @@
 
 using UlearnGame.Model;
 using UlearnGame.Visual;
+using Newtonsoft.Json;
+using System.Web;
 
 namespace UlearnGame
 {
     public class ProgramInitials
     {
-        private Game Game;
+        private static Game Game;
         public readonly static string GameDirectory = GetGameDirectory();
+        public static Dictionary<string, Form> Screens = new Dictionary<string, Form>();
         public static bool ApplicationInProccess;
-        public static InventoryScreenForm InventoryForm;
-        public static MainScreenForm MainScreenForm;
-        public static CraftScreenForm CraftForm;
-        public static UpgradeScreenForm UpgradeForm;
-        public static CharacterScreenForm CharacterForm;
-        public static TotemScreenForm TotemForm;
 
         public ProgramInitials()
         {
@@ -25,7 +22,7 @@ namespace UlearnGame
         {
             InitializeGame();
             InitializeForms();
-            Application.Run(MainScreenForm);
+            Application.Run(Screens["Main"]);
         }
 
         private void InitializeGame()
@@ -35,12 +32,17 @@ namespace UlearnGame
 
         private void InitializeForms()
         {
-            MainScreenForm = new MainScreenForm(Game);
-            InventoryForm = new InventoryScreenForm(Game);
-            CraftForm = new CraftScreenForm(Game);
-            UpgradeForm = new UpgradeScreenForm(Game);
-            CharacterForm = new CharacterScreenForm(Game);
-            TotemForm = new TotemScreenForm(Game);
+            Screens = new Dictionary<string, Form>
+            {
+                {"Main", new MainScreenForm(Game)},
+                {"Inventory", new InventoryScreenForm(Game)},
+                {"Craft", new CraftScreenForm(Game)},
+                {"Upgrade", new UpgradeScreenForm(Game)},
+                {"Character", new CharacterScreenForm(Game)},
+                {"Totem", new TotemScreenForm(Game)},
+                {"Tutorial", new TutorialScreenForm()},
+                {"Finish", new FinishScreenForm()},
+            };
         }
 
         public static Color GetHtmlColor(string htmlcode)
@@ -50,7 +52,35 @@ namespace UlearnGame
 
         private static string GetGameDirectory()
         {
-            return Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName;
+            return Environment.CurrentDirectory;
+        }
+
+        public static void ShowScreen(string screen)
+        {
+            Screens[screen].BringToFront();
+        }
+
+        public static void SerializeGameData()
+        {
+            var path = Path.Combine(Environment.CurrentDirectory, "GameData.json");
+            var json = JsonConvert.SerializeObject(Game, new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                TypeNameHandling = TypeNameHandling.All,
+                NullValueHandling = NullValueHandling.Ignore,
+            });
+            File.WriteAllText(path, json);
+        }
+
+        public Game DeserializeGameData()
+        {
+            var path = Path.Combine(Environment.CurrentDirectory, "GameData.json");
+            if (!File.Exists(path))
+                return null;
+            var text = File.ReadAllText(path);
+            var game = JsonConvert.DeserializeObject<Game>(text);
+            File.Delete(path);
+            return game;
         }
     }
 }

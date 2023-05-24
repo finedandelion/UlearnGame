@@ -18,27 +18,34 @@ namespace UlearnGame.Model.Objects
             { 3, Texture.Flower4 },
             { 4, Texture.Flower5 },
         };
+
+        private Dictionary<int, Image> flowerTextures2 = new Dictionary<int, Image>()
+        {
+            { 0, Texture.Flower12 },
+            { 1, Texture.Flower22 },
+            { 2, Texture.Flower32 },
+            { 3, Texture.Flower42 },
+            { 4, Texture.Flower52 },
+        };
         private static int FlowerCapicty = 4;
-        private static double FlowerExperience = 6;
-        private static Random textureRandom = new Random();
+        private static double FlowerExperience = 4;
         private Resource[] resourcesDrop => GenerateResources();
         public Flower(Game game)
         {
             Game = game;
-            ResourceRandomCapFirst = 2;
-            ResourceRandomCapSecond = 6;
             StartCapacity = FlowerCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = ChooseTexture(textureRandom.Next(0, 5));
+            ImagePath = ChooseTexture(new Random().Next(0, 5));
+            ImagePath2 = ChooseTexture2(new Random().Next(0, 5));
             ResourcesDrop = resourcesDrop;
         }
 
         public override Resource[] GenerateResources()
         {
-            return new Resource[2]
+            return new Resource[]
             {
-                new Fiber() { Amount = resourcesRandom.Next(0, ResourceRandomCapFirst + 1) + Game.ResourceBonus},
-                new Petals() { Amount = resourcesRandom.Next(2, ResourceRandomCapSecond + 1) + Game.ResourceBonus }
+                new Fiber() { Amount = resourcesRandom.Next(0, 3) + Game.ResourceBonus},
+                new Petals() { Amount = resourcesRandom.Next(4, 13) + Game.ResourceBonus }
             };
         }
 
@@ -55,6 +62,11 @@ namespace UlearnGame.Model.Objects
         private Image ChooseTexture(int textureVariant)
         {
             return flowerTextures[textureVariant];
+        }
+
+        private Image ChooseTexture2(int textureVariant)
+        {
+            return flowerTextures2[textureVariant];
         }
     }
 }

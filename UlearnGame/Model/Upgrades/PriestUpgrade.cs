@@ -18,7 +18,7 @@ namespace UlearnGame.Model.Upgrades
             ImagePath2 = Texture.PriestIcon2;
             Title = "ЖРЕЦ";
             Description = "Повинуйся и славь своё божество.\n" +
-                "На поле появляются тотемы и дары.\n" +
+                "На поле появляются обелиски и дары.\n" +
                 "-1c. Taймера.";
         }
 

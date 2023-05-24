@@ -11,8 +11,6 @@ namespace UlearnGame.Model.Crafts
     {
         public NecklaceCraft(Game game) : base(game)
         {
-            CraftTimes = 0;
-            IsCraftableManyTime = true;
             Description = "";
         }
 

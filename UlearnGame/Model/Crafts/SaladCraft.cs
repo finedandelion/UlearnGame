@@ -11,8 +11,6 @@ namespace UlearnGame.Model.Crafts
     {
         public SaladCraft(Game game) : base(game)
         {
-            CraftTimes = 0;
-            IsCraftableManyTime = true;
             Description = "Немного ягод, немного листьев — сам бы ты такое не съел, но что не сделаешь ради любимого божества?";
         }
 
@@ -23,7 +21,7 @@ namespace UlearnGame.Model.Crafts
 
         protected override Resource[] ReturnCraftResources()
         {
-            return new Resource[3]
+            return new Resource[]
             {
                 new Bowl() { Amount = 1 },
                 new Berries() { Amount = 10 - ReduceCraft * 3 },

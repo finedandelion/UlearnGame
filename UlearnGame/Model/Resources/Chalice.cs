@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "КУБОК";
             Description = "Драгоценная посудина для подношений.";
-            ImagePath = Texture.Chalice;
-            ImagePath2 = Texture.Chalice2;
+            Image = Texture.Chalice;
+            Image2 = Texture.Chalice2;
         }
     }
 }

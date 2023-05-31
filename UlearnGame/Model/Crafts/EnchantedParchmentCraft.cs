@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public EnchantedParchmentCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Слова на этом пергаменте зачарованны магической силой, что делает их пророческими. Не советую тебе их читать.";
         }
 
         protected override Resource ReturnCraftResult()

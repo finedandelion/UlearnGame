@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public HardenedRopeCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Слизь имеет множество свойств, одно из них — укрепление материала при термической обработке. Укреплённая верёвка — кто бы мог подумать!";
         }
 
         protected override Resource ReturnCraftResult()

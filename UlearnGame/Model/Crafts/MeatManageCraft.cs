@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public MeatManageCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Магические свойства пыли могут помочь с преобразованием одних частей живого в другие.";
         }
 
         protected override Resource ReturnCraftResult()

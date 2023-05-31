@@ -19,8 +19,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = IronCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = Texture.Iron;
-            ImagePath2 = Texture.Iron2;
+            Image = Texture.Iron;
+            Image2 = Texture.Iron2;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -28,7 +28,7 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[]
             {
-                new Rock() { Amount = Game.ResourceBonus + 2 },
+                new Rock() { Amount = resourcesRandom.Next(1, 2) },
                 new IronIngot() { Amount = resourcesRandom.Next(1, 3) + Game.ResourceBonus }
             };
         }

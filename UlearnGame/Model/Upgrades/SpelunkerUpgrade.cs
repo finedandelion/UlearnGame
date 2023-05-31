@@ -9,10 +9,9 @@ namespace UlearnGame.Model.Upgrades
 {
     public class SpelunkerUpgrade : Upgrade
     {
-        public SpelunkerUpgrade(Game game, Upgrade[] previous = null)
+        public SpelunkerUpgrade(Game game, Upgrade[] previous = null) : base(game)
         {
             IsObtained = false;
-            Game = game;
             Previous = previous;
             ImagePath1 = Texture.SpelunkerIcon;
             ImagePath2 = Texture.SpelunkerIcon2;

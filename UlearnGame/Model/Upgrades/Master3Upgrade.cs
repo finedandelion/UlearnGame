@@ -9,10 +9,9 @@ namespace UlearnGame.Model.Upgrades
 {
     public class Master3Upgrade : Upgrade
     {
-        public Master3Upgrade(Game game, Upgrade[] previous = null)
+        public Master3Upgrade(Game game, Upgrade[] previous = null) : base(game)
         {
             IsObtained = false;
-            Game = game;
             Previous = previous;
             ImagePath1 = Texture.Master3Icon;
             ImagePath2 = Texture.Master3Icon2;

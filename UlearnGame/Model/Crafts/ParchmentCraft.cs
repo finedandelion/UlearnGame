@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public ParchmentCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Из кожи получился бы неплохой пергамент. С помощью него можно передать Божеству любое послание, написать летопись или ещё чего.";
         }
 
         protected override Resource ReturnCraftResult()

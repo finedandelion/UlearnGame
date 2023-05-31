@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "КРИСТАЛЛ";
             Description = "Кристаллы считаются мощными сосудами для хранения жизненной энергии.";
-            ImagePath = Texture.CrystalShard;
-            ImagePath2 = Texture.CrystalShard2;
+            Image = Texture.CrystalShard;
+            Image2 = Texture.CrystalShard2;
         }
     }
 }

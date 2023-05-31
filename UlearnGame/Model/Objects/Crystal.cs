@@ -18,8 +18,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = CrystalCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = Texture.Crystal;
-            ImagePath2 = Texture.Crystal2;
+            Image = Texture.Crystal;
+            Image2 = Texture.Crystal2;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -27,7 +27,7 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[]
             {
-                new Rock() { Amount = 2 + Game.ResourceBonus},
+                new Rock() { Amount = resourcesRandom.Next(1, 3) },
                 new CrystalShard() { Amount = resourcesRandom.Next(2, 5) + Game.ResourceBonus}
             };
         }

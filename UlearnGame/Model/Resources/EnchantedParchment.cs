@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "СВ. ПИСАНИЕ";
             Description = "На слова наложено зачарование. Хей, они светятся даже в темноте!";
-            ImagePath = Texture.EnchantedParchment;
-            ImagePath2 = Texture.EnchantedParchment2;
+            Image = Texture.EnchantedParchment;
+            Image2 = Texture.EnchantedParchment2;
         }
     }
 }

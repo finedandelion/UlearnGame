@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "УГОЛЬ";
             Description = "В нём ещё теплится старая жизнь. Нужно лишь зажечь её. Буквально.";
-            ImagePath = Texture.CoalLump;
-            ImagePath2 = Texture.CoalLump2;
+            Image = Texture.CoalLump;
+            Image2 = Texture.CoalLump2;
         }
     }
 }

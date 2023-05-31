@@ -56,12 +56,13 @@ namespace UlearnGame.Model
             {
                 new Resource[]
                 {
-                    new Wood() { Amount = 1 },
+                    new Wood() { Amount = 8 },
                 },
                 new Resource[]
                 {
                     new DullTotem() { Amount = 5 },
                     new Berries() { Amount = 15 },
+                    new Wreath() { Amount = 3}
                 },
                 new Resource[]
                 {
@@ -78,20 +79,33 @@ namespace UlearnGame.Model
                 },
                 new Resource[]
                 {
-                    new Bone() { Amount = 30 },
-                    new Wine { Amount = 5 },
+                    new Parchment() { Amount = 5 },
+                    new UpgradedNecklace() { Amount = 5 },
+                    new Wreath() { Amount = 5},
+                    new FilledTotem() { Amount = 5 },
                 },
                 new Resource[]
                 {
-                    new Rock() { Amount = 100 },
+                    new Wine() { Amount = 10 },
+                    new Dish() { Amount = 8 },
+                    new Parchment() { Amount = 5 },
+                    new FilledTotem() { Amount = 10}
                 },
                 new Resource[]
                 {
-                    new Rock() { Amount = 100 },
+                    new DullTotem() { Amount = 20},
+                    new FilledTotem() { Amount = 5 },
+                    new GoldenTotem() { Amount = 5 },
+                    new Wreath() { Amount = 3},
+                    new EnchantedParchment() { Amount = 3},
+                    new UpgradedNecklace() { Amount = 5}
                 },
                 new Resource[]
                 {
-                    new Rock() { Amount = 100 },
+                    new GoldenTotem() { Amount = 15},
+                    new EnchantedParchment(){ Amount = 8},
+                    new UpgradedNecklace() { Amount = 5 },
+                    new Wine() { Amount = 5 }
                 },
             };
             return oferrings;

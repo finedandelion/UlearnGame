@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЗАОСТР. КАМЕНЬ";
             Description = "Острый как бритва. Незаменимая вещь в ремесле.";
-            ImagePath = Texture.SharpenedRock;
-            ImagePath2 = Texture.SharpenedRock2;
+            Image = Texture.SharpenedRock;
+            Image2 = Texture.SharpenedRock2;
         }
     }
 }

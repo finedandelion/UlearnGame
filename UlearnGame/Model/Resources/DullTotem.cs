@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ПУСТОЙ ТОТЕМ";
             Description = "Оболочка тотема. Не излучает жизненных сил.";
-            ImagePath = Texture.DullTotem;
-            ImagePath2 = Texture.DullTotem2;
+            Image = Texture.DullTotem;
+            Image2 = Texture.DullTotem2;
         }
     }
 }

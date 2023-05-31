@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public IronIngotManageCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Магические свойства пыли могут помочь с преобразованием одних камней в другие.";
         }
 
         protected override Resource ReturnCraftResult()

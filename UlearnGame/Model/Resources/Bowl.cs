@@ -14,8 +14,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "МИСКА";
             Description = "В неё можно ложить еду для подношений.";
-            ImagePath = Texture.Bowl;
-            ImagePath2 = Texture.Bowl2;
+            Image = Texture.Bowl;
+            Image2 = Texture.Bowl2;
         }
     }
 }

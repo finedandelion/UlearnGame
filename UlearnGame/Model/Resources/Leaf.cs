@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЛИСТОК";
             Description = "Животные едят листья. Почему бы не попробовать?";
-            ImagePath = Texture.Leaf;
-            ImagePath2 = Texture.Leaf2;
+            Image = Texture.Leaf;
+            Image2 = Texture.Leaf2;
         }
     }
 }

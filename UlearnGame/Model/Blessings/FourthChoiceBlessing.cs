@@ -10,18 +10,18 @@ namespace UlearnGame.Model.Blessings
     {
         public FourthChoiceBlessing(Game game) : base(game)
         {
-            LeftDescription = "Время таймера уменьшается на 1с.";
-            RightDescription = "+10% шанс появления доп. объекта на поле.";
+            LeftDescription = "Увеличивает количество камня в вашем инвентаре вдвое.";
+            RightDescription = "Увеличивает количество древесниы в вашем инвентаре вдвое.";
         }
 
         public override void LeftBlessingChanges()
         {
-            Game.ChangeFieldUpdateRate(-1);
+            Game.Inventory.ForthBlessingLeft();
         }
 
         public override void RightBlessingChanges()
         {
-            Game.Field.ChangeDoubleGenerationChance(0.1);
+            Game.Inventory.FourthBlessingRight();
         }
     }
 }

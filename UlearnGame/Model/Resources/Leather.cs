@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "КОЖА";
             Description = "Ты убийца. Серьёзно.";
-            ImagePath = Texture.Leather;
-            ImagePath2 = Texture.Leather2;
+            Image = Texture.Leather;
+            Image2 = Texture.Leather2;
         }
     }
 }

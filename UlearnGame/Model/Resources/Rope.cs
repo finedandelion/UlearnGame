@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ВЕРЁВКА";
             Description = "Сплетённые воедино органические волокна.";
-            ImagePath = Texture.Rope;
-            ImagePath2 = Texture.Rope2;
+            Image = Texture.Rope;
+            Image2 = Texture.Rope2;
         }
     }
 }

@@ -18,8 +18,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = BatCapicty + Game.MonsterAdditionalCapacity;
             Capacity = StartCapacity;
-            ImagePath = Texture.Bat;
-            ImagePath2 = Texture.Bat2;
+            Image = Texture.Bat;
+            Image2 = Texture.Bat2;
             ResourcesDrop = resourcesDrop;
         }
 

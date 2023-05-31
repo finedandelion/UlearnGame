@@ -277,7 +277,7 @@ namespace UlearnGame.Visual
                 {
                     var index = i;
                     var resource = offering[index];
-                    OfferingCells[index].Image = resource.ImagePath;
+                    OfferingCells[index].Image = resource.Image;
                     OfferingCells[index].BackgroundImage = Texture.CraftCell2;
                     OfferingCells[index].Text = inventory.AmountOf(resource).ToString() + " / " + resource.Amount.ToString();
                 }

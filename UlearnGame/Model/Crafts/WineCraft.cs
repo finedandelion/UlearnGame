@@ -11,7 +11,8 @@ namespace UlearnGame.Model.Crafts
     {
         public WineCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Только вино, выдержанное годами, удостоено того, чтобы быть приподнесёно Божеству. К счастью магическая пыль способна" +
+                " воздействовать даже на время.";
         }
 
         protected override Resource ReturnCraftResult()

@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ДРЕВЕСИНА";
             Description = "Довольно крепкая древесина твёрдых пород.";
-            ImagePath = Texture.Wood;
-            ImagePath2 = Texture.Wood2;
+            Image = Texture.Wood;
+            Image2 = Texture.Wood2;
         }
     }
 }

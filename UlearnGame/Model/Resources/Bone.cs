@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "КОСТЬ";
             Description = "Люди считают убийство диКОСТЬю. Однако это правила природы.";
-            ImagePath = Texture.Bone;
-            ImagePath2 = Texture.Bone2;
+            Image = Texture.Bone;
+            Image2 = Texture.Bone2;
         }
     }
 }

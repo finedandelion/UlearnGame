@@ -9,10 +9,9 @@ namespace UlearnGame.Model.Upgrades
 {
     public class HunterUpgrade : Upgrade
     {
-        public HunterUpgrade(Game game, Upgrade[] previous = null)
+        public HunterUpgrade(Game game, Upgrade[] previous = null) : base(game)
         {
             IsObtained = false;
-            Game = game;
             Previous = previous;
             ImagePath1 = Texture.HunterIcon;
             ImagePath2 = Texture.HunterIcon2;

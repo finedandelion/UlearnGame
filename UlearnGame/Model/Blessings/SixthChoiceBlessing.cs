@@ -10,18 +10,18 @@ namespace UlearnGame.Model.Blessings
     {
         public SixthChoiceBlessing(Game game) : base(game)
         {
-            LeftDescription = "Время таймера уменьшается на 1с.";
-            RightDescription = "+10% шанс появления доп. объекта на поле.";
+            LeftDescription = "Мгновенно даёт 1 уровень.";
+            RightDescription = "Увеличивает множитель опыта на +0.1.";
         }
 
         public override void LeftBlessingChanges()
         {
-            Game.ChangeFieldUpdateRate(-1);
+            Game.AddExperience(Game.LevelExperienceCap - Game.Experience);
         }
 
         public override void RightBlessingChanges()
         {
-            Game.Field.ChangeDoubleGenerationChance(0.1);
+            Game.ChangeExperienceMultiplier(0.1);
         }
     }
 }

@@ -11,7 +11,8 @@ namespace UlearnGame.Model.Crafts
     {
         public FilledTotemCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Тотемы оживляют при помощи магической энергии, делая их отличными оберегами от порчи и плохих обстоятельств." +
+                " Иногда их применяют для проведения ритуалов.";
         }
 
         protected override Resource ReturnCraftResult()

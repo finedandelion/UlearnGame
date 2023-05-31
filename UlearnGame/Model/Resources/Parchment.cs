@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ПИСАНИЕ";
             Description = "Слова звучат мелодично и передаёт суть происходящих событий.";
-            ImagePath = Texture.Parchment;
-            ImagePath2 = Texture.Parchment2;
+            Image = Texture.Parchment;
+            Image2 = Texture.Parchment2;
         }
     }
 }

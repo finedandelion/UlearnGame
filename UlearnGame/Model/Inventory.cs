@@ -11,6 +11,7 @@ namespace UlearnGame.Model
     {
         private Dictionary<Type, Resource> storage = new Dictionary<Type, Resource>();
 
+        public int Count => storage.Count;
         public void AddItem(Resource[] resources)
         {
             foreach (var resource in resources)
@@ -71,6 +72,18 @@ namespace UlearnGame.Model
         public int GetResourcesAmount()
         {
             return storage.Select(element => element.Value.Amount).Sum();
+        }
+
+        public void ForthBlessingLeft()
+        {
+            var type = new Rock().GetType();
+            storage[type].Amount *= 2;
+        }
+
+        public void FourthBlessingRight()
+        {
+            var type = new Wood().GetType();
+            storage[type].Amount *= 2;
         }
     }
 }

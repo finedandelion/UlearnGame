@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public BerriesManageCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Магические свойства пыли могут помочь с преобразованием листьев в ягоды.";
         }
 
         protected override Resource ReturnCraftResult()

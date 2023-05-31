@@ -14,8 +14,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЛЕПЕСТКИ";
             Description = "Из них получился бы красивый венок.";
-            ImagePath = Texture.Petals;
-            ImagePath2 = Texture.Petals2;
+            Image = Texture.Petals;
+            Image2 = Texture.Petals2;
         }
     }
 }

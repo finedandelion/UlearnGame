@@ -10,18 +10,18 @@ namespace UlearnGame.Model.Blessings
     {
         public EighthChoiceBlessing(Game game) : base(game)
         {
-            LeftDescription = "Время таймера уменьшается до трёх секунд.";
-            RightDescription = "+50% шанс появления доп. объекта на поле.";
+            LeftDescription = "БОЖЕСТВО УСЛЫШАЛО ВАШИ ПРОСЬБЫ.";
+            RightDescription = "БОЖЕСТВО УСЛЫШАЛО ВАШИ ПРОСЬБЫ.";
         }
 
         public override void LeftBlessingChanges()
         {
-            Game.ChangeFieldUpdateRate(3);
+
         }
 
         public override void RightBlessingChanges()
         {
-            Game.Field.ChangeDoubleGenerationChance(0.1);
+
         }
     }
 }

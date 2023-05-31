@@ -18,8 +18,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = CoalCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = Texture.Coal;
-            ImagePath2 = Texture.Coal2;
+            Image = Texture.Coal;
+            Image2 = Texture.Coal2;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -27,7 +27,7 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[]
             {
-                new Rock() { Amount = resourcesRandom.Next(1, 4) + Game.ResourceBonus },
+                new Rock() { Amount = resourcesRandom.Next(1, 3) },
                 new CoalLump() { Amount = resourcesRandom.Next(1, 4) + Game.ResourceBonus }
             };
         }

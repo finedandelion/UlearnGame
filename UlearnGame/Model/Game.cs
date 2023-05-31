@@ -56,9 +56,9 @@ namespace UlearnGame.Model
         {
             Experience += experience;
             TotalExperience += experience;
-            if (Experience - 1 > LevelExperienceCap && Level < 13)
+            if (Experience >= LevelExperienceCap && Level < 13)
             {
-                while (Experience > LevelExperienceCap && Level < 13)
+                while (Experience >= LevelExperienceCap && Level < 13)
                 {
                     Experience -= LevelExperienceCap;
                     Level += 1;

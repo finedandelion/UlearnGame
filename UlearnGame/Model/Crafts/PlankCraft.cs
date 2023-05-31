@@ -11,7 +11,8 @@ namespace UlearnGame.Model.Crafts
     {
         public PlankCraft(Game game) : base(game)
         {
-            Description = "Вы когда-нибудь пробовали расколоть бревно голыми руками? Человеку это не под силу, но не духу!";
+            Description = "Ты когда-нибудь пробовал расколоть бревно голыми руками? Ладно, руки тебе не понадобятся." +
+                " Духу вообще ничего нужно, разве что немного магических сил.";
         }
 
         protected override Resource ReturnCraftResult()

@@ -18,8 +18,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = SandstoneCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = Texture.Sandstone;
-            ImagePath2 = Texture.Sandstone2;
+            Image = Texture.Sandstone;
+            Image2 = Texture.Sandstone2;
             ResourcesDrop = resourcesDrop;
         }
 

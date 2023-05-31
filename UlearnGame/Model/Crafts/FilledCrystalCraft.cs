@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public FilledCrystalCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Целая сотня душ может поместиться в небольшой кристалл — эхо сотни живых существ треплется внутри.";
         }
 
         protected override Resource ReturnCraftResult()

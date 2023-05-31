@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public BowlCraft(Game game) : base(game)
         {
-            Description = "Не то чтобы божество обрадуется такой посудине, но похоже у нас нет другого выбора, да?";
+            Description = "Не то чтобы божество обрадуется такой посудине, но похоже у тебя нет другого выбора.";
         }
 
         protected override Resource ReturnCraftResult()

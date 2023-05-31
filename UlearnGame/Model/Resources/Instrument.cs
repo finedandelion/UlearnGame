@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ИНСТРУМЕНТ";
             Description = "Сгодится для более грубой работы.";
-            ImagePath = Texture.Instrument;
-            ImagePath2 = Texture.Instrument2;
+            Image = Texture.Instrument;
+            Image2 = Texture.Instrument2;
         }
     }
 }

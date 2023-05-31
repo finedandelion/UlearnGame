@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public WoodManageCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Магические свойства пыли могут помочь с преобразованием лепестков в древесину.";
         }
 
         protected override Resource ReturnCraftResult()

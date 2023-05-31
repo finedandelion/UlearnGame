@@ -11,12 +11,12 @@ namespace UlearnGame.Model.Crafts
     {
         public UpgradedNecklaceCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Кости на шее выглядят устрашающе. Подобное ожерелье уже больше походит хоть на что-то. В искусстве тебе не занимать.";
         }
 
         protected override Resource ReturnCraftResult()
         {
-            return new UpgradeNecklace() { Amount = 1 };
+            return new UpgradedNecklace() { Amount = 1 };
         }
 
         protected override Resource[] ReturnCraftResources()

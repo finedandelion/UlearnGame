@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "МЯСО";
             Description = "Что-то заставляет тебя почувстовать голод. Духи. Не. Голодают.";
-            ImagePath = Texture.Meat;
-            ImagePath2 = Texture.Meat2;
+            Image = Texture.Meat;
+            Image2 = Texture.Meat2;
         }
     }
 }

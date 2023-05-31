@@ -36,13 +36,13 @@ namespace UlearnGame.Visual
                 var index = i;
                 var button = InventoryButtons[index];
                 button.BackgroundImage = Texture.CellButton2;
-                button.Image = storage[index].ImagePath;
+                button.Image = storage[index].Image;
                 button.Text = "x" + storage[index].Amount.ToString();
                 button.Click += (sender, eventArgs) =>
                 {
                     SelectedItemName.Text = storage[index].Name;
                     SelectedItemDescription.Text = storage[index].Description;
-                    SelectedItemImage.Image = storage[index].ImagePath2;
+                    SelectedItemImage.Image = storage[index].Image2;
                     SelectedItemImage.Controls[0].Text = "x" + storage[index].Amount.ToString();
                     SelectedItemName.Visible = true;
                     SelectedItemDescription.Visible = true;

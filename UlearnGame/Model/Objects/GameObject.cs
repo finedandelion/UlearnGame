@@ -14,8 +14,8 @@ namespace UlearnGame.Model.Objects
         protected Game Game { get; set; }
         public double StartCapacity { get; protected set; }
         public double Capacity { get; protected set; }
-        public Image? ImagePath { get; protected set; }
-        public Image? ImagePath2 { get; protected set; }
+        public Image? Image { get; protected set; }
+        public Image? Image2 { get; protected set; }
         public SoundPlayer? ClickSound { get; protected set; }
         public Resource[]? ResourcesDrop { get; set; }
 

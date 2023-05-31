@@ -18,8 +18,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = StarCapicty;
             Capacity = StartCapacity;
-            ImagePath = Texture.Star;
-            ImagePath2 = Texture.Star2;
+            Image = Texture.Star;
+            Image2 = Texture.Star2;
             ResourcesDrop = resourcesDrop;
         }
 

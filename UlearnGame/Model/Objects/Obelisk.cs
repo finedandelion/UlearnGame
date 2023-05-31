@@ -18,8 +18,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = ObeliskCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = Texture.Obelisk;
-            ImagePath2 = Texture.Obelisk2;
+            Image = Texture.Obelisk;
+            Image2 = Texture.Obelisk2;
             ResourcesDrop = resourcesDrop;
         }
 

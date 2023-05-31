@@ -11,7 +11,8 @@ namespace UlearnGame.Model.Crafts
     {
         public WreathCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Говорят, что, если надеть венок на голову в трудных ситуациях, это поможет помочь сохранить рассудок и спокойствие." +
+                " Нет, у духов нет головы, так что крепись.";
         }
 
         protected override Resource ReturnCraftResult()

@@ -18,8 +18,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = RemainsCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = Texture.Remains;
-            ImagePath2 = Texture.Remains2;
+            Image = Texture.Remains;
+            Image2 = Texture.Remains2;
             ResourcesDrop = resourcesDrop;
         }
 

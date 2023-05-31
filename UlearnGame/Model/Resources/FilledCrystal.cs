@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЗАРЯЖ. КРИСТАЛЛ";
             Description = "Первосходный магический инструмент.";
-            ImagePath = Texture.FilledCrystal;
-            ImagePath2 = Texture.FilledCrystal2;
+            Image = Texture.FilledCrystal;
+            Image2 = Texture.FilledCrystal2;
         }
     }
 }

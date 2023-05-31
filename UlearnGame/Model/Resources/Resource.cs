@@ -9,8 +9,8 @@ namespace UlearnGame.Model.Resources
     public class Resource : IResource
     {
         public int Amount { get; set; }
-        public Image? ImagePath { get; set; }
-        public Image? ImagePath2 { get; set; }
+        public Image? Image { get; set; }
+        public Image? Image2 { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 
@@ -24,7 +24,7 @@ namespace UlearnGame.Model.Resources
             var resource = obj as Resource;
             return resource != null
                 && Amount == resource.Amount
-                && ImagePath.GetHashCode() == resource.ImagePath.GetHashCode();
+                && Image.GetHashCode() == resource.Image.GetHashCode();
         }
     }
 }

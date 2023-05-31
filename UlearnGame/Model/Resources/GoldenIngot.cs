@@ -14,8 +14,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЗОЛОТАЯ РУДА";
             Description = "Блестит! Самый настоящий и неподдельный самородок.";
-            ImagePath = Texture.GoldenIngot;
-            ImagePath2 = Texture.GoldenIngot2;
+            Image = Texture.GoldenIngot;
+            Image2 = Texture.GoldenIngot2;
         }
     }
 }

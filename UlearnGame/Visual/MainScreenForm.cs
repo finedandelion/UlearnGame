@@ -291,7 +291,7 @@ namespace UlearnGame.Visual
         private void SetUpperPanelButtons()
         {
             SetExitButton();
-            SetSettingsButton();
+            //SetSettingsButton();
             SetUpgradeButton();
             SetHelpButton();
         }
@@ -347,7 +347,7 @@ namespace UlearnGame.Visual
         {
             var helpButton = new Button()
             {
-                Location = new Point(690, 50),
+                Location = new Point(932, 50), // 690
                 Image = Texture.HelpButton,
                 Width = 100,
                 Height = 100,
@@ -371,7 +371,7 @@ namespace UlearnGame.Visual
                     var capacity = field[index].Capacity.ToString();
                     var startCap = field[index].StartCapacity.ToString();
                     FieldButtons[index].Text = capacity + "/" + startCap;
-                    FieldButtons[index].Image = field[index].ImagePath;
+                    FieldButtons[index].Image = field[index].Image;
                 }
                 FieldButtons[index].Location = SetFieldButtonPosition(index, FieldButtons[index].Width);
                 FieldButtons[index].Click += (sender, eventargs) =>
@@ -459,9 +459,9 @@ namespace UlearnGame.Visual
                             var cell = (int) nullableCell;
                             var capacity = Game.Field.GameCells[cell].StartCapacity.ToString();
                             if (buttonSize == 256)
-                                BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.GameCells[cell].ImagePath));
+                                BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.GameCells[cell].Image));
                             else
-                                BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.GameCells[cell].ImagePath2));
+                                BeginInvoke(new Action(() => FieldButtons[cell].Image = Game.Field.GameCells[cell].Image2));
                             BeginInvoke(new Action(() => FieldButtons[cell].Text = capacity + "/" + capacity));
                         }
                     }

@@ -11,7 +11,8 @@ namespace UlearnGame.Model.Crafts
     {
         public InstrumentCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Незаменимая вещь в ремесле! Даже силы духов небезграничны, так что приходится как-то упрощать свою работу" +
+                " — с помощью инструментов в том числе.";
         }
 
         protected override Resource ReturnCraftResult()

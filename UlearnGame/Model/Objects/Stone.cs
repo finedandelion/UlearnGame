@@ -18,8 +18,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = StoneCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = Texture.Stone;
-            ImagePath2 = Texture.Stone2;
+            Image = Texture.Stone;
+            Image2 = Texture.Stone2;
             ResourcesDrop = resourcesDrop;
         }
 

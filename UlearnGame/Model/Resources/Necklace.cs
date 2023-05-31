@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ОЖЕРЕЛЬЕ";
             Description = "Украшения, что носят на шее, пользуются особым почтением.";
-            ImagePath = Texture.Necklace;
-            ImagePath2 = Texture.Necklace2;
+            Image = Texture.Necklace;
+            Image2 = Texture.Necklace2;
         }
     }
 }

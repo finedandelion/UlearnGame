@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ВЕНОК";
             Description = "Он хорошо бы смотрелся на голове! Не на твоей.";
-            ImagePath = Texture.Wreath;
-            ImagePath2 = Texture.Wreath2;
+            Image = Texture.Wreath;
+            Image2 = Texture.Wreath2;
         }
     }
 }

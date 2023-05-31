@@ -19,6 +19,11 @@ namespace UlearnGame.Model.Upgrades
         public Upgrade[] Previous { get; set; }
         public Game Game { get; set; }
 
+        public Upgrade(Game game)
+        {
+            Game = game;
+        }
+
         public override int GetHashCode()
         {
             return Title.GetHashCode();
@@ -26,7 +31,9 @@ namespace UlearnGame.Model.Upgrades
 
         public virtual bool IsObtainable()
         {
-            return Previous == null ? true : Previous.All(prev => prev.IsObtained == true);
+            return (Previous == null ? true : Previous.All(prev => prev.IsObtained == true))
+                && Game.UpgradeSystem.AvailableUpgradePoints > 0 
+                && IsObtained == false;
         }
 
         public virtual void ObtainUpgrade()

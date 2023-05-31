@@ -19,8 +19,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = GoldCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = Texture.Gold;
-            ImagePath2 = Texture.Gold2;
+            Image = Texture.Gold;
+            Image2 = Texture.Gold2;
             ResourcesDrop = resourcesDrop;
         }
 
@@ -28,7 +28,7 @@ namespace UlearnGame.Model.Objects
         {
             return new Resource[]
             {
-                new Rock() { Amount =  2 + Game.ResourceBonus},
+                new Rock() { Amount = resourcesRandom.Next(1, 3)},
                 new GoldenIngot() { Amount = resourcesRandom.Next(1, 3) + Game.ResourceBonus }
             };
         }

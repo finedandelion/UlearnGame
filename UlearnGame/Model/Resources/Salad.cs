@@ -14,8 +14,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "МАЛ. ПОДНОШЕНИЕ";
             Description = "Толчёные ягоды и листья. Надейся на милость.";
-            ImagePath = Texture.Salad;
-            ImagePath2 = Texture.Salad2;
+            Image = Texture.Salad;
+            Image2 = Texture.Salad2;
         }
 
     }

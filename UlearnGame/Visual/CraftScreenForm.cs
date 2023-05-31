@@ -332,7 +332,7 @@ namespace UlearnGame.Visual
                 var craft = crafts[index];
                 var button = CraftButtons[index];
                 button.BackgroundImage = Texture.CraftCell2;
-                button.Image = craft.CraftResult.ImagePath;
+                button.Image = craft.CraftResult.Image;
                 button.Text = $"x{craft.CraftResult.Amount}";
                 button.Click += (sender, eventArgs) =>
                 {
@@ -380,13 +380,13 @@ namespace UlearnGame.Visual
             {
                 var index = i;
                 var craftResource = craft.CraftResources[index];
-                RecipeItems[index].Image = craftResource.ImagePath;
+                RecipeItems[index].Image = craftResource.Image;
                 RecipeItems[index].BackgroundImage = Texture.CraftCell2;
                 RecipeItems[index].Text = inventory.AmountOf(craftResource).ToString() + " / " + craftResource.Amount.ToString();
 
             }
             RecipeDescription.Text = craft.Description;
-            RecipeResult.Image = craft.CraftResult.ImagePath;
+            RecipeResult.Image = craft.CraftResult.Image;
             RecipeResult.BackgroundImage = Texture.CraftCell2;
             RecipeResult.Text = "x" + craft.CraftResult.Amount.ToString();
         }

@@ -20,8 +20,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = TreeCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = Texture.Tree;
-            ImagePath2 = Texture.Tree2;
+            Image = Texture.Tree;
+            Image2 = Texture.Tree2;
             ResourcesDrop = resourcesDrop;
         }
 

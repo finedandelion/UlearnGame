@@ -9,10 +9,9 @@ namespace UlearnGame.Model.Upgrades
 {
     public class GathererUpgrade : Upgrade
     {
-        public GathererUpgrade(Game game, Upgrade[] previous = null)
+        public GathererUpgrade(Game game, Upgrade[] previous = null) : base(game)
         {
             IsObtained = false;
-            Game = game;
             Previous = previous;
             ImagePath1 = Texture.GathererIcon;
             ImagePath2 = Texture.GathererIcon2;

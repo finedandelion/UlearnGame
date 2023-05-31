@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "СЛИЗЬ";
             Description = "Склизкая и противная. Интересно, какая она на вкус?";
-            ImagePath = Texture.SlimeDrop;
-            ImagePath2 = Texture.SlimeDrop2;
+            Image = Texture.SlimeDrop;
+            Image2 = Texture.SlimeDrop2;
         }
     }
 }

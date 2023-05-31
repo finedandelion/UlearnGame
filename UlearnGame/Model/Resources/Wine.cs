@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ВИНО";
             Description = "Искуственно выдержано годами. То, чего так не хватает Божеству.";
-            ImagePath = Texture.Wine;
-            ImagePath2 = Texture.Wine2;
+            Image = Texture.Wine;
+            Image2 = Texture.Wine2;
         }
     }
 }

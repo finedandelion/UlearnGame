@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public GoldenTotemCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Золотые тотемы пригодны для красоты, но не для волшебства, ведь они не имеют магических свойств.";
         }
 
         protected override Resource ReturnCraftResult()

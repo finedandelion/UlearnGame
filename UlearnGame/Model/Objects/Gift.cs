@@ -16,10 +16,10 @@ namespace UlearnGame.Model.Objects
         public Gift(Game game)
         {
             Game = game;
-            StartCapacity = GiftCapicty + Game.MonsterAdditionalCapacity;
+            StartCapacity = GiftCapicty;
             Capacity = StartCapacity;
-            ImagePath = Texture.Gift;
-            ImagePath2 = Texture.Gift2;
+            Image = Texture.Gift;
+            Image2 = Texture.Gift2;
             ResourcesDrop = resourcesDrop;
         }
 

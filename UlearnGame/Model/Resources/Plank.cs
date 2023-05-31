@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ДОСКА";
             Description = "Приобрётшая новый вид древесина. Гладкая на ощупь.";
-            ImagePath = Texture.Plank;
-            ImagePath2 = Texture.Plank2;
+            Image = Texture.Plank;
+            Image2 = Texture.Plank2;
         }
     }
 }

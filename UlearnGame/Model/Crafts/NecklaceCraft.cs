@@ -11,7 +11,8 @@ namespace UlearnGame.Model.Crafts
     {
         public NecklaceCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Ожерелья всегда были эталоном красоты, однако если привязать к верёвке пару камней, это не сделает из неё ожерелья." +
+                " Ладно, как знаешь.";
         }
 
         protected override Resource ReturnCraftResult()

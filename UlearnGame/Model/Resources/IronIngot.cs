@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЖЕЛЕЗНАЯ РУДА";
             Description = "Железо течёт в крови. Именно поэтому оно нравится божеству.";
-            ImagePath = Texture.IronIngot;
-            ImagePath2 = Texture.IronIngot2;
+            Image = Texture.IronIngot;
+            Image2 = Texture.IronIngot2;
         }
     }
 }

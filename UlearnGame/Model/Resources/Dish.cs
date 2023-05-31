@@ -14,8 +14,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "МЯСНОЕ БЛЮДО";
             Description = "Сгодится. Божество будет радо кровавому пиршеству.";
-            ImagePath = Texture.Dish;
-            ImagePath2 = Texture.Dish2;
+            Image = Texture.Dish;
+            Image2 = Texture.Dish2;
         }
     }
 }

@@ -35,8 +35,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = FlowerCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = ChooseTexture(new Random().Next(0, 5));
-            ImagePath2 = ChooseTexture2(new Random().Next(0, 5));
+            Image = ChooseTexture(new Random().Next(0, 5));
+            Image2 = ChooseTexture2(new Random().Next(0, 5));
             ResourcesDrop = resourcesDrop;
         }
 

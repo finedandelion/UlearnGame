@@ -9,10 +9,9 @@ namespace UlearnGame.Model.Upgrades
 {
     public class ArcheologistUpgrade : Upgrade
     {
-        public ArcheologistUpgrade(Game game, Upgrade[] previous = null)
+        public ArcheologistUpgrade(Game game, Upgrade[] previous = null) : base(game)
         {
             IsObtained = false;
-            Game = game;
             Previous = previous;
             ImagePath1 = Texture.ArcheologistIcon;
             ImagePath2 = Texture.ArcheologistIcon2;

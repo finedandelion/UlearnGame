@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public ChaliceCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "В отличие от других посудин этот кубок сделан из золота, делающего его лучшим выбором среди других ёмкостей для подношений.";
         }
 
         protected override Resource ReturnCraftResult()

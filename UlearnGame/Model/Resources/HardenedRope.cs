@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ТВЁРД. ВЕРЁВКА";
             Description = "До сих пор сохраняет свои эластичные свойства. Вряд ли порвётся.";
-            ImagePath = Texture.HardenedRope;
-            ImagePath2 = Texture.HardenedRope2;
+            Image = Texture.HardenedRope;
+            Image2 = Texture.HardenedRope2;
         }
     }
 }

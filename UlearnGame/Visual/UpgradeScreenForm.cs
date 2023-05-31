@@ -7,6 +7,7 @@ using UlearnGame.Model.Upgrades;
 using UlearnGame.Model;
 using static System.Collections.Specialized.BitVector32;
 using static System.Windows.Forms.AxHost;
+using UlearnGame.Model.Crafts;
 
 namespace UlearnGame.Visual
 {
@@ -33,6 +34,7 @@ namespace UlearnGame.Visual
             Game = game;
             SetFormBaseParameteres();
             InitializeUpgradeScreen();
+            BringControlsToFront();
         }
 
         public void UpdatePointsBar()
@@ -42,7 +44,7 @@ namespace UlearnGame.Visual
         }
         private void InitializeUpgradeScreen()
         {
-            //SetHideScreen();
+            SetHideScreen();
             SetUpgradeCard();
             SetUpgradePanel();
             SetUpgradePointsBar();
@@ -56,7 +58,7 @@ namespace UlearnGame.Visual
                 Location = new Point(0, 0),
                 Width = 1920,
                 Height = 1080,
-                BackgroundImage = Texture.Background,
+                BackColor = Color.Transparent,
                 Visible = false,
             };
             HideScreen = hideScreen;
@@ -150,6 +152,11 @@ namespace UlearnGame.Visual
             {
                 ChangeUpgradePanelVisibility(true);
                 UpdatePointsBar();
+                foreach (var button in AcceptButtons)
+                {
+                    button.Enabled = false;
+                    button.BackgroundImage = Texture.AcceptUpgradeButton;
+                }
             };
             BackButton = backButton;
             Controls.Add(BackButton);
@@ -243,9 +250,8 @@ namespace UlearnGame.Visual
                 {
                     ShowUpgradeCard(upgrade);
                     AcceptButtons[index].Show();
-                    if (upgrade.IsObtained == false
-                        && Game.UpgradeSystem.AvailableUpgradePoints > 0 
-                        && upgrade.IsObtainable())
+                    AcceptButtons[index].BringToFront();
+                    if (upgrade.IsObtainable())
                     {
                         AcceptButtons[index].Enabled = true;
                         AcceptButtons[index].BackgroundImage = Texture.AcceptUpgradeButton2;
@@ -431,6 +437,7 @@ namespace UlearnGame.Visual
 
         private void ChangeUpgradePanelVisibility(bool state)
         {
+            HideScreen.Visible = !state;
             if (state)
                 foreach (var button in AcceptButtons)
                     button.Visible = !state;
@@ -440,11 +447,18 @@ namespace UlearnGame.Visual
             UpgradeCardPanel.Visible = !state;
             BackButton.Visible = !state;
             BackUpgradeButton.Visible = state;
-            foreach (var button in UpgradeButtons)
-                button.Visible = state;
-            UpgradePanel.Visible = state;
-            UpperNamePanel.Visible = state;
             UpgradePointsBar.Visible = state;
+        }
+
+        private void BringControlsToFront()
+        {
+            UpgradeCardPanel.BringToFront();
+            foreach (var button in AcceptButtons)
+                button.BringToFront();
+            UpgradeDescription.BringToFront();
+            UpgradeTitle.BringToFront();
+            UpgradeIcon.BringToFront();
+            BackButton.BringToFront();
         }
     }
 }

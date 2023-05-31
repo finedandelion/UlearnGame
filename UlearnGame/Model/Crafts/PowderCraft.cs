@@ -11,7 +11,8 @@ namespace UlearnGame.Model.Crafts
     {
         public PowderCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Эта магическая пыль способна творить удивительные вещи! Инструкции не прилагаются, но ты можешь попробовать" +
+                " преобразовать одни ресурсы в другие, например.";
         }
 
         protected override Resource ReturnCraftResult()

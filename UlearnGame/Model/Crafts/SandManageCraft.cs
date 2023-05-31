@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public SandManageCraft(Game game) : base(game)
         {
-            Description = "";
+            Description = "Магические свойства пыли могут помочь с преобразованием камня в песок.";
         }
 
         protected override Resource ReturnCraftResult()

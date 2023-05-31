@@ -7,14 +7,14 @@ using UlearnGame.Visual;
 
 namespace UlearnGame.Model.Resources
 {
-    public class UpgradeNecklace : Resource
+    public class UpgradedNecklace : Resource
     {
-        public UpgradeNecklace()
+        public UpgradedNecklace()
         {
             Name = "ОЖЕРЕЛЬЕ ИЗ КОСТЕЙ";
             Description = "Кости придают устрашающий вид.";
-            ImagePath = Texture.UpgradedNecklace;
-            ImagePath2 = Texture.UpgradedNecklace2;
+            Image = Texture.UpgradedNecklace;
+            Image2 = Texture.UpgradedNecklace2;
         }
     }
 }

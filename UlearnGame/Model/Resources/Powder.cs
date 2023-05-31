@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ПЫЛЬЦА";
             Description = "Магический ингридиент, служащий для преобразования ресурсов!";
-            ImagePath = Texture.Powder;
-            ImagePath2 = Texture.Powder2;
+            Image = Texture.Powder;
+            Image2 = Texture.Powder2;
         }
     }
 }

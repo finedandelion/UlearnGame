@@ -19,8 +19,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = SlimeCapicty + Game.MonsterAdditionalCapacity;
             Capacity = StartCapacity;
-            ImagePath = Texture.Slime;
-            ImagePath2 = Texture.Slime2;
+            Image = Texture.Slime;
+            Image2 = Texture.Slime2;
             ResourcesDrop = resourcesDrop;
         }
 

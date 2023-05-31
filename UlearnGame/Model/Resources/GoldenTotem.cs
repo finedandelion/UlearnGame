@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЗОЛОТОЙ ТОТЕМ";
             Description = "СЛАВЬ СВОЁ БОЖЕСТВО! СЛАВЬ СВОЁ БОЖЕСТВО!";
-            ImagePath = Texture.GoldenTotem;
-            ImagePath2 = Texture.GoldenTotem2;
+            Image = Texture.GoldenTotem;
+            Image2 = Texture.GoldenTotem2;
         }
     }
 }

@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ЯГОДЫ";
             Description = "Ягоды, собранные с куста. На вид выглядят сочно!";
-            ImagePath = Texture.Berries;
-            ImagePath2 = Texture.Berries2;
+            Image = Texture.Berries;
+            Image2 = Texture.Berries2;
         }
     }
 }

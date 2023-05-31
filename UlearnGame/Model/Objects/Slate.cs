@@ -18,8 +18,8 @@ namespace UlearnGame.Model.Objects
             Game = game;
             StartCapacity = SlateCapicty * Game.CapacityHardnessMultiplier;
             Capacity = StartCapacity;
-            ImagePath = Texture.Slate;
-            ImagePath2 = Texture.Slate2;
+            Image = Texture.Slate;
+            Image2 = Texture.Slate2;
             ResourcesDrop = resourcesDrop;
         }
 

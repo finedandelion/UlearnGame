@@ -11,7 +11,7 @@ namespace UlearnGame.Model.Crafts
     {
         public SharpenedRockCraft(Game game) : base(game)
         {
-            Description = "Получить заострённый камень путем долбления двух друг о друга. Как в старые добрые!";
+            Description = "Это можно было бы сделать проще, но почему бы не заострить камень путём долбления двух камней друг о друга? Прямо как в старые добрые!";
         }
 
         protected override Resource ReturnCraftResult()

@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "ВОЛОКНО";
             Description = "Тонкие органические волокна. Пригодны для вязаяния.";
-            ImagePath = Texture.Fiber;
-            ImagePath2 = Texture.Fiber2;
+            Image = Texture.Fiber;
+            Image2 = Texture.Fiber2;
         }
     }
 }

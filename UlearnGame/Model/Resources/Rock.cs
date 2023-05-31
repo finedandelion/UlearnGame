@@ -13,8 +13,8 @@ namespace UlearnGame.Model.Resources
         {
             Name = "КАМУШЕК";
             Description = "Раздробленные части небольшого камня.";
-            ImagePath = Texture.Rock;
-            ImagePath2 = Texture.Rock2;
+            Image = Texture.Rock;
+            Image2 = Texture.Rock2;
         }
     }
 }

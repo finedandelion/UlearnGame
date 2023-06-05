@@ -276,9 +276,9 @@ namespace UlearnGame.Visual
             var experienceBar = new Label()
             {
                 Location = new Point(58, 50),
-                Width = 600,
+                Width = 700,
                 Height = 100,
-                BackgroundImage = Texture.ExperienceBar,
+                BackgroundImage = Texture.ExperienceUpgradeBar,
                 TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = ProgramInitials.GetHtmlColor("#F7AC37"),
                 Font = new Font(string.Empty, 24, FontStyle.Bold),

@@ -12,18 +12,15 @@ namespace UlearnGame.Tests
     public class UpgradeTests
     {
         private static Game Game;
-        private static Inventory Inventory;
-        private static GameField GameField;
         private static UpgradeSystem UpgradeSystem;
 
         [SetUp]
         protected virtual void Setup()
         {
             Game = new Game();
-            Inventory = Game.Inventory;
-            GameField = Game.Field;
             UpgradeSystem = Game.UpgradeSystem;
         }
+        
         [Test]
         public void RightExperienceAdditionTest() // Правильный переход между уровнями
         {
@@ -34,14 +31,14 @@ namespace UlearnGame.Tests
         }
 
         [Test]
-        public void UpgradeCantObtainWithoutLeveLPointsTest()
+        public void UpgradeCantObtainWithoutLeveLPointsTest() // Невозможно получить навык, если недостаточно очков
         {
             Assert.That(Game.Level, Is.EqualTo(0));
             Assert.IsFalse(UpgradeSystem.upgrades[0].IsObtainable());
         }
 
         [Test]
-        public void UpgradeCantObtainObtainedUpgradeTest()
+        public void UpgradeCantObtainObtainedUpgradeTest()// Невозможно получить навык, если навык уже получен
         {
             Game.AddExperience(120);
             UpgradeSystem.upgrades[0].ObtainUpgrade();
@@ -50,31 +47,11 @@ namespace UlearnGame.Tests
         }
 
         [Test]
-        public void UpgradeCantBeObtainedIfPreviousNotObtainedTest()
+        public void UpgradeCantBeObtainedIfPreviousNotObtainedTest() // Невозможно получить навык, если не получены предыдущие навыки
         {
             Game.AddExperience(120);
             Assert.That(UpgradeSystem.AvailableUpgradePoints, Is.EqualTo(1));
             Assert.IsFalse(UpgradeSystem.upgrades[1].IsObtainable());
         }
-
-        //[Test]
-        //public void GathererUpgradeTest()
-        //{
-        //    UpgradeSystem.upgrades[0].ObtainUpgrade();
-        //}
-
-        //upgrades.Add(0, gatherer);
-        //    upgrades.Add(1, craftsman);
-        //    upgrades.Add(2, master1);
-        //    upgrades.Add(3, master2);
-        //    upgrades.Add(4, master3);
-        //    upgrades.Add(5, adventurer);
-        //    upgrades.Add(6, archeologist);
-        //    upgrades.Add(7, hunter);
-        //    upgrades.Add(8, spelunker);
-        //    upgrades.Add(9, explorer);
-        //    upgrades.Add(10, magician);
-        //    upgrades.Add(11, priest);
-        //    upgrades.Add(12, chronomancer);
     }
 }

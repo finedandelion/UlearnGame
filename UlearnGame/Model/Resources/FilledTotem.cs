@@ -12,7 +12,7 @@ namespace UlearnGame.Model.Resources
         public FilledTotem() 
         {
             Name = "НАПОЛН. ТОТЕМ";
-            Description = "Возможно, нём таятся сотни живых душ.";
+            Description = "Возможно, в нём таятся сотни живых душ.";
             Image = Texture.FilledTotem;
             Image2 = Texture.FilledTotem2;
         }

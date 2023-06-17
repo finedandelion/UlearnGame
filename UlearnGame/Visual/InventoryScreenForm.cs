@@ -57,6 +57,7 @@ namespace UlearnGame.Visual
             SetSelectedItemPanel();
             SetInventoryBackButton();
         }
+
         private void SetFormBaseParameteres()
         {
             SuspendLayout();
@@ -164,6 +165,7 @@ namespace UlearnGame.Visual
             UpperNamePanel = namePanel;
             Controls.Add(UpperNamePanel);
         }
+
         private void SetSelectedItemPanel()
         {
             SetSelectedItemName();
@@ -198,8 +200,6 @@ namespace UlearnGame.Visual
             {
                 ResetInventory(Game.Inventory.GetStorage());
                 ProgramInitials.ShowScreen("Main");
-                //ProgramInitials.MainScreenForm.Show();
-                //Hide();
             };
             BackInventoryButton = backButton;
             Controls.Add(BackInventoryButton);

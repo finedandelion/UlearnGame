@@ -25,6 +25,7 @@ namespace UlearnGame.Visual
         private Label BlessingNamePanel;
 
         private Game Game { get; set; }
+
         public TotemScreenForm(Game game)
         {
             Game = game;

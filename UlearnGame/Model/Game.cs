@@ -11,32 +11,55 @@ namespace UlearnGame.Model
     public class Game
     {
         public GameField Field { get; private set; }
+
         public Inventory Inventory { get; private set; }
+
         public UpgradeSystem UpgradeSystem { get; private set; }
+
         public AscendingSystem AscendingSystem { get; private set; }
+
         public CraftSystem CraftSystem { get; private set; }
+
         public double LevelConst { get; private set; }
 
         public int ClickPower { get; private set; }
+
         public int FieldUpdateRate { get; private set; }
+
         public int EssenceDrop { get; private set; }
+
         public int ResourceBonus { get; private set; }
+
         public int Level { get; private set; }
+
         public int LevelExperienceCap { get; private set; }
+
         public double Experience { get; private set; }
+
         public double TotalExperience { get; private set; }
+
         public int TotalResourcesDrop { get; private set; }
+
         public int TotalResourcesCraft { get; private set; }
+
         public int TotalAscendingTimes { get; private set; }
+
         public int TotalClickTimes { get; private set; }
+
         public int TotalObjectDestruction { get; private set; }
+
         public int TotalCraftTimes { get; private set; }
+
         public double CapacityHardnessMultiplier { get; private set; }
+
         public double ExperienceMultiplier { get; private set; }
+
         public int MonsterAdditionalCapacity { get; private set; }
+
         public int MonsterAdditionalResource { get; private set; }
 
         public int FirstCraftSimplifier { get; private set; }
+
         public Game()
         {
             LevelConst = 1.15;

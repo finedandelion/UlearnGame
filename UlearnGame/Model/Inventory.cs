@@ -12,6 +12,7 @@ namespace UlearnGame.Model
         private Dictionary<Type, Resource> storage = new Dictionary<Type, Resource>();
 
         public int Count => storage.Count;
+
         public void AddItem(Resource[] resources)
         {
             foreach (var resource in resources)

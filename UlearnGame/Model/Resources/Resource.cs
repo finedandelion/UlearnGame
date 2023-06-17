@@ -13,18 +13,5 @@ namespace UlearnGame.Model.Resources
         public Image? Image2 { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override bool Equals(object? obj)
-        {
-            var resource = obj as Resource;
-            return resource != null
-                && Amount == resource.Amount
-                && Image.GetHashCode() == resource.Image.GetHashCode();
-        }
     }
 }

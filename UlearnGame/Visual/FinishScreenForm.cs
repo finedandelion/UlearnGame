@@ -16,6 +16,7 @@ namespace UlearnGame.Visual
         private Label FinishPanel;
         private Button BackButton;
         private Button CloseButton;
+
         public FinishScreenForm()
         {
             SetFormBaseParameteres();

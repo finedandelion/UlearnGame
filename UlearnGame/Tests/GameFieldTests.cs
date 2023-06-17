@@ -131,9 +131,6 @@ namespace UlearnGame.Tests
             Field.GenerateResource();
             var notEmptyCellsCount = Field.GameCells.Where(cell => cell.Value != null).Count();
             Assert.That(notEmptyCellsCount, Is.EqualTo(2));
-            //var method = typeof(GameField)
-            //    .GetMethod("SetDoubledGeneration", BindingFlags.NonPublic | BindingFlags.Instance);
-            //method.Invoke(Field, new object[] { });
             Field.FormerUpgrade();
             Field.GenerateResource();
             notEmptyCellsCount = Field.GameCells.Where(cell => cell.Value != null).Count();

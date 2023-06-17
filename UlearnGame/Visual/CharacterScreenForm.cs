@@ -22,12 +22,14 @@ namespace UlearnGame.Visual
         private Label StatisticsPanel;
 
         private Game Game { get; set; }
+
         public CharacterScreenForm(Game game)
         {
             Game = game;
             SetFormBaseParameteres();
             InitializeCharacterScreen();
         }
+
         public void UpdateScreenState()
         {
             StatisticsPanel.Text = $"\n\n  УРОВЕНЬ: {Game.Level + 1} ур.\n" +

@@ -15,11 +15,17 @@ namespace UlearnGame.Model
         private int AscendLevel;
         private Blessing[] Blessings;
         private Resource[][] Offerings;
+
         public Blessing CurrentBlessing => Blessings[AscendLevel];
+
         public Resource[] CurrentResources => Offerings[AscendLevel];
+
         public bool IsGameCompleted { get; private set; }
+
         public int AscendLevelCap => Blessings.Length;
+
         private Game Game { get; set; }
+
         public AscendingSystem(Game game)
         {
             Game = game;

@@ -24,12 +24,14 @@ namespace UlearnGame.Visual
         private Button LeftSwitch;
 
         private Game Game { get; set; }
+
         public CraftScreenForm(Game game)
         {
             Game = game;
             SetFormBaseParameteres();
             InitializeCraftScreen();
         }
+
         private void SetFormBaseParameteres()
         {
             SuspendLayout();

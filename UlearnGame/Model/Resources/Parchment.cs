@@ -12,7 +12,7 @@ namespace UlearnGame.Model.Resources
         public Parchment()
         {
             Name = "ПИСАНИЕ";
-            Description = "Слова звучат мелодично и передаёт суть происходящих событий.";
+            Description = "Слова звучат мелодично и передают суть происходящих событий.";
             Image = Texture.Parchment;
             Image2 = Texture.Parchment2;
         }

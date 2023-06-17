@@ -23,6 +23,7 @@ namespace UlearnGame.Visual
         private List<Button> FieldButtons = new List<Button>();
 
         private Game Game { get; set; }
+
         public MainScreenForm(Game game)
         {
             Game = game;
@@ -119,7 +120,6 @@ namespace UlearnGame.Visual
             ProgramInitials.ApplicationInProccess = false;
             Thread.Sleep(1000);
             DisableScreens();
-            ProgramInitials.SerializeGameData();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -432,7 +432,7 @@ namespace UlearnGame.Visual
             }
         }
 
-        private async void StartGenerationTimer()
+        private void StartGenerationTimer()
         {
             var thread = new Thread(() =>
             {

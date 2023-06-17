@@ -12,7 +12,9 @@ namespace UlearnGame.Model
         public readonly Dictionary<int, Upgrade> upgrades;
 
         public string[] Titles { get; private set; }
+
         private Game Game { get; set; }
+
         public int UsedUpgradePoints
         {
             get
@@ -20,6 +22,7 @@ namespace UlearnGame.Model
                 return upgrades.Count(upgrade => upgrade.Value.IsObtained == true);
             }
         }
+
         public int AvailableUpgradePoints 
         { 
             get 

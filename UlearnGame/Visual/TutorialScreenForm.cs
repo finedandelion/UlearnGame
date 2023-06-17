@@ -23,14 +23,11 @@ namespace UlearnGame.Visual
             " получить при переходе на новый уровень.\n\n";
         private const string Third = "Инвентарь:\nМесто, куда помещаюстя добытые ресурсы. Можно подробнее узнать о их количестве и прочитать описание.\n\n" +
             "Меню персонажа:\nМесто, где вы можете посмотреть на игровую статистику и своего персонажа.\n\nСистема крафтов:\nМесто, где вы можете" +
-            " посмотреть создавать новые ресурсы и преобразовывать одни ресурсы в другие.\n\nИндикаторы:\nНа некоторых кнопках можно заметить два индикатора" +
-            " \"✓\" и \"×\", которые указывают на возможность и невозможность выполнения действия соотсветственно.";
-        private const string Fourth = "Сброс прогресса:\nЧтобы начать игру занова, необходимо открыть настройки и нажать на кнопку" +
-            " сброса прогресса.";
+            " создавать новые ресурсы и преобразовывать одни ресурсы в другие.\n\nИндикаторы:\nНа некоторых кнопках можно заметить два индикатора" +
+            " \"✓\" и \"×\", которые указывают на возможность и невозможность выполнения действия соотсветственно.";    
         private Label FirstTutorialPanel;
         private Label SecondTutorialPanel;
         private Label ThirdTutorialPanel;
-        private Label FourthTutorialPanel;
         private Button BackButton;
         private Label NamePanel;
 
@@ -64,10 +61,9 @@ namespace UlearnGame.Visual
 
         private void InitializeScreen()
         {
-            SetTutorialPanel(FirstTutorialPanel, First, new Point(18, 56));
-            SetTutorialPanel(SecondTutorialPanel, Second, new Point(496, 56));
-            SetTutorialPanel(ThirdTutorialPanel, Third, new Point(974, 56));
-            SetTutorialPanel(FourthTutorialPanel, Fourth, new Point(1453, 56));
+            SetTutorialPanel(FirstTutorialPanel, First, new Point(256, 56));
+            SetTutorialPanel(SecondTutorialPanel, Second, new Point(734, 56));
+            SetTutorialPanel(ThirdTutorialPanel, Third, new Point(1213, 56));
             SetNamePanel();
             SetBackButton();
         }

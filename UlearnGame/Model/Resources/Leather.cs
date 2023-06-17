@@ -12,7 +12,7 @@ namespace UlearnGame.Model.Resources
         public Leather()
         {
             Name = "КОЖА";
-            Description = "Ты убийца. Серьёзно.";
+            Description = "Содрана идеальна. Где-то ты её уже видел. В другой жизни?";
             Image = Texture.Leather;
             Image2 = Texture.Leather2;
         }

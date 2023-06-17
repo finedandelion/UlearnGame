@@ -13,7 +13,7 @@ namespace UlearnGame.Model.Resources
         public GoldenIngot()
         {
             Name = "ЗОЛОТАЯ РУДА";
-            Description = "Блестит! Самый настоящий и неподдельный самородок.";
+            Description = "Блестит! Самый настоящий, неподдельный самородок!";
             Image = Texture.GoldenIngot;
             Image2 = Texture.GoldenIngot2;
         }

@@ -59,28 +59,5 @@ namespace UlearnGame
         {
             Screens[screen].BringToFront();
         }
-
-        public static void SerializeGameData()
-        {
-            var path = Path.Combine(Environment.CurrentDirectory, "GameData.json");
-            var json = JsonConvert.SerializeObject(Game, new JsonSerializerSettings()
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                TypeNameHandling = TypeNameHandling.All,
-                NullValueHandling = NullValueHandling.Ignore,
-            });
-            File.WriteAllText(path, json);
-        }
-
-        public Game DeserializeGameData()
-        {
-            var path = Path.Combine(Environment.CurrentDirectory, "GameData.json");
-            if (!File.Exists(path))
-                return null;
-            var text = File.ReadAllText(path);
-            var game = JsonConvert.DeserializeObject<Game>(text);
-            File.Delete(path);
-            return game;
-        }
     }
 }

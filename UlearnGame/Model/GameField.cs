@@ -15,10 +15,15 @@ namespace UlearnGame.Model
         private int DoubledGeneration;
 
         public Dictionary<int, GameObject?> GameCells { get; private set; }
+
         public int FieldCap { get { return GameCells.Count - 1; } }
+
         public double DoubleGenrationChances { get; private set; }
+
         public int GenerationTimes => (new Random().NextDouble() < DoubleGenrationChances ? 2 : 1) * DoubledGeneration;
+
         private Game Game { get; set; }
+
         public GameField(Game game, int startResources)
         {
             Game = game;

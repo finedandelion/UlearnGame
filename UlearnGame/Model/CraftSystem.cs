@@ -12,7 +12,9 @@ namespace UlearnGame.Model
     public class CraftSystem
     {
         private List<Craft> craftCollection;
+
         public List<Craft> Crafts => craftCollection;
+
         public int Count => craftCollection.Count;
 
         private Game Game { get; set; }

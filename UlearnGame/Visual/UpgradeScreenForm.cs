@@ -13,10 +13,7 @@ namespace UlearnGame.Visual
 {
     [System.ComponentModel.DesignerCategory("")]
     public class UpgradeScreenForm : Form
-    {
-        private Game Game { get; set; }
-        private Dictionary<int, Upgrade> Upgrades => Game.UpgradeSystem.upgrades;
-
+    { 
         private PictureBox HideScreen;
         private PictureBox UpgradePanel;
         private PictureBox UpgradeCardPanel;
@@ -29,6 +26,11 @@ namespace UlearnGame.Visual
         private Button BackButton;
         private Button[] AcceptButtons = new Button[13];
         private Button[] UpgradeButtons = new Button[13];
+
+        private Dictionary<int, Upgrade> Upgrades => Game.UpgradeSystem.upgrades;
+
+        private Game Game { get; set; }
+
         public UpgradeScreenForm(Game game)
         {
             Game = game;
@@ -42,6 +44,7 @@ namespace UlearnGame.Visual
             UpgradePointsBar.Text = $"Ур. {Game.Level + 1} |" +
                 $" Очков доступно: {Game.UpgradeSystem.AvailableUpgradePoints} / {Game.Level}";
         }
+
         private void InitializeUpgradeScreen()
         {
             SetHideScreen();

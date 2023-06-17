@@ -188,7 +188,6 @@ namespace UlearnGame.Visual
         public static readonly Image Wreath= GetImage("Wreath.png");
         public static readonly Image Wreath2 = GetImage("SelectedWreath.png");
 
-
         public static readonly Image GathererIcon = GetImage("GathererIcon.png");
         public static readonly Image GathererIcon2 = GetImage("SelectedGathererIcon.png");
         public static readonly Image AdventurerIcon = GetImage("AdventurerIcon.png");
@@ -215,7 +214,6 @@ namespace UlearnGame.Visual
         public static readonly Image Master2Icon2 = GetImage("SelectedMaster2Icon.png");
         public static readonly Image Master3Icon = GetImage("Master3Icon.png");
         public static readonly Image Master3Icon2 = GetImage("SelectedMaster3Icon.png");
-
 
         private static Image GetImage(string imageName)
         {

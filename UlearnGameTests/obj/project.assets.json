@@ -3964,9 +3964,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\UlearnGameTests.csproj",
-      "projectName": "UlearnGameTests",
-      "projectPath": "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\UlearnGameTests.csproj",
+      "projectUniqueName": "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\EssenceOfGatheringTests.csproj",
+      "projectName": "EssenceOfGatheringTests",
+      "projectPath": "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\EssenceOfGatheringTests.csproj",
       "packagesPath": "C:\\Users\\Idrmi\\.nuget\\packages\\",
       "outputPath": "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\obj\\",
       "projectStyle": "PackageReference",

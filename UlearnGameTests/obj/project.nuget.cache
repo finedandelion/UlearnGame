@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7R5dGE4E75Q4JOJX9qVRa5FwahGfCsFZ+UbnG0sbH5MzR+xPiYp862trebEIfV4dkbLEDIj9NH54ptIaPc8ToA==",
+  "dgSpecHash": "7hSZkDRpl8S2DBAHbqKqMzRzKhS5H0hwd2xmek4s+ANphbFHgSAaq5xQJjvHpYXh3powY/GQK5RBSxxMbZdWsQ==",
   "success": true,
-  "projectFilePath": "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\UlearnGameTests.csproj",
+  "projectFilePath": "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\EssenceOfGatheringTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Idrmi\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Idrmi\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",

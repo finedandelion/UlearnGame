@@ -972,7 +972,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "UlearnGameTests/1.0.0": {
+      "EssenceOfGatheringTests/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
@@ -983,10 +983,10 @@
           "coverlet.collector": "3.1.2"
         },
         "compile": {
-          "bin/placeholder/UlearnGameTests.dll": {}
+          "bin/placeholder/EssenceOfGatheringTests.dll": {}
         },
         "runtime": {
-          "bin/placeholder/UlearnGameTests.dll": {}
+          "bin/placeholder/EssenceOfGatheringTests.dll": {}
         }
       }
     }
@@ -3964,17 +3964,17 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "UlearnGameTests/1.0.0": {
+    "EssenceOfGatheringTests/1.0.0": {
       "type": "project",
-      "path": "../UlearnGameTests/UlearnGameTests.csproj",
-      "msbuildProject": "../UlearnGameTests/UlearnGameTests.csproj"
+      "path": "../UlearnGameTests/EssenceOfGatheringTests.csproj",
+      "msbuildProject": "../UlearnGameTests/EssenceOfGatheringTests.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0-windows7.0": [
+      "EssenceOfGatheringTests >= 1.0.0",
       "NUnit >= 3.13.3",
-      "NUnit3TestAdapter >= 4.4.2",
-      "UlearnGameTests >= 1.0.0"
+      "NUnit3TestAdapter >= 4.4.2"
     ]
   },
   "packageFolders": {
@@ -3984,9 +3984,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub Repository\\UlearnGame\\UlearnGame\\UlearnGame.csproj",
-      "projectName": "UlearnGame",
-      "projectPath": "D:\\GitHub Repository\\UlearnGame\\UlearnGame\\UlearnGame.csproj",
+      "projectUniqueName": "D:\\GitHub Repository\\UlearnGame\\UlearnGame\\EssenceOfGathering.csproj",
+      "projectName": "EssenceOfGathering",
+      "projectPath": "D:\\GitHub Repository\\UlearnGame\\UlearnGame\\EssenceOfGathering.csproj",
       "packagesPath": "C:\\Users\\Idrmi\\.nuget\\packages\\",
       "outputPath": "D:\\GitHub Repository\\UlearnGame\\UlearnGame\\obj\\",
       "projectStyle": "PackageReference",
@@ -4010,8 +4010,8 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\UlearnGameTests.csproj": {
-              "projectPath": "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\UlearnGameTests.csproj"
+            "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\EssenceOfGatheringTests.csproj": {
+              "projectPath": "D:\\GitHub Repository\\UlearnGame\\UlearnGameTests\\EssenceOfGatheringTests.csproj"
             }
           }
         }

@@ -96,7 +96,7 @@ namespace UlearnGame.Visual
                 ForeColor = Color.White,
                 Font = new Font("Arial", 32, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
-                Text = "ВЫБЕРИТЕ БЛАГОСЛОВЕНИЕ!"
+                Text = "ВЫБЕРИТЕ БЛАГОСЛАВЕНИЕ!"
             };
             BlessingNamePanel = namePanel;
             Controls.Add(BlessingNamePanel);

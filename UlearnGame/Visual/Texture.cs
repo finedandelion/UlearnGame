@@ -214,7 +214,6 @@ namespace UlearnGame.Visual
         public static readonly Image Master2Icon2 = GetImage("SelectedMaster2Icon.png");
         public static readonly Image Master3Icon = GetImage("Master3Icon.png");
         public static readonly Image Master3Icon2 = GetImage("SelectedMaster3Icon.png");
-
         private static Image GetImage(string imageName)
         {
             var imagePath = Path.Combine(ProgramInitials.GameDirectory, "Images", imageName);

@@ -27,6 +27,8 @@ namespace UlearnGame.Model.Upgrades
             if (!IsObtained)
             {
                 IsObtained = true;
+                Game.ChangeFieldUpdateRate(-1);
+                Game.Field.ChangeDoubleGenerationChance(0.1);
             }
         }
     }

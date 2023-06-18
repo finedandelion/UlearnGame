@@ -17,7 +17,7 @@ namespace UlearnGame.Model.Upgrades
             ImagePath2 = Texture.FormerIcon2;
             Title = "СОЗИДАТЕЛЬ";
             Description = "Вы познали способы владения природой.\n" +
-                "Кол-во появляемых придметов увеличено вдвое.\n";
+                "Кол-во появляемых предметов увеличено вдвое.\n";
         }
 
         public override void ObtainUpgrade()

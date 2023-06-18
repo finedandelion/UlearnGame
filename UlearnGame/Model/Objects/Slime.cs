@@ -33,7 +33,8 @@ namespace UlearnGame.Model.Objects
                     Amount = resourcesRandom.Next(2, 5)
                     + Game.ResourceBonus
                     + Game.MonsterAdditionalResource
-                }
+                },
+                new Essence() { Amount = Game.EssenceDrop }
             };
         }
 
